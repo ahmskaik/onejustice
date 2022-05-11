@@ -1,0 +1,173 @@
+.display-none{display: none!important;}
+.form-group {
+    margin-bottom: 15px !important;
+}
+
+.form-control {
+    border: 1px solid #c2cad8 !important;
+}
+
+.kt-portlet.kt-portlet--head-lg .kt-portlet__head {
+    min-height: 50px;
+}
+
+.box-permissions .kt-portlet__head {
+    min-height: 40px !important;
+    background-color: #32c5d2;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #fff;
+    padding: 0 5px;
+}
+
+.box-permissions .kt-portlet__head .kt-portlet__head-toolbar i {
+    color: #fff;
+}
+
+.box-permissions .kt-portlet__body {
+    padding: 15px;
+}
+
+.kt-portlet.green {
+    border: 1px solid #5cd1db;
+    border-top: 0;
+}
+
+.kt-portlet.green .kt-portlet__head {
+    background-color: #32c5d2;
+    color: #fff;
+}
+
+.kt-portlet.green .kt-portlet__head .caption-wcheckbox {
+    padding: 8px 0 0px;
+}
+
+.permissions-checks ul {
+    list-style-type: none;
+    margin-left: 0;
+    padding-left: 20px;
+}
+
+
+.check-inline {
+    padding-top: 14px;
+}
+
+.check-inline > span,
+.check-inline > label {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.check-inline > span {
+    margin-left: 20px;
+}
+
+.check-inline > label {
+    margin-bottom: 0;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+
+.checkbox-inline {
+    color: #1a5493;
+    padding-left: 0;
+    position: relative;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    line-height: 24px;
+    height: 24px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.checkbox-inline .label-checkbox {
+    margin-top: 1px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.checkbox-inline input[type=checkbox] {
+    opacity: 0;
+}
+
+.checkbox-inline .checkbox-style {
+    display: inline-block;
+    vertical-align: middle;
+    width: 17px;
+    height: 17px;
+    text-align: center;
+    line-height: 11px;
+    background-color: transparent;
+    border: 1px solid #b9b9b9;
+    margin-right: 5px;
+    position: relative;
+}
+
+.checkbox-inline .checkbox-style > i {
+    font-size: 10px;
+    height: 18px;
+    width: 18px;
+    line-height: 10px;
+    color: #787878;
+    opacity: 0;
+    position: absolute;
+    left: -2px;
+    top: 2px;
+}
+
+.checkbox-inline input[type=checkbox]:checked + .checkbox-style {
+}
+
+.checkbox-inline input[type=checkbox]:checked + .checkbox-style > i {
+    opacity: 1;
+}
+
+.checkbox-inline input[type=checkbox].undetermined:checked + .checkbox-style > i {
+    background-color: #b9b9b9;
+    height: 12px;
+    width: 12px;
+    left: 1px;
+    top: 1px;
+}
+
+.checkbox-inline input[type=checkbox].undetermined:checked + .checkbox-style > i:before {
+    opacity: 0;
+}
+
+.caption-wcheckbox .checkbox-inline {
+    color: #fff;
+    cursor: pointer;
+}
+.settingschecks-row .permissions-checks > ul > li .check-more {
+    float: right;
+    margin-right: 10px;
+}
+.caption-wcheckbox .checkbox-inline .checkbox-style {
+    background-color: #fff;
+    border-color: #fff;
+    margin-left: 2px;
+    border-radius: 3px;
+}
+
+.password-strength .progress {
+    margin-top: 5px;
+    margin-bottom: 0;
+    height: 15px;
+}
+
+.progress-bar-success {
+    background-color: #3fc9d5
+}
+
+.progress-bar-info {
+    background-color: #659be0
+}
+
+.progress-bar-warning {
+    background-color: #F1C40F
+}
+
+.progress-bar-danger {
+    background-color: #ed6b75
+}

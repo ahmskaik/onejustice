@@ -1,0 +1,216 @@
+
+/* reports */
+
+/*svg>text[text-anchor="end"] {
+  display: none !important;
+}*/
+.actions-chart > .btn,
+.actions-chart > .btn-group {
+    float: right;
+}
+
+.actions-chart > .btn {
+    margin-left: 10px;
+}
+
+.table-filtersearch-region {
+    display: none;
+}
+
+.portlet.light .dataTables_wrapper .dt-buttons {
+    margin-top: -40px;
+}
+
+.chartmsg-showing {
+    padding: 20px;
+    text-align: center;
+    font-size: 16px;
+    color: #666;
+}
+
+.chart-showing.display-none,
+.chartmsg-showing.display-none {
+    display: none;
+}
+
+.totalshow-area {
+    border: 1px solid #34495e;
+    padding: 20px 15px 15px 15px;
+    border-radius: 4px;
+}
+
+.totalshow-area > .titletop {
+    font-size: 17px;
+    margin-top: 0;
+    background-color: #fff;
+    color: #34495e;
+    position: absolute;
+    left: 5px;
+    top: -12px;
+    padding: 2px 4px;
+}
+
+.totalshow-area {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.total-show-region {
+    padding-bottom: 0;
+}
+
+.totalshow {
+    margin-bottom: 10px;
+    float: left;
+    padding-right: 20px;
+}
+
+.totalshow:first-child:nth-last-child(1) {
+    width: 100%;
+}
+
+.totalshow:first-child:nth-last-child(2),
+.totalshow:first-child:nth-last-child(2) ~ .totalshow {
+    width: 50%;
+}
+
+.totalshow:first-child:nth-last-child(3),
+.totalshow:first-child:nth-last-child(3) ~ .totalshow {
+    width: 33.33%;
+}
+
+.totalshow:last-child {
+    margin-bottom: 0;
+}
+
+.totalshow > span,
+.totalshow > p {
+    display: inline-block;
+}
+
+.totalshow > span {
+    color: #34495e;
+    font-weight: bold;
+}
+
+.totalshow > p {
+    padding-left: 5px;
+    margin: 0;
+}
+
+.tableprint-rg:not(.tableprint-pdf-rg) {
+    display: none;
+}
+
+.highcharts-button {
+    display: none;
+}
+
+.reports-portlet.portlet.light > .portlet-title > .caption > .caption-subject {
+    font-size: 18px;
+}
+
+.table-information-region {
+    padding-top: 20px;
+}
+
+.table-information-region > h3 {
+    font-size: 24px;
+    text-align: center;
+    margin-top: 0;
+}
+
+.reportsgoogle-portlet .table-checkable tr > td:first-child, .table-checkable tr > th:first-child {
+    text-align: initial;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.reportsgoogle-portlet .table.table-bordered thead > tr > th {
+    text-align: left;
+}
+
+.reports-portlet table.dataTable tbody th,
+.reports-portlet table.dataTable tbody td {
+    overflow: hidden;
+}
+
+.inputautocomplete-region {
+    min-width: 160px;
+    margin-top: 2px;
+    padding: 5px 0;
+    background-color: #fff;
+    border: 1px solid #ebebeb;
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding;
+    background-clip: padding-box;
+    width: 100%;
+    overflow-y: auto;
+    max-height: 250px;
+}
+
+.inputautocomplete-region h3 {
+    margin: 5px 0;
+    padding: 6px 12px;
+    font-size: 18px;
+    font-weight: 700;
+    border-bottom: 1px solid #eee;
+}
+
+.inputautocomplete-region > li {
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.inputautocomplete-region > li:hover {
+    cursor: pointer;
+    background: #eee;
+}
+
+.inputautocomplete-region p {
+    margin: 0;
+}
+
+.dropdown-menu > li {
+    position: relative;
+}
+
+.mydropdown-submenu {
+    position: absolute;
+    right: 100%;
+    top: 0;
+    padding: 0;
+    width: 180px;
+    background-color: #fff;
+    list-style-type: none;
+    -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+    box-shadow: 0 6px 6px rgba(0, 0, 0, .175);
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, .15);
+    margin-right: 1px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s linear;
+}
+
+.mydropdown-submenu > li > a {
+    padding: 8px 10px;
+    transition: all 0.2s linear;
+    display: block;
+    text-decoration: none;
+}
+
+.mydropdown-submenu > li > a:hover {
+    background-color: #f6f6f6;
+}
+
+.dropdown-menu > li:hover .mydropdown-submenu {
+    opacity: 1;
+    visibility: visible;;
+}
+
+/* end reports */

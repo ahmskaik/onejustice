@@ -1,0 +1,407 @@
+@page {
+    margin: 130px 20px 90px 20px;
+    margin-header: 0mm;
+    margin-footer: 2mm;
+}
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    padding: 0 0 30px 0 !important;
+}
+
+.content-page {
+    padding: 0 20px;
+}
+
+table, figure {
+    page-break-inside: auto;
+}
+
+.total-hours-info {
+    page-break-inside: avoid;
+}
+
+.page-break {
+    page-break-after: always;
+}
+
+.header-print,
+.footer-print {
+    width: 100%;
+    height: 50px;
+    background: gray;
+    color: #000;
+    text-align: center;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.header-report {
+    padding: 20px 20px;
+    /*background-color: #FF9800;*/
+    border-bottom: solid 3px #1d75b3;
+}
+
+.head-logo-report {
+    float: left;
+    width: 160px;
+}
+
+.header-report h2 {
+    float: right;
+    color: #fff;
+    font-size: 22px;
+    font-weight: bold;
+    margin: 0;
+    padding: 18px 0;
+    width: 220px;
+}
+
+.footer-report {
+    padding: 10px 20px 0 20px;
+    /*background-color: #FF9800;*/
+    border-top: solid 3px #0a6aa1
+}
+
+.footer_label td {
+    text-align: center;
+    padding-top: 2px;
+}
+
+.footer-report p {
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+    margin: 0;
+}
+
+.pagetitle-rg {
+    border-bottom: 1px solid #eef1f5;
+    padding-bottom: 10px;
+
+}
+
+.pagetitle-rg h3 {
+    font-size: 18px;
+    color: #32c5d2;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.totalshow-area {
+    border: 1px solid #34495e;
+    padding: 15px;
+    border-radius: 4px;
+}
+
+.totalshow-area .titletop {
+    font-size: 17px;
+    margin-top: 0;
+    color: #34495e;
+}
+
+.totalshow-area {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.total-show-region {
+    padding-bottom: 0;
+}
+
+.totalshow-rg {
+    padding-right: 20px;
+}
+
+.totalshow {
+    margin-bottom: 10px;
+    float: left;
+    width: 100%;
+}
+
+.totalshow .span1 {
+    color: #34495e;
+    font-weight: bold;
+}
+
+.totalshow .span2 {
+    padding-left: 5px;
+    margin: 0;
+}
+
+.clear {
+    clear: both;
+}
+
+.footer-table {
+    width: 100%;
+}
+
+.footer-table tr td {
+    width: 50%;
+    color: #5c5c62;
+}
+
+.w-100 {
+    width: 100% !important;
+}
+
+.w-50 {
+    width: 42% !important;
+}
+
+.d-inline {
+    display: inline-block !important;
+}
+
+.col-6 {
+    width: 48%;
+    float: left;
+    margin-left: 10px;
+}
+
+.kt-widget24 {
+    padding: 25px;
+    display: block;
+}
+
+.kt-widget24__details {
+    display: block;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.kt-title {
+    display: block;
+    float: left;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #0a6aa1;
+    -webkit-transition: color 0.3s ease;
+    transition: color 0.3s ease;
+}
+
+.kt-widget24__desc {
+    color: #74788d;
+    font-weight: 400;
+}
+
+.kt-widget24__stats {
+    font-size: 1.75rem;
+    font-weight: 500;
+    float: right;
+    padding-right: 0.5rem;
+}
+
+.kt-widget24__action {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    font-weight: 400;
+}
+
+.kt-widget24 .kt-widget24__action .kt-widget24__change {
+    color: #74788d;
+}
+
+.kt-widget24 .kt-widget24__action .kt-widget24__number {
+    color: #74788d;
+}
+
+.kt-widget24.kt-widget24--solid {
+    border: 1px solid #ebedf2;
+    padding: 1rem;
+    border-radius: 4px;
+}
+
+.footerbrand-report {
+    padding: 10px 20px;
+}
+
+.kt-section {
+    margin: 0 0 1rem 0 !important;
+}
+
+.kt-bg-danger {
+    background-color: #fd397a !important;
+}
+
+.kt-media {
+    display: block;
+    float: left;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    border-radius: 4px;
+}
+
+.pull-left {
+    float: left;
+}
+
+.kt-widget24 img {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    border-radius: 4px;
+    width: 100%;
+    max-width: 50px;
+    height: 50px;
+}
+
+.kt-widget24 .kt-widget24__details .kt-widget24__stats {
+    font-size: 1rem !important;
+}
+
+.kt-widget24 .progress {
+    height: 0.5rem;
+    margin: 2rem 0 0.5rem 0;
+    background-color: #ebedf2;
+    overflow: hidden;
+    font-size: 0.75rem;
+    border-radius: 0.25rem;
+}
+
+table {
+    background-color: transparent;
+}
+
+caption {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    color: #777;
+    text-align: left;
+}
+
+th {
+    text-align: left;
+}
+
+.tabular-region {
+    margin-top: 5px;
+}
+
+.tabular-region .tabular-title {
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+}
+
+.table tr th,
+.table tr td {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+}
+.table tr td {
+   font-size: 14px;
+}
+.table tr th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #ddd;
+}
+
+.table tr th {
+    background-color: #fff;
+}
+
+.table-condensed tr th,
+.table-condensed tr td{
+    padding: 5px;
+}
+
+.table-bordered {
+    border: 1px solid #ddd;
+}
+
+.table-bordered tr th,
+.table-bordered tr td{
+    border: 1px solid #ddd;
+}
+
+.table-bordered tr th,
+.table-bordered tr td {
+    border-bottom-width: 1px;
+}
+
+.table-striped tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+.table-hover tr:hover {
+    background-color: #f5f5f5;
+}
+
+.w-45,
+.quotationinfo-group .w-45 {
+    width: 45%;
+}
+
+.footer-padd {
+    padding: 0 30px;
+}
+
+.txt-left {
+    text-align: left;
+}
+
+.txt-right {
+    text-align: right;
+}
+
+.tag-left,
+.tag-right {
+    width: 30%;
+}
+
+.w-30 {
+    width: 30%;
+    text-align: center;
+}
+
+.tag-left {
+    float: left;
+}
+
+.tag-right {
+    float: right;
+    text-align: right;
+}
+
+.tagleft-nowidth {
+    width: 100%;
+}
+
+.dir-rtl {
+    direction: rtl;
+}
+
+.js-coaching-event td {
+    background: #e8ffe3;
+}
+
+.quotationinfo-text {
+    float: left;
+    margin: 0 10px;
+    font-size: 16px !important;
+}
