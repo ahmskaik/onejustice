@@ -19,8 +19,7 @@ class SiteController extends BaseController
         self::$data['fallbackLanguage'] = 'en';
         self::$data['languages'] = LanguageModel::Active()->toArray();
         self::$data["categories"] = CategoryModel::with(['activeSubCategories'])->where('is_featured', true)->ActiveRoots();
-        self::$data["get_involved_types"] = SystemLookupModel::getLookeupByKey("EVENT_TYPE", self::$data['locale']);
-        $active_language = LanguageModel::where('iso_code', strtolower(\App::getLocale()))->first();
+         $active_language = LanguageModel::where('iso_code', strtolower(\App::getLocale()))->first();
         self::$data['active_language'] = $active_language;
         self::$data['active_language_id'] = $active_language->id;
         //self::$data['active_language_id'] = self::$data['languages'][array_search('ar', array_column(self::$data['languages'], 'iso_code'))]->id ?? 1;

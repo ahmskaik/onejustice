@@ -69,7 +69,13 @@ class PostModel extends SuperModel
             })
             ->when(isset($filter['language_id']) && $filter['language_id'], function ($query) use ($filter) {
                 $query->where('posts.language_id', $filter['language_id']);
+            })
+            ->when(isset($filter['title']) && $filter['title'], function ($query) use ($filter) {
+                $query->where('posts.title', 'like', "%" . $filter['title'] . "%");
             });
+
+
+
 
         return $result
             ->select

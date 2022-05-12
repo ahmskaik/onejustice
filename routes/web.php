@@ -108,15 +108,6 @@ Route::group(['namespace' => 'Admin', 'prefix' => $cp_route_name], function () {
             Route::post('delete/{id}', ['as' => 'delete_banner', 'uses' => 'BannersController@delete'])->where(['id' => '[0-9]+']);
         });
 
-        Route::group(['prefix' => 'newsletter'], function () {
-            Route::get('/', ['as' => 'newsletter_view', 'uses' => 'NewslettersController@index']);
-            Route::get('list', ['as' => 'newsletter_list', 'uses' => 'NewslettersController@get']);
-            Route::get('create', ['as' => 'create_newsletter', 'uses' => 'NewslettersController@create']);
-            Route::post('create', ['as' => 'store_newsletter', 'uses' => 'NewslettersController@store']);
-            Route::get('edit/{id}', ['as' => 'edit_newsletter', 'uses' => 'NewslettersController@edit']);
-            Route::post('edit/{id}', ['as' => 'update_newsletter', 'uses' => 'NewslettersController@update'])->where(['id' => '[0-9]+']);
-            Route::post('delete/{id}', ['as' => 'delete_newsletter', 'uses' => 'NewslettersController@delete'])->where(['id' => '[0-9]+']);
-        });
 
         Route::group(['prefix' => 'pages'], function () {
             Route::get('/', ['as' => 'show_pages', 'uses' => 'PagesController@editPages']);
@@ -209,9 +200,5 @@ Route::group([
     Route::get('/contact-us', 'ContactUsController@index')->name('site.contact.index');
     Route::post('/contact-us', 'ContactUsController@submit')->name('site.contact.submit');
 
-    Route::post('/subscribe', 'HomeController@index');
-    Route::post('/subscribe', 'HomeController@subscribeNewsletter')->name('site.subscribe');
-
-    Route::get('/newsletters', 'NewslettersController@index')->name('site.newsletters.index');
 });
 Route::any('{catchall}', 'HomeController@notfound')->where('catchall', '.*');

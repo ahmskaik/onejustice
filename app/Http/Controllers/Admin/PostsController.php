@@ -39,6 +39,7 @@ class PostsController extends SuperAdminController
         $columns = $request->get('columns');
         $filter['language_id'] = $request->language_id ?? '';
         $filter["category_id"] = isset($columns[2]['search']['value']) ? xss_clean($columns[2]['search']['value']) : '';
+        $filter["title"] = isset($columns[1]['search']['value']) ? xss_clean($columns[1]['search']['value']) : '';
 
         $data = PostModel::getList($filter);
 

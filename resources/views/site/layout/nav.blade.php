@@ -30,17 +30,3 @@
         @endif
     </li>
 @endforeach
-<li class="menu-item @if($get_involved_types && count($get_involved_types)) menu-item-has-children @endif">
-    <a href="{{route('events.all')}}">{{trans('site.get_involved')}}</a>
-    @if($get_involved_types && count($get_involved_types))
-        <ul class="sub-menu">
-            @foreach($get_involved_types as $type)
-                <li class="menu-item">
-                    <a href="{{route('events.all',['type'=>$type->slug])}}">{{$type->text }}</a>
-                </li>
-            @endforeach
-        </ul>
-    @endif
-</li>
-
-<li class="menu-item"><a href="newsletters">{{trans('site.newsletters')}}</a></li>
