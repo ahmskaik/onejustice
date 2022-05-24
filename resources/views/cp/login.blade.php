@@ -53,8 +53,8 @@
             <div class="kt-grid__item kt-grid__item--fluid kt-login__wrapper">
                 <div class="kt-login__container">
                     <div class="kt-login__logo">
-                        <a href="#">
-                            <img src="assets/images/logos/logo-light.png">
+                        <a href="#" >
+                            <img style="width: 200px;" src="assets/images/logos/logo-light.png">
                         </a>
                     </div>
                     <div class="kt-login__signin">
