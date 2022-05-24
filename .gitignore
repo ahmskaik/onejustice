@@ -1,7 +1,10 @@
 /node_modules
 /public/hot
 /public/storage
+/public/uploads/attachments
 /public/thumb
+/public/cp/plugins/t-editor/plugins/
+/public/cp/plugins/t-editor/plugins/responsive_filemanager
 /storage/*.key
 /vendor
 .env
