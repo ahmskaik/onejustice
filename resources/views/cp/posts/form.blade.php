@@ -11,7 +11,7 @@
 @endsection
 
 @section('js')
-    <script src="cp/plugins/t-editor/t-editor.min.js?v=2.0.1" type="text/javascript"></script>
+    <script src="cp/plugins/t-editor/t-editor.min.js" type="text/javascript"></script>
     <script src="cp/js/pages/t-editor.js?v=2.0.1" type="text/javascript"></script>
     <script src="cp/js/formsValidation.js" type="text/javascript"></script>
     <script src="cp/js/pages/posts/postForm.js" type="text/javascript"></script>
