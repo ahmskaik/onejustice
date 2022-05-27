@@ -30,16 +30,18 @@
                             <li class="menu-item"><a href="{{route('site.home')}}">{{trans('site.home')}}</a></li>
                             <li class="menu-item @if(isset($active_tab)&& $active_tab=='about_us') active @endif"><a
                                     href="{{route('site.about')}}">{{trans('site.about_us')}}</a></li>
-                            <li class="menu-item @if(isset($active_tab)&& $active_tab=='terms') active @endif"><a
-                                    href="{{ route('site.terms') }}">{{trans('site.terms_and_conditions')}}</a></li>
-                            <li class="menu-item @if(isset($active_tab)&& $active_tab=='accessibility') active @endif">
+                          {{--  <li class="menu-item @if(isset($active_tab)&& $active_tab=='terms') active @endif"><a
+                                    href="{{ route('site.terms') }}">{{trans('site.terms_and_conditions')}}</a></li>--}}
+                            {{--<li class="menu-item @if(isset($active_tab)&& $active_tab=='accessibility') active @endif">
                                 <a
                                     href="{{route('site.accessibility')}}">{{trans('site.website_accessibility')}}</a>
-                            </li>
-                            <li class="menu-item @if(isset($active_tab)&& $active_tab =='safety') active @endif"><a
-                                    href="{{route('site.safety')}}">{{trans('site.safety_and_security')}}</a></li>
+                            </li>--}}
+                         {{--   <li class="menu-item @if(isset($active_tab)&& $active_tab =='safety') active @endif"><a
+                                    href="{{route('site.safety')}}">{{trans('site.safety_and_security')}}</a></li>--}}
                             <li class="menu-item @if(isset($active_tab)&& $active_tab =='contact') active @endif"><a
                                     href="{{route('site.contact.index')}}">{{trans('site.contact_us')}}</a></li>
+                            <li class="menu-item @if(isset($active_tab)&& $active_tab =='contact') active @endif"><a
+                                    href="{{route('site.donate.index')}}">{{trans('site.donate')}}</a></li>
                         </ul>
                     </div>
                 </div>

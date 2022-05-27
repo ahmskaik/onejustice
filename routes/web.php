@@ -119,48 +119,6 @@ Route::group(['namespace' => 'Admin', 'prefix' => $cp_route_name], function () {
             Route::get('show/{id}', ['as' => 'inquiry_show', 'uses' => 'InquiriesController@show']);
         });
 
-
-        Route::group(['prefix' => 'mails'], function () {
-            Route::get('', ['as' => 'campaign_view', 'uses' => 'MailchimpController@index']);
-            Route::get('list', ['as' => 'campaign_list', 'uses' => 'MailchimpController@get']);
-            Route::delete('delete/{id}', ['as' => 'campaign_delete', 'uses' => 'MailchimpController@destroy']);
-            Route::get('preview/{id}', ['as' => 'campaign_preview', 'uses' => 'MailchimpController@preview']);
-            Route::get('replicate/{id}', ['as' => 'campaign_replicate', 'uses' => 'MailchimpController@replicate']);
-            Route::get('send/{id}', ['as' => 'campaign_send', 'uses' => 'MailchimpController@send']);
-            Route::get('checkSend/{id}', ['as' => 'campaign_check_send', 'uses' => 'MailchimpController@checkSend']);
-            Route::post('sendTest/{id}', ['as' => 'campaign_send_test', 'uses' => 'MailchimpController@sendTest']);
-            Route::get('create', ['as' => 'campaign_create', 'uses' => 'MailchimpController@create']);
-            Route::post('create', ['as' => 'campaign_store', 'uses' => 'MailchimpController@store']);
-            Route::get('edit/{id}', ['as' => 'campaign_edit', 'uses' => 'MailchimpController@edit']);
-            Route::post('edit/{id}', ['as' => 'campaign_update', 'uses' => 'MailchimpController@update']);
-            Route::get('maillist', ['as' => 'maillist_view', 'uses' => 'MailchimpController@maillist']);
-            Route::get('maillist/list', ['as' => 'maillist_list', 'uses' => 'MailchimpController@getMailList']);
-            Route::get('maillist/delete/{id}', ['as' => 'maillist_delete', 'uses' => 'MailchimpController@unsubscribe']);
-            Route::get('maillist/edit/{id}', ['as' => 'maillist_list_edit', 'uses' => 'MailchimpController@getSubscriberForm']);
-            Route::post('maillist/edit/{id}', ['as' => 'maillist_update', 'uses' => 'MailchimpController@updateMember']);
-            Route::post('maillist/subscribe', ['as' => 'maillist_create', 'uses' => 'MailchimpController@subscribe']);
-            Route::get('maillist/subscribe', ['as' => 'maillist_store', 'uses' => 'MailchimpController@getSubscriberForm']);
-            Route::post('maillist/importList', ['as' => 'maillist_import', 'uses' => 'MailchimpController@importList']);
-            Route::get('reports/{id}', ['as' => 'reports_overview', 'uses' => 'MailchimpController@overview']);
-            Route::get('reports/complained/{id}', ['as' => 'reports_complained', 'uses' => 'MailchimpController@complained']);
-            Route::get('reports/complainedList/{id}', ['as' => 'reports_complainedList', 'uses' => 'MailchimpController@complainedList']);
-            Route::get('reports/sendTo/{id}', ['as' => 'reports_sendTo', 'uses' => 'MailchimpController@sendTo']);
-            Route::get('reports/sendToList/{id}', ['as' => 'reports_sendToList', 'uses' => 'MailchimpController@sendToList']);
-            Route::get('reports/activity/{id}', ['as' => 'reports_activity', 'uses' => 'MailchimpController@activity']);
-            Route::get('reports/activityList/{id}', ['as' => 'reports_activityList', 'uses' => 'MailchimpController@activityList']);
-            Route::get('reports/unsubscribe/{id}', ['as' => 'reports_unsubscribe', 'uses' => 'MailchimpController@unsubscribeView']);
-            Route::get('reports/unsubscribeList/{id}', ['as' => 'reports_unsubscribeList', 'uses' => 'MailchimpController@unsubscribeList']);
-
-            Route::get('groups', ['as' => 'groups_view', 'uses' => 'MailchimpController@groups']);
-            Route::get('groups/list', ['as' => 'groups_list', 'uses' => 'MailchimpController@groupsList']);
-            Route::delete('groups/delete/{list_id}/{category_id}/{id}', ['as' => 'groups_delete', 'uses' => 'MailchimpController@groupsDestroy']);
-            Route::get('groups/create/{list_id}/{category_id}', ['as' => 'groups_create', 'uses' => 'MailchimpController@groupsCreate']);
-            Route::post('groups/create/{list_id}/{category_id}', ['as' => 'groups_store', 'uses' => 'MailchimpController@groupsStore']);
-            Route::get('groups/edit/{list_id}/{category_id}/{id}', ['as' => 'groups_edit', 'uses' => 'MailchimpController@groupsEdit']);
-            Route::post('groups/edit/{list_id}/{category_id}/{id}', ['as' => 'groups_update', 'uses' => 'MailchimpController@groupsUpdate']);
-        });
-
-
         Route::get('/', [\App\Http\Controllers\Admin\DashboardController::class, 'getIndex']);
         Route::get('logout', 'LoginController@logout');
         Route::get('lock', 'LoginController@lock');
@@ -199,6 +157,8 @@ Route::group([
     Route::get('/safety', 'PolicyController@safety')->name('site.safety');
     Route::get('/contact-us', 'ContactUsController@index')->name('site.contact.index');
     Route::post('/contact-us', 'ContactUsController@submit')->name('site.contact.submit');
+
+    Route::get('/donate', 'DonateController@index')->name('site.donate.index');
 
 });
 Route::any('{catchall}', 'HomeController@notfound')->where('catchall', '.*');

@@ -56,5 +56,9 @@ return [
     ],
     'search_here'=>'Search Here',
     'back_to_home'=>'Back to home',
+    'donate'=>'Donate',
+    'donate_now'=>'Donate Now',
+    'donate_small_amount'=>'Even the smallest amount of contribution will make a big difference.',
+    'donate_for_us'=>'Donate for us',
 
 ];

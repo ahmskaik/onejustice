@@ -14,3 +14,6 @@
         @endif
     </li>
 @endforeach
+<li class="menu-item"><a href="{{route('site.contact.index')}}">{{trans('site.contact_us')}}</a></li>
+<li class="menu-item"><a href="{{route('site.donate.index')}}">{{trans('site.donate')}}</a></li>
+

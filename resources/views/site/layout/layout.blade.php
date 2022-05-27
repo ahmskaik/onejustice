@@ -60,7 +60,7 @@
 
         #mvp-main-nav-top {
             background-color: #1e2f42;
-            padding: 25px 0 0;height: 20px;
+            padding: 25px 0 0;height: 30px;
         }
 
         #mvp-fly-wrap, .mvp-soc-mob-right, #mvp-main-nav-small-cont {
