@@ -130,18 +130,39 @@ body.custom-background {
     margin-top: 0;
     z-index: 9999;
 }
-.language-menu-item{
+
+.language-menu-item {
     top: -18px;
     background: #f6f6f6;
     border-radius: 5px;
-    right: -20px;}
-.language-menu-item a{ padding: 5px!important;font-size: 10px!important;}
-.mvp-nav-menu ul li.language-menu-item:hover a{border: none!important;}
-.mvp-nav-menu ul li.language-menu-item ul.sub-menu{top: 25px!important;}
-.language-menu-item a img{ vertical-align: middle;}
-.mvp-nav-menu ul li.language-menu-item ul.sub-menu li a{    width: 75px;
-    font-size: 11px!important;
-    font-family: 'Droid Arabic Kufi', "Arial", sans-serif;}
+    right: -20px;
+}
+
+.language-menu-item a {
+    color: #23374d !important;
+    padding: 5px !important;
+    font-size: 10px !important;
+}
+
+.mvp-nav-menu ul li.language-menu-item:hover a {
+    border: none !important;
+}
+
+.mvp-nav-menu ul li.language-menu-item ul.sub-menu {
+    top: 25px !important;    z-index: 33211;
+
+}
+
+.language-menu-item a img {
+    vertical-align: middle;
+}
+
+.mvp-nav-menu ul li.language-menu-item ul.sub-menu li a {
+    width: 75px;
+    font-size: 11px !important;
+    font-family: 'Droid Arabic Kufi', "Arial", sans-serif;
+}
+
 .home #mvp-site-main {
     transition: margin-top .7s;
 }
@@ -457,12 +478,12 @@ h2.mvp-logo-title {
 }
 
 .mvp-nav-soc-wrap {
-    margin-top: -5px;
+    margin-top: -15px;
     position: absolute;
-    top:35%;
+    top: 35%;
     left: calc(80% - 50px);
     width: 100%;
-    height: 40px;
+    height: 40px;z-index: 2323232323;
 }
 
 .mvp-nav-small .mvp-nav-soc-wrap {
@@ -546,7 +567,7 @@ span.mvp-nav-soc-but:hover {
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     width: 100%;
-    height: 50px;
+    height: 70px;
     z-index: 9000;
 }
 
@@ -1228,7 +1249,8 @@ ul.mvp-mega-list li:hover .mvp-mega-img img {
 }
 
 .mvp-fly-but-wrap {
-    height: 20px;display: none;
+    height: 20px;
+    display: none;
 }
 
 #mvp-fly-wrap .mvp-fly-but-wrap {
@@ -1244,11 +1266,54 @@ ul.mvp-mega-list li:hover .mvp-mega-img img {
     height: 20px;
     z-index: 555;
 }
-ul#block-categories-menu{display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-flex-wrap: wrap; -ms-flex-wrap: wrap; flex-wrap: wrap; padding-left: 0; margin-bottom: 0; list-style: none;}
-ul#block-categories-menu li{border-right: 1px solid #21303e; display: -webkit-inline-box; display: -webkit-inline-flex; display: -ms-inline-flexbox; display: inline-flex; -webkit-box-align: center; -webkit-align-items: center; -ms-flex-align: center; align-items: center; -webkit-box-pack: center; -webkit-justify-content: center; -ms-flex-pack: center; justify-content: center;}
-ul#block-categories-menu li:first-child{border:0!important;}
-ul#block-categories-menu li a{padding: 0;margin: 0 8px;position: relative;font-size: 16px;line-height: 1.5;color: #17498b;white-space: nowrap;text-transform: uppercase;}
-ul#block-categories-menu li a:hover{/*border-bottom: solid 3px #dde4fb*/color:#0C1021}
+
+ul#block-categories-menu {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+ul#block-categories-menu li {
+    border-right: 1px solid #21303e;
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+ul#block-categories-menu li:first-child {
+    border: 0 !important;
+}
+
+ul#block-categories-menu li a {
+    padding: 0;
+    margin: 0 8px;
+    position: relative;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #17498b;
+    white-space: nowrap;
+    text-transform: uppercase;
+}
+
+ul#block-categories-menu li a:hover { /*border-bottom: solid 3px #dde4fb*/
+    color: #0C1021
+}
 
 .mvp-nav-bot-left {
     margin: 15px 0;
@@ -3168,7 +3233,10 @@ span.mvp-widget-home-title2 {
 ul.mvp-blog-story-list {
     width: 100%;
 }
-.mvp-main-blog-body{line-height: 1.7;}
+
+.mvp-main-blog-body {
+    line-height: 1.7;
+}
 
 .mvp-main-blog-marg {
     margin-top: 0 !important;
@@ -6598,7 +6666,7 @@ span.mvp-woo-cart-num:hover {
 }
 
 #mvp-main-nav-bot-cont {
-    background: #ffffff;
+    background: #23374d;
 }
 
 #mvp-nav-bot-wrap .mvp-fly-but-wrap span,
@@ -6608,7 +6676,7 @@ span.mvp-woo-cart-num:hover {
 
 #mvp-nav-bot-wrap span.mvp-nav-search-but,
 #mvp-nav-bot-wrap .mvp-nav-menu ul li a {
-    color: #333333;
+    color: #fff;
 }
 
 #mvp-nav-bot-wrap .mvp-nav-menu ul li.menu-item-has-children a:after {
@@ -6874,7 +6942,7 @@ span.mvp-woo-cart-num:hover {
 }
 
 #mvp-main-nav-bot-cont {
-    background: #ffffff;
+    background: #23374d;
 }
 
 #mvp-nav-bot-wrap .mvp-fly-but-wrap span,
@@ -6884,9 +6952,9 @@ span.mvp-woo-cart-num:hover {
 
 #mvp-nav-bot-wrap span.mvp-nav-search-but,
 #mvp-nav-bot-wrap .mvp-nav-menu ul li a {
-    color: #333333;
-    font-size: 17px;
-    line-height: 1.5;
+    color: #fff;
+    font-size: 15px;
+    line-height: 1.9;
 }
 
 #mvp-nav-bot-wrap .mvp-nav-menu ul li.menu-item-has-children a:after {
@@ -7088,4 +7156,19 @@ h1.mvp-author-top-head,
         display: inline-block;
     }
 }
-@font-face { font-family: 'Droid Arabic Kufi'; font-style: normal; font-weight: 400; src: url(fonts/DroidKufi/DroidKufi-Regular.eot); src: url(fonts/DroidKufi/DroidKufi-BoldIE.eot) format('embedded-opentype'), url(fonts/DroidKufi/DroidKufi-Regular.woff2) format('woff2'), url(fonts/DroidKufi/DroidKufi-Regular.woff) format('woff'), url(fonts/DroidKufi/DroidKufi-Regular.ttf) format('truetype') } @font-face { font-family: 'Droid Arabic Kufi'; font-style: normal; font-weight: 700; src: url(fonts/DroidKufi/DroidKufi-Bold.eot); src: url(fonts/DroidKufi/DroidKufi-BoldIE.eot) format('embedded-opentype'), url(fonts/DroidKufi/DroidKufi-Bold.woff2) format('woff2'), url(fonts/DroidKufi/DroidKufi-Bold.woff) format('woff'), url(fonts/DroidKufi/DroidKufi-Bold.ttf)}
+
+@font-face {
+    font-family: 'Droid Arabic Kufi';
+    font-style: normal;
+    font-weight: 400;
+    src: url(fonts/DroidKufi/DroidKufi-Regular.eot);
+    src: url(fonts/DroidKufi/DroidKufi-BoldIE.eot) format('embedded-opentype'), url(fonts/DroidKufi/DroidKufi-Regular.woff2) format('woff2'), url(fonts/DroidKufi/DroidKufi-Regular.woff) format('woff'), url(fonts/DroidKufi/DroidKufi-Regular.ttf) format('truetype')
+}
+
+@font-face {
+    font-family: 'Droid Arabic Kufi';
+    font-style: normal;
+    font-weight: 700;
+    src: url(fonts/DroidKufi/DroidKufi-Bold.eot);
+    src: url(fonts/DroidKufi/DroidKufi-BoldIE.eot) format('embedded-opentype'), url(fonts/DroidKufi/DroidKufi-Bold.woff2) format('woff2'), url(fonts/DroidKufi/DroidKufi-Bold.woff) format('woff'), url(fonts/DroidKufi/DroidKufi-Bold.ttf)
+}

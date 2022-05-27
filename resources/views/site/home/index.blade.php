@@ -5,7 +5,7 @@
         @include('site.home.parts.reports')
         @include('site.home.parts.media')
         @include('site.home.parts.get_involved')
-        @include('site.home.parts.resources')
+       {{-- @include('site.home.parts.resources')--}}
         @include('site.home.parts.videos')
     </div>
     @include('site.home.parts.more_news')

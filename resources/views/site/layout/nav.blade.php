@@ -1,19 +1,3 @@
-<li class="menu-item language-menu-item">
-    <a href="javascript:;">
-        <img class="" src="assets/images/flags/png16px/{{$active_language['flag']}}.png" alt=""/>
-        {{$active_language->translations->{$locale}??$active_language->translations->{$fallbackLanguage} }}</a>
-    <ul class="sub-menu">
-        @foreach($languages as $language)
-            @if($language['id'] != $active_language['id'])
-                <li class="menu-item">
-                    <a href="changeLang/{{$language['iso_code']}}">
-                        <img class="" src="assets/images/flags/png16px/{{$language['flag']}}.png" alt=""/>
-                        {{$language['translations']->{$locale}??$language['translations']->{$fallbackLanguage} }}</a></li>
-            @endif
-        @endforeach
-    </ul>
-</li>
-
 <li class="menu-item"><a href="{{route('site.home')}}">{{trans('site.home')}}</a></li>
 <li class="menu-item"><a href="{{route('site.about')}}">{{trans('site.about_us')}}</a></li>
 @foreach($categories as $_category)

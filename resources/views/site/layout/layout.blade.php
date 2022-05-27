@@ -11,7 +11,7 @@
     <title>{{ $title ?? $siteSetting['app_brand']->{$locale}??$siteSetting['app_brand']->{$fallbackLanguage} }}</title>
     <meta content='max-image-preview:large' name='robots'/>
     @if($locale==='ar')
-        <link href='assets/css/style.rtl.min.css?ver=5.7' media='all' rel='stylesheet' type='text/css'/>
+        {{--<link href='assets/css/style.rtl.min.css?ver=5.7' media='all' rel='stylesheet' type='text/css'/>--}}
         <link href='assets/css/style.rtl.css?ver=5.7' id='mvp-custom-style-css' media='all' rel='stylesheet'
               type='text/css'/>
         <style type='text/css'>
@@ -26,7 +26,7 @@
             }
         </style>
     @else
-        <link href='assets/css/style.min.css?ver=5.7' media='all' rel='stylesheet' type='text/css'/>
+        {{--<link href='assets/css/style.min.css?ver=5.7' media='all' rel='stylesheet' type='text/css'/>--}}
         <link href='assets/css/style.css?ver=5.7' id='mvp-custom-style-css' media='all' rel='stylesheet'
               type='text/css'/>
         <style type='text/css'>
@@ -41,21 +41,26 @@
             }
         </style>
     @endif
-    <link href='assets/css/fonts/dashicons/dashicons.min.css?ver=5.7' media='all' rel='stylesheet' type='text/css'/>
+    <link href='assets/css/fonts/dashicons/dashicons.min.css?ver=5.8' media='all' rel='stylesheet' type='text/css'/>
 
     <link href='assets/css/reset.css?ver=5.7' media='all' rel='stylesheet' type='text/css'/>
-    <link href='assets/css/fonts/font-awesome/font-awesome.css?ver=5.7' media='all' rel='stylesheet' type='text/css'/>
+    <link href='assets/css/fonts/font-awesome/font-awesome.css?ver=5.8' media='all' rel='stylesheet' type='text/css'/>
     <link crossorigin="anonymous"
           href='https://fonts.googleapis.com/css?family=Roboto:300,400,700,900|Open Sans:700|&subset=latin,latin-ext,cyrillic,cyrillic-ext,greek-ext,greek,vietnamese'
           media='all'
           rel='stylesheet' type='text/css'/>
 
-    <link href='assets/css/media-queries.css?ver=5.7' media='all' rel='stylesheet' type='text/css'/>
+    <link href='assets/css/media-queries.css?ver=5.8' media='all' rel='stylesheet' type='text/css'/>
 
     <style type="text/css">
+        #mvp-main-nav-wrap {
+            background-color: #23374d;
+            margin-bottom: 1rem;
+        }
+
         #mvp-main-nav-top {
-            background: #fff;
-            padding: 15px 0 0;
+            background-color: #1e2f42;
+            padding: 25px 0 0;height: 20px;
         }
 
         #mvp-fly-wrap, .mvp-soc-mob-right, #mvp-main-nav-small-cont {
@@ -75,7 +80,7 @@
         #mvp-main-nav-small .mvp-search-but-wrap span,
         .mvp-nav-top-left .mvp-fly-but-wrap span,
         #mvp-fly-wrap .mvp-fly-but-wrap span {
-            background: #000;
+            background: #fff;
         }
 
         .mvp-nav-top-right .mvp-nav-search-but,
@@ -136,8 +141,9 @@
             <div class="mvp-fly-top-in">
                 <div class="left relative" id="mvp-fly-logo">
                     <a href="{{route('site.home')}}">
-                        <img alt="{{$siteSetting['app_brand']->{$locale}??$siteSetting['app_brand']->{$fallbackLanguage} }}"
-                             data-rjs="2" src="assets/images/logos/logo-nav.png"/></a>
+                        <img
+                            alt="{{$siteSetting['app_brand']->{$locale}??$siteSetting['app_brand']->{$fallbackLanguage} }}"
+                            data-rjs="2" src="assets/images/logos/logo-nav.png"/></a>
                 </div>
             </div>
             <div class="mvp-fly-but-wrap mvp-fly-but-menu mvp-fly-but-click">
@@ -184,18 +190,18 @@
             @include('site.layout.footer')
         </div>
     </div>
-{{--    <div id="cookie-law-info-bar" data-nosnippet="true"
-         style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); font-family: inherit; bottom: 0px; position: fixed; display: block;">
-        <span>We use cookies to  give you the best experience on our website. To learn more, please visit our
-            <a href="{{route('site.safety')}}">Privacy Policy</a>.
-            By continuing on our website, you accept the use of cookies and our revised
-            <a href="{{route('site.safety')}}">Privacy Policy</a>
-            <a role="button"
-               tabindex="0"
-               class="cli_action_button cli-accept-button medium cli-plugin-button green"
-               data-cli_action="accept">Accept</a>
-        </span>
-    </div>--}}
+    {{--    <div id="cookie-law-info-bar" data-nosnippet="true"
+             style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); font-family: inherit; bottom: 0px; position: fixed; display: block;">
+            <span>We use cookies to  give you the best experience on our website. To learn more, please visit our
+                <a href="{{route('site.safety')}}">Privacy Policy</a>.
+                By continuing on our website, you accept the use of cookies and our revised
+                <a href="{{route('site.safety')}}">Privacy Policy</a>
+                <a role="button"
+                   tabindex="0"
+                   class="cli_action_button cli-accept-button medium cli-plugin-button green"
+                   data-cli_action="accept">Accept</a>
+            </span>
+        </div>--}}
 </div>
 <div class="mvp-fly-top back-to-top">
     <i class="fa fa-angle-up fa-3"></i>
