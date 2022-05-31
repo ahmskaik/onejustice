@@ -29,6 +29,6 @@ class SystemSettingsTableSeeder extends Seeder
         SettingModel::create(['name' => 'app_brand', 'sysset_data' => ['en' => 'welcome_message', 'ar' => 'welcome_message', 'tr' => 'welcome_message']]);
         SettingModel::create(['name' => 'contact_phone', 'sysset_data' => ['009058745555']]);
         SettingModel::create(['name' => 'contact_email', 'sysset_data' => ['admin@example.com']]);
-        SettingModel::create(['name' => 'active_theme', 'sysset_data' => [1]]);
+        SettingModel::create(['name' => 'active_theme', 'sysset_data' => [2]]);
     }
 }

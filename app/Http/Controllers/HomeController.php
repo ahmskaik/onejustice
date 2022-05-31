@@ -26,9 +26,6 @@ class HomeController extends SiteController
         $this->prepareGetInvolvedSection($active_language_id);
         $this->prepareResourcesSection($active_language_id);
         $this->prepareVideosSection($active_language_id);
-
-        parent::$data["further_posts"] = PostModel::Published()->select($this->postFields)->Language($active_language_id)->where('is_featured', false)->orderby('date', 'desc')->with(['category', 'type'])->take(4)->get();
-
         return view('site.home.index', parent::$data);
     }
 
@@ -143,6 +140,8 @@ class HomeController extends SiteController
 
     public function newsMapCount(Request $request)
     {
+        $active_language_id = parent::$data['active_language_id'];
+
         $data = CountryModel::query()->select(
             [
                 'id as CountryId',
@@ -150,7 +149,16 @@ class HomeController extends SiteController
                 'iso_code',
                 "latitude",
                 "longitude"
-            ])->whereHas('posts')->withCount('posts as TotalNews')->get();
+            ])
+            ->whereHas('posts', function ($q) use ($active_language_id) {
+                $q->Language($active_language_id);
+                $q->Published();
+            })
+            ->withCount(['posts as TotalNews' => function ($q) use ($active_language_id) {
+                $q->Language($active_language_id);
+                $q->Published();
+            }])
+            ->get();
 
 
         return response()->json($data);
@@ -400,6 +408,7 @@ class HomeController extends SiteController
 
     public function getLatestNews(Request $request, $countryId = '')
     {
+        $active_language_id = parent::$data['active_language_id'];
         parent::$data["latestNews"] = PostModel::query()
             ->when($countryId, function ($q) use ($countryId) {
                 $q->whereHas('countries', function ($q) use ($countryId) {
@@ -409,11 +418,21 @@ class HomeController extends SiteController
             ->with(['category', 'countries' => function ($q) {
                 $q->select(['countries.id', 'properties->' . parent::$data["locale"] . ' as CountryName']);
             }])
-            ->take(5)
+            ->Language($active_language_id)
+            ->Published()
+            ->take(15)
+            ->orderBy('date', 'desc')
             ->get();
 
         if ($countryId) {
-            parent::$data["country"] = CountryModel::where('id', $countryId)->select(['id', 'iso_code', 'properties->' . parent::$data["locale"] . ' as CountryName'])->withCount('posts as TotalNews')->first();
+            parent::$data["country"] = CountryModel::query()
+                ->where('id', $countryId)
+                ->select(['id', 'iso_code', 'properties->' . parent::$data["locale"] . ' as CountryName'])
+                ->withCount(['posts as TotalNews' => function ($q) use ($active_language_id) {
+                    $q->Language($active_language_id);
+                    $q->Published();
+                }])
+                ->first();
         }
 
         return view('site.post.parts.latestNews', parent::$data)->render();

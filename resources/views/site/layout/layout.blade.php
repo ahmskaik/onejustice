@@ -12,9 +12,7 @@
     <title>{{ $title ?? $siteSetting['app_brand']->{$locale}??$siteSetting['app_brand']->{$fallbackLanguage} }}</title>
     <meta content='max-image-preview:large' name='robots'/>
     @if($locale==='ar')
-        {{--<link href='assets/css/style.rtl.min.css?ver=5.7' media='all' rel='stylesheet' type='text/css'/>--}}
-        <link href='assets/css/style.rtl.css?ver=5.7' id='mvp-custom-style-css' media='all' rel='stylesheet'
-              type='text/css'/>
+        <link href='assets/css/style.rtl.css?ver=5.7' media='all' rel='stylesheet' type='text/css'/>
         <style type='text/css'>
             .mvp-feat1-feat-text h2,
             h1.mvp-post-title,
@@ -27,9 +25,7 @@
             }
         </style>
     @else
-        {{--<link href='assets/css/style.min.css?ver=5.7' media='all' rel='stylesheet' type='text/css'/>--}}
-        <link href='assets/css/style.css?ver=5.7' id='mvp-custom-style-css' media='all' rel='stylesheet'
-              type='text/css'/>
+        <link href='assets/css/style.css?ver=5.7' media='all' rel='stylesheet' type='text/css'/>
         <style type='text/css'>
             .mvp-feat1-feat-text h2,
             h1.mvp-post-title,
@@ -42,6 +38,9 @@
             }
         </style>
     @endif
+
+
+    
     <link href='assets/css/fonts/dashicons/dashicons.min.css?ver=5.8' media='all' rel='stylesheet' type='text/css'/>
 
     <link href='assets/css/reset.css?ver=5.7' media='all' rel='stylesheet' type='text/css'/>

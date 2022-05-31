@@ -1,6 +1,11 @@
 @extends('site.layout.layout')
 @section('css')
-    <link href='assets/css/newsmap.css?ver=5.7' media='all' rel="stylesheet"/>
+    @if($locale==='ar')
+        <link href='assets/css/newsmap.rtl.css?ver=5.7' media='all' rel="stylesheet"/>
+    @else
+        <link href='assets/css/newsmap.css?ver=5.7' media='all' rel="stylesheet"/>
+    @endif
+
     <script src="assets/js/jquery.min.js" type="text/javascript"></script>
     <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC6Xu5RSDCwNEeR1o5LuqwWxt07CA4ly4&language=ar&sensor=false">
@@ -22,22 +27,20 @@
                 <input type="hidden" id="pagesize" name="pagesize" value="10"/>
                 <input type="hidden" id="countryid" name="countryid" value="0"/>
                 <div class="headersSection">
-                    <div id="mostNewBtn" class="activeMapTab">أحدث الأخبار</div>
+                    <div id="mostNewBtn" class="activeMapTab">{{trans('site.map.latest_news')}}</div>
                     <div class="wrapperSelect">
                         <select id="selectoption">
-                            <option id="0">العالم</option>
-                            <option id="1">الوطن العربي</option>
-                            <option id="2">آسيا</option>
-                            <option id="3">إفريقيا</option>
-                            <option id="4">أوروبا</option>
-                            <option id="5">أمريكا الشمالية</option>
-                            <option id="6">أستراليا</option>
-                            <option id="7">أمريكا الجنوبية</option>
+                            <option id="0">{{trans('site.map.world')}}</option>
+                            <option id="1">{{trans('site.map.arab_world')}}</option>
+                            <option id="2">{{trans('site.map.asia')}}</option>
+                            <option id="3">{{trans('site.map.africa')}}</option>
+                            <option id="4">{{trans('site.map.europe')}}</option>
+                            <option id="5">{{trans('site.map.north_america')}}</option>
+                            <option id="6">{{trans('site.map.australia')}}</option>
+                            <option id="7">{{trans('site.map.south_america')}}</option>
                         </select>
                     </div>
-                    <div id="chooseWeek"></div>
                 </div>
-
                 <div id="mostNew">
                 </div>
             </div>
@@ -46,17 +49,17 @@
                 <div id="map-canvas" class="map-canvas"></div>
                 <div class="mapInfo">
                     <ul>
-                        <li><span class="circularDiv grayInfo"></span>لا يوجد أخبار</li>
-                        <li><span class="circularDiv greenInfo"></span>١ - ٣ أخبار</li>
-                        <li><span class="circularDiv yelowInfo"></span>٤ - ٩ خبر</li>
-                        <li><span class="circularDiv blueInfo"></span>١٠ - ١٥ خبر</li>
-                        <li><span class="circularDiv redInfo"></span>١٦ خبر فما فوق</li>
+                        <li><span class="circularDiv grayInfo"></span>{{trans('site.map.no_posts')}}</li>
+                        <li><span class="circularDiv greenInfo"></span>{{trans('site.map.1_3_posts')}}</li>
+                        <li><span class="circularDiv yelowInfo"></span>{{trans('site.map.4_9_posts')}}</li>
+                        <li><span class="circularDiv blueInfo"></span>{{trans('site.map.10_15_posts')}}</li>
+                        <li><span class="circularDiv redInfo"></span>{{trans('site.map.16_more_posts')}}</li>
                     </ul>
 
                 </div>
             </div>
             <div class="mapStyle">
-                اختر شكل الخريطة
+                {{trans('site.map.change_map_style')}}
                 <div id="mapstyles0" class="activeMapDesign"></div>
                 <div id="mapstyles1"></div>
                 <div id="mapstyles2"></div>

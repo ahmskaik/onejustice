@@ -26,6 +26,7 @@ var DefaultStyle;
 var styledMapType;
 var duplicatediv = [];
 const mapIconBase = "assets/";
+const locale = $('html').attr('lang');
 $(document).ready(function () {
     try {
         changeMapTabs();
@@ -425,7 +426,7 @@ function GetLatestNews(type, from, to, countryId, pageno, pagesize) {
     searchtype = type;
     $.ajax({
         //   url: "/NewsMap/LatestNews/" + type + "/" + from + "/" + to + "/" + countryId + "/" + pageno + "/" + pagesize + "",
-        url: "ar/latestNews?type=" + type + "&from=" + from + "&to=" + to + "&countryId=" + countryId + "&pageno=" + pageno + "&pagesize=" + pagesize + "",
+        url: locale + "/latestNews?type=" + type + "&from=" + from + "&to=" + to + "&countryId=" + countryId + "&pageno=" + pageno + "&pagesize=" + pagesize + "",
         type: 'GET',
         success: function (result) {
             if (result != '') {
@@ -606,7 +607,7 @@ function ShowNewsMapCount(type, from, to, countryId, continentID, ArabWorld) {
     clearOverlays();
     $.ajax({
         // url: "/NewsMap/NewsMapCount/" + type + "/" + from + "/" + to + "/" + countryId + "/" + continentID + "/" + ArabWorld + "",
-        url: "ar/newsMapCount?type=" + type + "&from=" + from + "&to=" + to + "&countryId=" + countryId + "&continentID=" + continentID + "&ArabWorld=" + ArabWorld + "",
+        url: locale + "/newsMapCount?type=" + type + "&from=" + from + "&to=" + to + "&countryId=" + countryId + "&continentID=" + continentID + "&ArabWorld=" + ArabWorld + "",
         type: 'GET',
         success: function (result) {
             if (result != '') {
@@ -743,7 +744,7 @@ function GetListNewsByCountry(obj) {
     $("#countryid").val(countryId);
     $("#map-canvas").append("<div class='loadingHolder mapLoading'><img class='imgloading' src='assets/images/loading.GIF'></div>");
     $.ajax({
-        url: "ar/latestNews/" + countryId + "?type=" + type + "&from=" + from + "&to=" + to + "&countryId=" + countryId + "&pageno=" + pageno + "&pagesize=" + pagesize + "",
+        url: locale + "/latestNews/" + countryId + "?type=" + type + "&from=" + from + "&to=" + to + "&countryId=" + countryId + "&pageno=" + pageno + "&pagesize=" + pagesize + "",
         type: 'GET',
         success: function (result) {
             if (result != '') {
@@ -810,13 +811,13 @@ function setMarkesr(countryid, countryname, Xlocation, Ylocation, TotalNews) {
     if (TotalNews == 0) {
         imageMarker = mapIconBase + 'images/BigGreyKey.png';
     } else if (TotalNews <= 3) {
-        imageMarker = mapIconBase + 'images/greenKey.png';
+        imageMarker = mapIconBase + 'images/BigGreenKey.png';
     } else if (TotalNews <= 9) {
-        imageMarker = mapIconBase + 'images/yellowKey.png';
+        imageMarker = mapIconBase + 'images/BigYellowKey.png';
     } else if (TotalNews <= 15) {
-        imageMarker = mapIconBase + 'images/blueKey.png';
+        imageMarker = mapIconBase + 'images/BigBlueKey.png';
     } else {
-        imageMarker = mapIconBase + 'images/redKey.png';
+        imageMarker = mapIconBase + 'images/BigRedKey.png';
     }
     /* var marker = new MarkerWithLabel({*/
     var marker = new google.maps.Marker({
@@ -1273,6 +1274,7 @@ function getkmL2(country) {
     }
     return value;
 }
+
 function getkmL(country) {
     var value = [];
     switch (country) {

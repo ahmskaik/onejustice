@@ -14,17 +14,17 @@ class PostsTableSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Factory::create();
+        $faker = Factory::create("ar_JO");//ar_AE
 
         $path = public_path('uploads' . DIRECTORY_SEPARATOR . 'posts');
         $files = \File::files($path);
 
-        foreach (range(0, 950) as $i) {
+        foreach (range(0, 350) as $i) {
             $post = \App\Models\PostModel::create(
                 [
-                    'title' => $faker->sentence(rand(5, 15)),
+                    'title' => $faker->firstName . ' ' . $faker->lastName . ' ' . $faker->firstName . ' ' . $faker->lastName,
                     'summary' => $faker->text,
-                    'body' => $faker->realText(rand(100, 5000)),
+                    'body' => $faker->text(rand(100, 5000)),
                     'status_id' => \Arr::random(\App\Models\SystemLookupModel::getLookeupByKey("POST_STATUS")->pluck('id')->toArray()),
                     'category_id' => \App\Models\CategoryModel::inRandomOrder()->first()->id,
                     'language_id' => \App\Models\LanguageModel::inRandomOrder()->Active()->first()->id,
@@ -36,8 +36,10 @@ class PostsTableSeeder extends Seeder
                     'tags' => null,
                     'created_by' => 1,
                 ]);
+            foreach (range(0, rand(1, 3)) as $i) {
+                \DB::table('post_countries')->insert(['country_id' => rand(1, 100), 'post_id' => $post->id]);
 
-            \DB::table('post_countries')->insert(['country_id' => rand(1, 40), 'post_id' => $post->id]);
+            }
 
         }
     }
