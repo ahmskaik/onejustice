@@ -28,7 +28,7 @@
             <div class="kt-portlet__body">
                 <form class="horizontal-form search-form kt-form kt-form--fit">
                     <div class="row">
-                        <div class="col-lg-2 kt-margin-b-10-tablet-and-mobile">
+                        <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
                             <label class="lblinput">Search Keywords</label>
                             <div class="kt-input-icon kt-input-icon--left">
                                 <input type="text" class="form-control kt-input searchable"
@@ -39,7 +39,7 @@
                                 </span>
                             </div>
                         </div>
-                        <div class="col-lg-2 kt-margin-b-10-tablet-and-mobile">
+                        <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
                             <label class="lblinput">Category</label>
                             <div class="kt-input-icon kt-input-icon--left">
                                 <select class="form-control kt-input searchable"
@@ -54,7 +54,7 @@
                                 </span>
                             </div>
                         </div>
-                        <div class="col-lg-2 kt-margin-b-10-tablet-and-mobile">
+                       {{-- <div class="col-lg-2 kt-margin-b-10-tablet-and-mobile">
                             <label class="lblinput">Status</label>
                             <div class="kt-input-icon kt-input-icon--left">
                                 <select class="form-control kt-input searchable"
@@ -68,7 +68,7 @@
                                     <span><i class="la la-search"></i></span>
                                 </span>
                             </div>
-                        </div>
+                        </div>--}}
                         {{--   <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
                                <label class="lblinput">Type</label>
                                <div class="kt-input-icon kt-input-icon--left">

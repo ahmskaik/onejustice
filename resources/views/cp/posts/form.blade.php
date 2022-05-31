@@ -1,6 +1,8 @@
 @extends('cp.layout.layout')
 
 @section('css')
+    <link href="cp/css/flag-inputs.css" rel="stylesheet" type="text/css"/>
+
     <style>
         .kt-avatar .kt-avatar__holder {
             width: 180px !important;
@@ -18,7 +20,11 @@
     <script>
         jQuery(document).ready(function () {
             formWorker.init();
-            $('.kt-selectpicker').selectpicker();
+            $('.kt-selectpicker,#countries').selectpicker();
+
+            /* $('#countries').select2({
+                 placeholder: "Select relevant countries",
+             });*/
         });
     </script>
     @include('cp.parts.toastr-alert')
@@ -83,6 +89,32 @@
                                             @if ($errors->has('summary'))
                                                 <div class="invalid-feedback">{{$errors->first('summary') }}</div>
                                             @endif
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-lg-12">
+                                            <label for="countries">Relevant Countries</label>
+                                            <div>
+                                                <select class="form-control kt-select2" id="countries"
+                                                        name="country_id[]" multiple="multiple">
+                                                    <option></option>
+                                                    {{-- @foreach($countries as $country)
+                                                         <option value="{{$country->id}}">{{$country->name}}</option>
+                                                     @endforeach--}}
+
+                                                    @foreach($countries as $country)
+                                                        <option
+                                                            data-icon="ini__flag ini__{{strtolower($country->iso_code)}}"
+                                                            @if((isset($post_countries) && in_array($country->id,$post_countries)) || in_array($country->id,old('country_id',[])) ) selected
+                                                            @endif
+                                                            value="{{ $country->id }}">{{ $country->name}}</option>
+                                                    @endforeach
+                                                    @if ($errors->has('country_id'))
+                                                        <div
+                                                            class="invalid-feedback">{{$errors->first('country_id') }}</div>
+                                                    @endif
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="form-group row">

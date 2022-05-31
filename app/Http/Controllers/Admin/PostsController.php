@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers\Admin;
 
 use App\Models\CategoryModel;
+use App\Models\CountryModel;
 use App\Models\PostModel;
 use App\Models\SystemLookupModel;
 use Illuminate\Http\Request;
@@ -29,7 +30,8 @@ class PostsController extends SuperAdminController
         parent::$data["categories"] = CategoryModel::getList([], parent::$data['locale'])->get();
         parent::$data["statuses"] = SystemLookupModel::getLookeupByKey("POST_STATUS", parent::$data['locale']);
         parent::$data["types"] = SystemLookupModel::getLookeupByKey("POST_TYPE", parent::$data['locale']);
-     //   parent::$data["languages"] = parent::$data['languages'];
+        //   parent::$data["languages"] = parent::$data['languages'];
+
         return view('cp.posts.index', parent::$data);
     }
 
@@ -125,6 +127,7 @@ class PostsController extends SuperAdminController
         parent::$data["statuses"] = SystemLookupModel::getLookeupByKey("POST_STATUS", parent::$data['locale']);
         parent::$data["types"] = SystemLookupModel::getLookeupByKey("POST_TYPE", parent::$data['locale']);
         //parent::$data["languages"] = parent::$data['languages'];
+        parent::$data["countries"] = CountryModel::query()->select(['id', 'properties->' . parent::$data["locale"] . ' as name', 'iso_code'])->get();
 
         parent::$data['creator'] = \Auth::user("admin")->full_name;
         parent::$data['created_at'] = date("Y-m-d");
@@ -161,6 +164,8 @@ class PostsController extends SuperAdminController
 
         $post = PostModel::create($attributes);
 
+        $countries = (array)$request->country_id;
+        $post->countries()->attach($countries);
 
         return redirect(parent::$data['cp_route_name'] . '/' . parent::$data['route'] . '/edit/' . $post->id)
             ->with("success", "Created Successfully");
@@ -182,6 +187,8 @@ class PostsController extends SuperAdminController
         parent::$data["statuses"] = SystemLookupModel::getLookeupByKey("POST_STATUS", parent::$data['locale']);
         parent::$data["types"] = SystemLookupModel::getLookeupByKey("POST_TYPE", parent::$data['locale']);
         //  parent::$data["languages"] = parent::$data['languages'];
+        parent::$data["countries"] = CountryModel::query()->select(['id', 'properties->' . parent::$data["locale"] . ' as name', 'iso_code'])->get();
+        parent::$data['post_countries'] = $post->countries->pluck('id')->toArray();
 
         parent::$data['form'] = "edit";
         parent::$data['post'] = $post;
@@ -220,13 +227,19 @@ class PostsController extends SuperAdminController
                 \Arr::pluck(json_decode(request('tags')), 'value') : \Arr::wrap(request('tags'));
 
         $attributes['is_featured'] = isset($request->is_featured);
+        $countries = (array)$request->country_id;
 
-
+        unset($attributes['country_id']);
         $post->update($attributes);
+
+        $post->countries()->detach();
+        $post->countries()->attach($countries);
+
 
         return redirect(parent::$data['cp_route_name'] . '/' . parent::$data['route'] . '/edit/' . $post->id)
             ->with("success", "Updated Successfully");
     }
+
     public function delete(Request $request, $id)
     {
         $post = PostModel::find($id);

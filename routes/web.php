@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Maatwebsite\Excel\Facades\Excel;
 
 $cp_route_name = config('app.cp_route_name');
 Route::get('changeLang/{locale}/{goto?}', "SiteController@changeLang");
@@ -143,6 +144,7 @@ Route::group([
     'prefix' => LaravelLocalization::setLocale()
 ], function () {
     Route::get('/', 'HomeController@index')->name('site.home');
+
     Route::get('/posts/{id}/{category?}/{slug?}', 'PostsController@show')->name('post.show');
     Route::get('/category/{category}', 'PostsController@getPostsByCategory')->name('site.getPostsByCategory');
     Route::get('/search', 'HomeController@search')->name('site.search');
@@ -159,6 +161,14 @@ Route::group([
     Route::post('/contact-us', 'ContactUsController@submit')->name('site.contact.submit');
 
     Route::get('/donate', 'DonateController@index')->name('site.donate.index');
+    Route::get('/test', 'HomeController@getNews');
+    Route::get('/newsMapCount', 'HomeController@newsMapCount');
+    Route::get('/latestNews/{countryId?}', 'HomeController@getLatestNews');
 
+});
+Route::get('test', function () {
+
+    echo '<pre>';
+    print_r($file);
 });
 Route::any('{catchall}', 'HomeController@notfound')->where('catchall', '.*');

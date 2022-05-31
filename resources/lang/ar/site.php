@@ -20,6 +20,7 @@ return [
     "media" => "صحافة",
     "copyright" => "جميع الحقوق محفوظة",
     "more_posts" => "تحميل المزيد",
+    "post" => "خبر",
     "related_topics" => "كلمات مفتاحية",
     "get_involved" => "فعاليات",
     "resources" => "مصادر",

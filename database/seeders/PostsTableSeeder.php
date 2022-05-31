@@ -20,7 +20,7 @@ class PostsTableSeeder extends Seeder
         $files = \File::files($path);
 
         foreach (range(0, 950) as $i) {
-            \App\Models\PostModel::create(
+            $post = \App\Models\PostModel::create(
                 [
                     'title' => $faker->sentence(rand(5, 15)),
                     'summary' => $faker->text,
@@ -36,6 +36,9 @@ class PostsTableSeeder extends Seeder
                     'tags' => null,
                     'created_by' => 1,
                 ]);
+
+            \DB::table('post_countries')->insert(['country_id' => rand(1, 40), 'post_id' => $post->id]);
+
         }
     }
 }

@@ -36,6 +36,7 @@
                             <div class="mvp-nav-top-cont {{$locale==='ar'?'right':'left'}} relative">
                                 <div class="mvp-nav-top-{{$locale==='ar'?'right':'left'}}-out relative">
                                     <div class="mvp-nav-top-{{$locale==='ar'?'right':'left'}}">
+
                                         <div class="mvp-nav-soc-wrap">
                                             @foreach($siteSetting['social_accounts'] as $account=>$link)
                                                 @if(!empty($link))
@@ -93,6 +94,11 @@
                                         </div>
                                         <div class="mvp-nav-bot-{{$locale==='ar'?'right':'left'}}-in"
                                              style="display: flex">
+                                            {{--  <div style="margin-{{$locale!=='ar'?'right':'left'}}: 2rem"
+                                                   class="mvp-nav-bot-{{$locale==='ar'?'right':'left'}} {{$locale==='ar'?'right':'left'}} relative">
+                                                  <span
+                                                      class="mvp-nav-search-but fa fa-search fa-2 mvp-search-click"></span>
+                                              </div>--}}
                                             <a class="mvp-nav-logo-reg"
                                                href="{{route('site.home')}}"
                                                itemprop="url">

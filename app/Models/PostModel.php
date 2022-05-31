@@ -21,7 +21,10 @@ class PostModel extends SuperModel
     {
         return $this->cover_image ? loadImage($this->cover_image, 'posts', 180, 140, 100, "", 0) : 'cp/images/upload-image-rg.jpg';
     }
-
+    public function countries()
+    {
+        return $this->belongsToMany(CountryModel::class, "post_countries", "post_id", "country_id");
+    }
     public function user()
     {
         return $this->belongsTo(SystemUserModel::class, 'created_by');

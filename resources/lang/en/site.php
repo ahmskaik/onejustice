@@ -20,6 +20,7 @@ return [
     "media" => "Media",
     "copyright" => "Copyright",
     "more_posts" => "More Posts",
+    "post" => "post",
     "related_topics" => "Related Topics",
     "get_involved" => "Get Involved",
     "resources" => "Resources",

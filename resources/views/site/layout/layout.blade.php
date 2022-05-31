@@ -4,10 +4,11 @@
 <head>
     <base href="{{ URL::asset('/') }}"/>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
           id="viewport"
           name="viewport"/>
-    <meta content="Europal Forum" property="og:description"/>
+    <meta content="OneJustice" property="og:description"/>
     <title>{{ $title ?? $siteSetting['app_brand']->{$locale}??$siteSetting['app_brand']->{$fallbackLanguage} }}</title>
     <meta content='max-image-preview:large' name='robots'/>
     @if($locale==='ar')
@@ -60,7 +61,8 @@
 
         #mvp-main-nav-top {
             background-color: #1e2f42;
-            padding: 25px 0 0;height: 30px;
+            padding: 25px 0 0;
+            height: 30px;
         }
 
         #mvp-fly-wrap, .mvp-soc-mob-right, #mvp-main-nav-small-cont {
@@ -211,7 +213,7 @@
 <script src='assets/js/jquery.min.js?ver=3.5.1' type='text/javascript'></script>
 <script src='assets/js/main.js?ver=1.7.0' type='text/javascript'></script>
 <script src='assets/js/scripts.js?ver=5.7' type='text/javascript'></script>
-<script src='assets/js/retina.js?ver=5.7' type='text/javascript'></script>
+{{--<script src='assets/js/retina.js?ver=5.7' type='text/javascript'></script>--}}
 @yield('js')
 <script>
     (function (i, s, o, g, r, a, m) {
