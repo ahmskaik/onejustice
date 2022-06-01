@@ -10,15 +10,19 @@
     <article id="mvp-article-wrap" itemscope itemtype="http://schema.org/NewsArticle">
         <meta itemscope itemprop="mainEntityOfPage" itemType="https://schema.org/WebPage"
               itemid="#"/>
-        <div id="mvp-article-cont" class="{{$locale==='ar'?'right':'left'}} relative">
+        <div id="mvp-article-cont" class="left relative light-bg" style="padding: 0!important;">
             <div class="mvp-main-box">
-                <div id="mvp-post-main" class="{{$locale==='ar'?'right':'left'}} relative">
-                    <header id="mvp-post-head" class="{{$locale==='ar'?'right':'left'}} relative">
-                        <h3 class="mvp-post-cat {{$locale==='ar'?'right':'left'}} relative">
+                <div id="mvp-post-main" class="left relative">
+                    <header id="mvp-post-head" class="left relative">
+                        <h3 class="mvp-post-cat left relative">
+                            <a class=""
+                               href="{{route('site.home')}}">
+                                <span  style="border: none!important;"  class="mvp-post-cat left"> {{trans('site.home')}} | </span>
+                            </a>
                             <a class="mvp-post-cat-link"
                                href="{{route('site.getPostsByCategory',['category'=>strtolower(str_replace(' ','_',$post->category->slug))])}}">
                                 <span
-                                    class="mvp-post-cat {{$locale==='ar'?'right':'left'}}">{{$post->category->name->{$locale}??$post->category->name->{$fallbackLanguage} }}</span>
+                                    class="mvp-post-cat left">{{$post->category->name->{$locale}??$post->category->name->{$fallbackLanguage} }}</span>
                             </a>
                         </h3>
                         <h1 class="mvp-post-title left entry-title" itemprop="headline">{{$post->title}}</h1>
@@ -47,7 +51,8 @@
                                      itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
                                     <img width="1000" height="600"
                                          src="uploads/posts/{{$post->cover_image}}"
-                                         class="attachment- size-" alt="" loading="lazy"
+                                         class="" alt="" loading="lazy"
+
                                          srcset="uploads/posts/{{$post->cover_image}} 1000w,
                                           uploads/posts/{{$post->cover_image}} 600w,
                                            uploads/posts/{{$post->cover_image}} 300w,
@@ -68,7 +73,8 @@
                                                 <div id="mvp-content-body-top" class="left relative">
                                                     <div id="mvp-content-main" class="left relative">
                                                         <div id="tps_slideContainer_76" class="theiaPostSlider_slides">
-                                                            <div class="theiaPostSlider_preloadedSlide">
+                                                            <div class="theiaPostSlider_preloadedSlide"
+                                                                 style="font-size: 20px;">
                                                                 {!! $post->body !!}
                                                             </div>
                                                         </div>
@@ -101,10 +107,13 @@
                                                         </div>
                                                     </div>
                                                 </div>
+
                                                 <div class="mvp-cont-read-wrap">
+                                                    <hr>
                                                     <div id="mvp-related-posts" class="left relative">
                                                         <h4 class="mvp-widget-home-title">
-                                                            <span class="mvp-widget-home-title">{{trans('site.you_may_like')}}</span>
+                                                            <span style="font-size: 1vw;"
+                                                                  class="mvp-widget-home-title">{{trans('site.you_may_like')}}</span>
                                                         </h4>
                                                         <ul class="mvp-related-posts-list left related">
                                                             @foreach($posts_may_like as $post)
@@ -151,6 +160,8 @@
                                 <div class="mvp-widget-tab-wrap left relative">
                                     <div class="mvp-feat1-list-wrap left relative">
                                         <div class="mvp-feat1-list left relative">
+                                            <span class="mvp-widget-home-title"
+                                                  style="font-size: 1vw!important;border: solid 3px #fb772c;">{{trans('site.read_also')}}</span>
                                             @foreach($related_posts as $post)
                                                 <a href="{{route('post.show',['id'=>$post->id,'category'=>strtolower($post->category->slug),'slug'=>$post->slug])}}"
                                                    rel="bookmark">
@@ -165,7 +176,7 @@
                                                                 <div class="mvp-feat1-list-text">
                                                                     <div class="mvp-cat-date-wrap left relative">
                                                                         <span
-                                                                            class="mvp-cd-cat left relative">{{strtolower($post->category->name->{$locale}??$post->category->name->{$fallbackLanguage}) }}</span><span
+                                                                            class="mvp-cd-cat left relative">{{$post->category->name->{$locale}??$post->category->name->{$fallbackLanguage}  }}</span><span
                                                                             class="mvp-cd-date left relative">{{getTimeLeft(strtotime($post->date),$locale)}}</span>
                                                                     </div>
                                                                     <h2>{{$post->title}}</h2>

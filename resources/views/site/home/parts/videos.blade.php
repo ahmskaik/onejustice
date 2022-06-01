@@ -30,9 +30,7 @@
                                                aria-hidden="true"></i>
                                         </div>
                                     @endif
-                                    <div class="mvp-vid-box-wrap mvp-vid-marg">
-                                        <i aria-hidden="true" class="fa fa-2 fa-play"></i>
-                                    </div>
+
                                 </div>
                                 <div class="mvp-widget-dark-feat-text left relative">
                                     <div class="mvp-cat-date-wrap left relative">
@@ -70,9 +68,7 @@
                                                    aria-hidden="true"></i>
                                             </div>
                                         @endif
-                                        <div class="mvp-vid-box-wrap mvp-vid-box-small mvp-vid-marg-small">
-                                            <i aria-hidden="true" class="fa fa-2 fa-play"></i>
-                                        </div>
+
                                     </div>
                                     <div class="mvp-widget-dark-sub-in">
                                         <div class="mvp-widget-dark-sub-text left relative">

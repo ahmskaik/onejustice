@@ -1,5 +1,5 @@
 @foreach($posts as $post)
-    <li class="mvp-blog-story-wrap left relative infinite-post">
+    <li class="mvp-blog-story-wrap left relative infinite-post light-bg">
         <a href="{{route('post.show',['id'=>$post->id,'category'=>strtolower($post->category->slug),'slug'=>$post->slug])}}"
            rel="bookmark">
             <div class="mvp-blog-story-out relative">
@@ -26,7 +26,7 @@
                 <div class="mvp-blog-story-in">
                     <div class="mvp-blog-story-text left relative">
                         <div class="mvp-cat-date-wrap left relative">
-                            <span class="mvp-cd-cat left relative">{{strtolower($post->category->name->{$locale}) }}</span>
+                            <span class="mvp-cd-cat left relative">{{$post->category->name->{$locale}?? $post->category->name->{$fallbackLanguage} }}</span>
                             <span class="mvp-cd-date left relative">{{getTimeLeft(strtotime($post->date),$locale)}}</span>
                         </div>
                         <h2>{{$post->title}}</h2>

@@ -161,14 +161,8 @@ Route::group([
     Route::post('/contact-us', 'ContactUsController@submit')->name('site.contact.submit');
 
     Route::get('/donate', 'DonateController@index')->name('site.donate.index');
-    Route::get('/test', 'HomeController@getNews');
     Route::get('/newsMapCount', 'HomeController@newsMapCount');
     Route::get('/latestNews/{countryId?}', 'HomeController@getLatestNews');
 
-});
-Route::get('test', function () {
-
-    echo '<pre>';
-    print_r($file);
 });
 Route::any('{catchall}', 'HomeController@notfound')->where('catchall', '.*');

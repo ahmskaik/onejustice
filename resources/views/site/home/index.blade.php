@@ -1,5 +1,6 @@
 @extends('site.layout.layout')
 @section('css')
+
     @if($locale==='ar')
         <link href='assets/css/newsmap.rtl.css?ver=5.7' media='all' rel="stylesheet"/>
     @else

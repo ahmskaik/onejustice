@@ -407,7 +407,7 @@ a {
 
 /*popUpMap*/
 .gm-style-iw > div {
-    overflow: visible !important;
+   /* overflow: visible !important;*/
 }
 
 .gm-style-iw > div > div {

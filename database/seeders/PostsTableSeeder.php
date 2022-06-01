@@ -14,21 +14,29 @@ class PostsTableSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Factory::create("ar_JO");//ar_AE
+        $faker = Factory::create();
+        $faker_ar = Factory::create("ar_SA");
 
         $path = public_path('uploads' . DIRECTORY_SEPARATOR . 'posts');
         $files = \File::files($path);
+        $categories = \App\Models\CategoryModel::get()->pluck('id')->toArray();
+        $statuses = \App\Models\SystemLookupModel::getLookeupByKey("POST_STATUS")->pluck('id')->toArray();
+        $languages = \App\Models\LanguageModel::Active()->pluck('id')->toArray();
 
-        foreach (range(0, 350) as $i) {
+        $types = \App\Models\SystemLookupModel::getLookeupByKey("POST_TYPE")->pluck('id')->toArray();
+
+        foreach (range(0, 850) as $i) {
+            $lang = \Arr::random($languages);
             $post = \App\Models\PostModel::create(
                 [
-                    'title' => $faker->firstName . ' ' . $faker->lastName . ' ' . $faker->firstName . ' ' . $faker->lastName,
-                    'summary' => $faker->text,
-                    'body' => $faker->text(rand(100, 5000)),
-                    'status_id' => \Arr::random(\App\Models\SystemLookupModel::getLookeupByKey("POST_STATUS")->pluck('id')->toArray()),
-                    'category_id' => \App\Models\CategoryModel::inRandomOrder()->first()->id,
-                    'language_id' => \App\Models\LanguageModel::inRandomOrder()->Active()->first()->id,
-                    'type_id' => \Arr::random(\App\Models\SystemLookupModel::getLookeupByKey("POST_TYPE")->pluck('id')->toArray()),
+                    //'title' => $faker->sentence(rand(5, 15)),
+                    'title' =>$lang==1? $faker_ar->realText(rand(50, 100)): $faker->realText(rand(50, 100)),
+                    'summary' =>$lang==1? $faker_ar->realText(rand(100, 300)): $faker->realText(rand(100, 300)),
+                    'body' => $lang==1?$faker_ar->realText(rand(100, 5000)): $faker->realText(rand(100, 5000)),
+                    'status_id' => \Arr::random($statuses),
+                    'category_id' => \Arr::random($categories),
+                    'language_id' =>$lang ,
+                    'type_id' => \Arr::random($types),
                     'is_featured' => $faker->boolean,
                     'date' => $faker->dateTimeThisYear,
                     'cover_image' => \Arr::random($files)->getFilename(),

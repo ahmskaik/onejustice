@@ -13,36 +13,15 @@
     <meta content='max-image-preview:large' name='robots'/>
     @if($locale==='ar')
         <link href='assets/css/style.rtl.css?ver=5.7' media='all' rel='stylesheet' type='text/css'/>
-        <style type='text/css'>
-            .mvp-feat1-feat-text h2,
-            h1.mvp-post-title,
-            .mvp-feat2-top-text h2,
-            .mvp-feat3-main-text h2 {
-                font-family: 'NassimArabic-Rg', "Arial", sans-serif;
-                font-weight: 600;
-                letter-spacing: normal;
-                line-height: 1;
-            }
-        </style>
+        <link href='assets/css/media-queries.rtl.css?ver=5.8' media='all' rel='stylesheet' type='text/css'/>
+
     @else
         <link href='assets/css/style.css?ver=5.7' media='all' rel='stylesheet' type='text/css'/>
-        <style type='text/css'>
-            .mvp-feat1-feat-text h2,
-            h1.mvp-post-title,
-            .mvp-feat2-top-text h2,
-            .mvp-feat3-main-text h2 {
-                font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-                font-weight: 600;
-                letter-spacing: normal;
-                line-height: 1;
-            }
-        </style>
+        <link href='assets/css/media-queries.css?ver=5.8' media='all' rel='stylesheet' type='text/css'/>
+
     @endif
 
-
-    
     <link href='assets/css/fonts/dashicons/dashicons.min.css?ver=5.8' media='all' rel='stylesheet' type='text/css'/>
-
     <link href='assets/css/reset.css?ver=5.7' media='all' rel='stylesheet' type='text/css'/>
     <link href='assets/css/fonts/font-awesome/font-awesome.css?ver=5.8' media='all' rel='stylesheet' type='text/css'/>
     <link crossorigin="anonymous"
@@ -50,71 +29,9 @@
           media='all'
           rel='stylesheet' type='text/css'/>
 
-    <link href='assets/css/media-queries.css?ver=5.8' media='all' rel='stylesheet' type='text/css'/>
 
     <style type="text/css">
-        #mvp-main-nav-wrap {
-            background-color: #23374d;
-            margin-bottom: 1rem;
-        }
 
-        #mvp-main-nav-top {
-            background-color: #1e2f42;
-            padding: 25px 0 0;
-            height: 30px;
-        }
-
-        #mvp-fly-wrap, .mvp-soc-mob-right, #mvp-main-nav-small-cont {
-            background: #fff;
-        }
-
-        #mvp-event-wrap .mvp-post-main-in {
-            margin-right: 0 !important;
-        }
-
-        #mvp-event-wrap #mvp-post-main {
-            margin: 10px 0 60px;
-            width: 100%;
-        }
-
-        #mvp-main-nav-small .mvp-fly-but-wrap span,
-        #mvp-main-nav-small .mvp-search-but-wrap span,
-        .mvp-nav-top-left .mvp-fly-but-wrap span,
-        #mvp-fly-wrap .mvp-fly-but-wrap span {
-            background: #fff;
-        }
-
-        .mvp-nav-top-right .mvp-nav-search-but,
-        span.mvp-fly-soc-head,
-        .mvp-soc-mob-right i,
-        #mvp-main-nav-small span.mvp-nav-search-but,
-        #mvp-main-nav-small .mvp-nav-menu ul li a {
-            color: #000;
-        }
-
-        #mvp-main-nav-small .mvp-nav-menu ul li.menu-item-has-children a:after {
-            border-color: #000 transparent transparent transparent;
-        }
-
-
-        span.mvp-nav-soc-but,
-        ul.mvp-fly-soc-list li a {
-            background: rgba(0, 0, 0, .8);
-        }
-
-
-        nav.mvp-fly-nav-menu ul li,
-        nav.mvp-fly-nav-menu ul li ul.sub-menu {
-            border-top: 1px solid rgba(0, 0, 0, .1);
-        }
-
-        nav.mvp-fly-nav-menu ul li a {
-            color: #000;
-        }
-
-        .mvp-drop-nav-title h4 {
-            color: #000;
-        }
     </style>
     @yield('css')
     <link href="assets/favicon/apple-icon-57x57.png" rel="apple-touch-icon" sizes="57x57">

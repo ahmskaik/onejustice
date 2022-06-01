@@ -42,6 +42,7 @@ return [
     ],
     "newsletters" => "النشرات البريدية",
     "title" => "العنوان",
+    "read_also" => "اقرأ أيضاً",
     "date" => "تاريخ النشر",
     "contact_us" => "اتصل بنا",
     "more_events_and_announcements" => "المزيد من الفعاليات",

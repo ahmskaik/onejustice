@@ -7,13 +7,13 @@
                     <img width="400" height="240"
                          src="{{loadImage($post->cover_image,'posts',380,228,100,'',0)}}"
                          class="mvp-reg-img lazy" alt="{{$post->title}}"
-                         loading="lazy" />
+                         loading="lazy"/>
                     <img width="80"
                          height="80"
                          src="{{loadImage($post->cover_image,'posts',380,228,100,'',0)}}"
                          class="mvp-mob-img lazy"
                          alt="{{$post->title}}"
-                         loading="lazy" />
+                         loading="lazy"/>
                     @if(!empty($post->type->syslkp_data->icon))
                         <div
                             class="mvp-vid-box-wrap mvp-vid-box-mid">
@@ -25,7 +25,8 @@
                 <div class="mvp-blog-story-in">
                     <div class="mvp-blog-story-text left relative">
                         <div class="mvp-cat-date-wrap left relative">
-                            <span class="mvp-cd-cat left relative">{{strtolower($post->category->name->{$locale}??$post->category->name->{$fallbackLanguage}) }}</span><span
+                            <span
+                                class="mvp-cd-cat left relative">{{$post->category->name->{$locale}??$post->category->name->{$fallbackLanguage} }}</span><span
                                 class="mvp-cd-date left relative">{{getTimeLeft(strtotime($post->date),$locale)}}</span>
                         </div>
                         <h2>{{$post->title}}</h2>

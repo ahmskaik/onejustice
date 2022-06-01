@@ -53,7 +53,7 @@
                             <div class="mvp-feat3-sub-text">
                                 <div class="mvp-cat-date-wrap left relative">
                                     <span
-                                        class="mvp-cd-cat left relative">{{ isset($post->category->name->{$locale})  ?strtolower($post->category->name->{$locale}): $post->category->name->{$fallbackLanguage} }}</span><span
+                                        class="mvp-cd-cat left relative">{{ $post->category->name->{$locale} ?? $post->category->name->{$fallbackLanguage}  }}</span><span
                                         class="mvp-cd-date left relative">{{getTimeLeft(strtotime($post->date),$locale)}}</span>
                                 </div>
                                 <h2>{{$post->title}}</h2>

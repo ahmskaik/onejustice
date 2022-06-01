@@ -42,6 +42,7 @@ return [
     ],
     "newsletters" => "Newsletters",
     "title" => "Title",
+    "read_also" => "Read Also",
     "date" => "Publish Date",
     "contact_us" => "Contact Us",
     "more_events_and_announcements" => "More of events and announcements",

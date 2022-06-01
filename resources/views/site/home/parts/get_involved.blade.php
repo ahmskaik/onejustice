@@ -59,12 +59,12 @@
                     </a>
                 @endforeach
             </div>
-            <a href="#">
+         {{--   <a href="#">
                 <div class="mvp-widget-feat2-side-more-but left relative">
                     <span class="mvp-widget-feat2-side-more">{{trans('site.more_events_and_announcements')}}</span><i
-                        aria-hidden="true" class="fa fa-long-arrow-right"></i>
+                        aria-hidden="true" class="fa fa-long-arrow-{{$locale==='ar'?'left':'right'}}"></i>
                 </div>
-            </a>
+            </a>--}}
         </div>
     </div>
 </section>
