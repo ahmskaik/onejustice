@@ -30,8 +30,12 @@ class PostsController extends SuperAdminController
         parent::$data["categories"] = CategoryModel::getList([], parent::$data['locale'])->get();
         parent::$data["statuses"] = SystemLookupModel::getLookeupByKey("POST_STATUS", parent::$data['locale']);
         parent::$data["types"] = SystemLookupModel::getLookeupByKey("POST_TYPE", parent::$data['locale']);
-        //   parent::$data["languages"] = parent::$data['languages'];
-
+        parent::$data["countries"] =CountryModel::query()->select(
+            [
+                'id',
+                'properties->' . parent::$data["locale"] . ' as name',
+                'iso_code',
+            ])->get();
         return view('cp.posts.index', parent::$data);
     }
 
@@ -40,8 +44,14 @@ class PostsController extends SuperAdminController
         $filter = [];
         $columns = $request->get('columns');
         $filter['language_id'] = $request->language_id ?? '';
+        $filter['type_id'] = $request->type_id ?? '';
+        if (isset($request->is_featured)) {
+            $filter['is_featured'] = $request->is_featured;
+        }
+        $filter["country_id"] =  $request->country_id;
         $filter["category_id"] = isset($columns[2]['search']['value']) ? xss_clean($columns[2]['search']['value']) : '';
         $filter["title"] = isset($columns[1]['search']['value']) ? xss_clean($columns[1]['search']['value']) : '';
+        $filter["status_id"] = isset($columns[3]['search']['value']) ? xss_clean($columns[3]['search']['value']) : '';
 
         $data = PostModel::getList($filter);
 
@@ -49,8 +59,9 @@ class PostsController extends SuperAdminController
             ->editColumn('title', function ($data) use ($request) {
                 if ($request->input("export"))
                     return $data->title;
-
-                return '<a href="' . parent::$data['cp_route_name'] . '/' . parent::$data['route'] . '/edit/' . $data->id . '"><img title="' . $data->language . '" class="mr-2" src="cp/media/flags/png16px/' . $data->flag . '.png">' . \Str::limit($data->title, 70) . '</a>';
+                $is_featured_label = $data->is_featured ? '<i class="flaticon2-correct kt-font-success pull-right ml-2" title="Featured"></i>' : '';
+                return '<a href="' . parent::$data['cp_route_name'] . '/' . parent::$data['route'] . '/edit/' . $data->id . '">
+                <img title="' . $data->language . '" class="mr-2" src="cp/media/flags/png16px/' . $data->flag . '.png">' . \Str::limit($data->title, 70) . $is_featured_label . '</a>';
             })
             ->addColumn('status', function ($data) use ($request) {
 
@@ -65,7 +76,7 @@ class PostsController extends SuperAdminController
                 return '<div class="d-block kt-align-center"><i class="fa fa-eye"></i> ' . ($data->views ?? 0) . '</div>';
             })
             ->editColumn('dtime', function ($data) {
-                return date_format(date_create($data->created_at), 'Y-m-d');
+                return date_format(date_create($data->date), 'Y-m-d');
             });
 
         if (!$request->input("export") && $request->ajax()) {

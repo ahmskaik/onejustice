@@ -1,0 +1,9 @@
+.vav-stripe-donation-message-box { display:none; padding: 5px 10px; margin: 10px 0; color: #fff;    margin-bottom: 2rem; }
+.vav-stripe-donation-success-message-box { background: #6ac6106b; }
+.vav-stripe-donation-error-message-box { background: #FF4240; }
+.vav-stripe-donation-button{cursor: pointer; margin-right: 15px; border-color: #6ac610; position: relative; display: inline-block; line-height: 24px; padding: 11px 25px; font-size: 13px; font-weight: 700; text-transform: uppercase; background: #6ac610; color: #ffffff !important; border: 2px solid #6ac610 !important; border-radius: 3px; font-family: 'Droid Arabic Kufi', "Arial", sans-serif;}
+.vav-stripe-donation-button:hover{background:#36a6df linear-gradient(#4bbef8, #2c98e2);border-color: #3097de;color: #fff;}
+.donation_btn{background:#45b1e8 linear-gradient(#45b1e8, #3097de) repeat scroll 0 0; color:#fff; padding:6px 8px; border-radius:5px; border:0px; border:1px solid #3097de; cursor:pointer; font-size:14px;}
+.donation_btn:hover{background:#36a6df linear-gradient(#4bbef8, #2c98e2);border-color: #3097de;color: #fff;}
+.vav-stripe-donation-wrap p{ font-size:16px; color:#f7f1f1; font-weight:600}
+.vav-stripe-donation-wrap input{ height:30px; line-height:30px; width:150px !important; border-radius:5px; border:1px solid #b3b3b3; padding:0 10px; margin:0 20px}

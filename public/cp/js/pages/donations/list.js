@@ -2,7 +2,7 @@ jQuery(document).ready(function () {
     $('.myselect2').select2({
         placeholder: "Select Option",
         allowClear: true,
-        width: '100%'
+        width: 'resolve'
     });
     jQuery(document).on('click', '.cleardate', function () {
         jQuery(this).parents('.inputdate-wicon').find('.inputdateclear').val('');
@@ -39,23 +39,19 @@ jQuery(document).ready(function () {
         pageLength: 20,
         "dom": "<'table-scrollable'rt><'row'<'col-md-5 col-sm-5'i><'col-md-7 col-sm-7'p>> ",
         "ajax": {
-            url: cp_route_name + '/posts/list',
+            url: cp_route_name + '/donations/list',
             method: 'GET',
             "data": function (d) {
-                d.language_id = $('#language_id').val()
-                d.is_featured = $('#is_featured').val()
-                d.type_id = $('#type_id').val()
             }
         },
         "order": [[5, 'desc']],
         "columns": [
-            {data: 'id', name: 'id', orderable: true, searchable: false},
-            {data: 'title', name: 'title', searchable: false},
-            {data: 'category', name: 'category_id', searchable: false,},
-            {data: 'status', name: 'status_id', searchable: false,},
-            {data: 'views', name: 'views', searchable: false,},
-            /*{data: 'created_by', name: 'su.full_name', searchable: false,},*/
-            {data: 'dtime', name: 'dtime', searchable: false},
+            {data: 'id', name: 'donations.id', orderable: true},
+            {data: 'gateway', name: 'gateway', searchable: false},
+            {data: 'amount', name: 'amount', searchable: false},
+            {data: 'currency', name: 'currency', searchable: false},
+            {data: 'ip', name: 'ip', searchable: false},
+            {data: 'created_at', name: 'donations.created_at', searchable: false},
             {data: 'action', name: 'action', orderable: false,}
         ],
         "fnDrawCallback": function (oSettings) {
@@ -151,8 +147,8 @@ jQuery(document).ready(function () {
             var this_click = jQuery(this);
             var name = this_click.data("name");
             swal.fire({
-                title: "Are you sure you want to Delete (" + name + ")?",
-                html: "<span class='blind-alert round'>Caution: You can not undo this operation !!..</span>",
+                title: "Are you sure you want to Delete " + name + "?",
+                html: "<span class='blind-alert round'>Caution: You can not undo this operation !!..</span>><br><small class='kt-font-danger'>All of his participations and projects he own will be deleted as well.</small>",
                 type: 'info',
                 showCancelButton: true,
                 confirmButtonText: "Ok, I understand",
@@ -160,8 +156,8 @@ jQuery(document).ready(function () {
             }).then(function (result) {
                     if (result.value) {
                         jQuery.ajax({
-                            type: 'POST',
-                            url: this_click.attr('data-href'),
+                            type: 'GET',
+                            url: this_click.attr('href'),
                             dataType: 'json',
                             success: function (data) {
                                 if (data.status) {

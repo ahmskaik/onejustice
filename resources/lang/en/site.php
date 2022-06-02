@@ -25,6 +25,7 @@ return [
     "post" => "post",
     "related_topics" => "Related Topics",
     "get_involved" => "Get Involved",
+    "statements" => "Statements",
     "resources" => "Resources",
     "more_of" => "More",
     "you_may_like" => "You May Like",
@@ -82,5 +83,6 @@ return [
         '10_15_posts' => '10 - 15 posts',
         '16_more_posts' => '16 and more news',
     ],
-
+    'donation_done' => 'Thanks for your donation! Your donation to will make a big difference.',
+    'amount' => 'Amount'
 ];

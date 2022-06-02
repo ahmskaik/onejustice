@@ -7,7 +7,6 @@
         <link href='assets/css/newsmap.css?ver=5.7' media='all' rel="stylesheet"/>
     @endif
 
-    <script src="assets/js/jquery.min.js" type="text/javascript"></script>
     <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC6Xu5RSDCwNEeR1o5LuqwWxt07CA4ly4&language=ar&sensor=false">
     </script>
@@ -21,7 +20,8 @@
     <div class="left relative" id="mvp-home-widget-wrap">
         @include('site.home.parts.reports')
         @include('site.home.parts.media')
-        @include('site.home.parts.get_involved')
+        @include('site.home.parts.statements')
+        {{--  @include('site.home.parts.get_involved')--}}
         {{-- @include('site.home.parts.resources')--}}
         @include('site.home.parts.videos')
     </div>

@@ -11,9 +11,15 @@
                                      class="attachment-mvp-port-thumb size-mvp-port-thumb"
                                      loading="lazy"
                                      src="{{loadImage($featured_article->cover_image,'posts',560,600,100,'',1)}}"/>
-                                <div class="mvp-vid-box-wrap mvp-vid-marg">
-                                    <i aria-hidden="true" class="fa fa-2 fa-play"></i>
-                                </div>
+
+                                @if(!empty($featured_article->type->syslkp_data->icon))
+                                    <div class="mvp-vid-box-wrap mvp-vid-marg">
+                                        <i aria-hidden="true" class="{{$featured_article->type->syslkp_data->icon}}"></i>
+                                    </div>
+                                @endif
+
+
+
                             </div>
                             <div class="mvp-feat3-main-text">
                                 <div class="mvp-cat-date-wrap left relative">

@@ -52,7 +52,6 @@
                                     <img width="1000" height="600"
                                          src="uploads/posts/{{$post->cover_image}}"
                                          class="" alt="" loading="lazy"
-
                                          srcset="uploads/posts/{{$post->cover_image}} 1000w,
                                           uploads/posts/{{$post->cover_image}} 600w,
                                            uploads/posts/{{$post->cover_image}} 300w,

@@ -28,6 +28,7 @@ return [
     'image_upload' => 'تحميل الصورة',
     'search_form' => 'مربّع البحث',
     'creation_date' => 'تاريخ الاضافة',
+    'date' => 'التاريخ',
     'from' => 'من',
     'to' => 'إلى',
     'reset' => 'تفريغ',

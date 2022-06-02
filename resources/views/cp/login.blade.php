@@ -54,7 +54,7 @@
                 <div class="kt-login__container">
                     <div class="kt-login__logo">
                         <a href="#" >
-                            <img style="width: 200px;" src="assets/images/logos/logo-light.png">
+                            <img style="width: 90px;" src="assets/images/logos/logo-light.png">
                         </a>
                     </div>
                     <div class="kt-login__signin">

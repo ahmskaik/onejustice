@@ -1795,7 +1795,7 @@ ul.mvp-fly-soc-list li a:hover {
     opacity: .9;
     position: absolute;
     top: 20px;
-    left: 20px;
+    right: 20px;
     text-align: center;
     width: 46px;
     height: 46px;
@@ -1824,7 +1824,7 @@ ul.mvp-fly-soc-list li a:hover {
 }
 
 .mvp-vid-marg i {
-    margin-left: 4px;
+    margin-right: 4px;
 }
 
 .mvp-vid-marg-small i {
@@ -2879,7 +2879,7 @@ h1.mvp-post-title,
 }
 
 .mvp-widget-home-head {
-    float: left;
+    float: right;
     position: relative;
     width: 100%;
 }
@@ -3360,7 +3360,7 @@ ul.mvp-blog-story-list {
 }
 
 .mvp-main-blog-in {
-    margin-right: 380px;
+    margin-left: 380px;
 }
 
 .mvp-blog-story-wrap {
@@ -4109,7 +4109,7 @@ ul.mvp-alp-soc-list li.mvp-alp-soc-pin {
 .archive #mvp-post-head,
 .attachment #mvp-post-head,
 .search #mvp-post-head {
-    margin-top: 10px;
+    margin-top:30px;
 }
 
 h3.mvp-post-cat {
@@ -4198,7 +4198,7 @@ ul.mvp-author-info-list {
 .mvp-author-info-text {
     color: #545050;
     display: inline-block;
-    float: left;
+    float: right;
     font-size: 14px;
     font-weight: 400;
     line-height: 1;

@@ -28,7 +28,7 @@
             <div class="kt-portlet__body">
                 <form class="horizontal-form search-form kt-form kt-form--fit">
                     <div class="row">
-                        <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
+                        <div class="col-lg-3 ">
                             <label class="lblinput">Search Keywords</label>
                             <div class="kt-input-icon kt-input-icon--left">
                                 <input type="text" class="form-control kt-input searchable"
@@ -39,52 +39,7 @@
                                 </span>
                             </div>
                         </div>
-                        <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
-                            <label class="lblinput">Category</label>
-                            <div class="kt-input-icon kt-input-icon--left">
-                                <select class="form-control kt-input searchable"
-                                        data-col-index="2" data-column="2" name="category_id">
-                                    <option value="">All</option>
-                                    @foreach($categories as $category)
-                                        <option value="{{ $category->id }}">{{ $category->category_name }}</option>
-                                    @endforeach
-                                </select>
-                                <span class="kt-input-icon__icon kt-input-icon__icon--left">
-                                    <span><i class="la la-search"></i></span>
-                                </span>
-                            </div>
-                        </div>
-                       {{-- <div class="col-lg-2 kt-margin-b-10-tablet-and-mobile">
-                            <label class="lblinput">Status</label>
-                            <div class="kt-input-icon kt-input-icon--left">
-                                <select class="form-control kt-input searchable"
-                                        data-col-index="3" data-column="3" name="status_id">
-                                    <option value="">All</option>
-                                    @foreach($statuses as $status)
-                                        <option value="{{ $status->id }}">{{ $status->text }}</option>
-                                    @endforeach
-                                </select>
-                                <span class="kt-input-icon__icon kt-input-icon__icon--left">
-                                    <span><i class="la la-search"></i></span>
-                                </span>
-                            </div>
-                        </div>--}}
-                        {{--   <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
-                               <label class="lblinput">Type</label>
-                               <div class="kt-input-icon kt-input-icon--left">
-                                   <select class="form-control kt-input searchable"
-                                           data-col-index="2" data-column="2" name="type_id">
-                                       <option value="">All</option>
-                                       @foreach($types as $type)
-                                           <option value="{{ $type->id }}">{{ $type->text }}</option>
-                                       @endforeach
-                                   </select>
-                                   <span class="kt-input-icon__icon kt-input-icon__icon--left">
-                                       <span><i class="la la-search"></i></span>
-                                   </span>
-                               </div>
-                           </div>--}}
-                        <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
+                        <div class="col-lg-2 ">
                             <label class="lblinput">Language</label>
                             <div class="kt-input-icon kt-input-icon--left">
                                 <select class="form-control kt-input searchable-list" id="language_id"
@@ -99,7 +54,22 @@
                                 </span>
                             </div>
                         </div>
-                        <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
+                        <div class="col-lg-2 ">
+                            <label class="lblinput">Category</label>
+                            <div class="kt-input-icon kt-input-icon--left">
+                                <select class="form-control kt-input searchable"
+                                        data-col-index="2" data-column="2" name="category_id">
+                                    <option value="">All</option>
+                                    @foreach($categories as $category)
+                                        <option value="{{ $category->id }}">{{ $category->category_name }}</option>
+                                    @endforeach
+                                </select>
+                                <span class="kt-input-icon__icon kt-input-icon__icon--left">
+                                    <span><i class="la la-search"></i></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 ">
                             <div class="btn-search-reset">
                                 <button type="button" class="btn btn-primary btn-brand--icon btn-submit-search"
                                         id="kt_search">
@@ -115,6 +85,81 @@
                                         <span>{{trans('admin/dashboard.reset')}}</span>
                                     </span>
                                 </button>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 kt-margin-b-10-tablet-and-mobile">
+                            <label class="btn d-block"></label>
+                            <button type="button" class="btn btn-secondary btn-outline-success pull-right js-show-advance-filter">
+                                    <span>
+                                        <i class="flaticon2-dashboard"></i>
+                                      <span>Advanced Filter</span>
+                                    </span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row js-advance-filter-row mt-4 kt-hidden">
+                        <div class="col-lg-3 ">
+                            <label class="lblinput">Type</label>
+                            <div class="kt-input-icon kt-input-icon--left">
+                                <select class="form-control kt-input searchable"
+                                        id="type_id"
+                                        data-col-index="11" data-column="11" name="type_id">
+                                    <option value="">All</option>
+                                    @foreach($types as $type)
+                                        <option value="{{ $type->id }}">{{ $type->text }}</option>
+                                    @endforeach
+                                </select>
+                                <span class="kt-input-icon__icon kt-input-icon__icon--left">
+                                       <span><i class="la la-search"></i></span>
+                                   </span>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 ">
+                            <label class="lblinput">Country</label>
+                            <div class="kt-input-icon kt-input-icon--left">
+                                <select class="form-control kt-input searchable-list myselect2" id="country_id"
+                                        name="country_id">
+                                    <option value="">All</option>
+                                    @foreach($countries as $country)
+                                        <option value="{{ $country->id }}">{{ $country->name }}</option>
+                                    @endforeach
+                                </select>
+                                <span class="kt-input-icon__icon kt-input-icon__icon--left">
+                                    <span><i class="la la-search"></i></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-2 ">
+                            <label class="lblinput">In Slider?</label>
+                            <div class="kt-input-icon kt-input-icon--left">
+                                <select id="is_featured" class="form-control kt-input searchable"
+                                        data-col-index="9" data-column="9"
+                                        name="is_featured">
+                                    <option value="">All</option>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+
+                                </select>
+                                <span class="kt-input-icon__icon kt-input-icon__icon--left">
+                                    <span><i class="la la-search"></i></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 ">
+                            <label class="lblinput">Status</label>
+                            <div class="kt-input-icon kt-input-icon--left">
+                                <select class="form-control kt-input searchable"
+                                        data-col-index="3" data-column="3" name="status_id">
+                                    <option value="">All</option>
+                                    @foreach($statuses as $status)
+                                        <option value="{{ $status->id }}">{{ $status->text }}</option>
+                                    @endforeach
+                                </select>
+                                <span class="kt-input-icon__icon kt-input-icon__icon--left">
+                                     <span><i class="la la-search"></i></span>
+                                 </span>
                             </div>
                         </div>
                     </div>
@@ -193,8 +238,8 @@
                         <th class="kt-align-center">{{trans('admin/dashboard.category')}}</th>
                         <th class="kt-align-center">{{trans('admin/dashboard.status')}}</th>
                         <th class="kt-align-center">Views</th>
-                        <th class="kt-align-center">{{trans('admin/dashboard.created_by')}}</th>
-                        <th class="kt-align-center">{{trans('admin/dashboard.creation_date')}}</th>
+                        {{-- <th class="kt-align-center">{{trans('admin/dashboard.created_by')}}</th>--}}
+                        <th class="kt-align-center">{{trans('admin/dashboard.date')}}</th>
                         <th class="tblaction-rg kt-align-center">{{trans('admin/dashboard.actions')}}</th>
                     </tr>
                     </thead>

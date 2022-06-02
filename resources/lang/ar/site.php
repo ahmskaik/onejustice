@@ -25,6 +25,7 @@ return [
     "post" => "خبر",
     "related_topics" => "كلمات مفتاحية",
     "get_involved" => "فعاليات",
+    "statements" => "البيانات",
     "resources" => "مصادر",
     "more_of" => "المزيد من",
     "you_may_like" => "شاهد أيضاً",
@@ -61,7 +62,7 @@ return [
     'search_here' => 'ابحث هنا',
     'back_to_home' => 'رجوع للصفحة الرئيسية',
     'donate' => 'للتبرّع',
-    'donate_now' => 'للتبرّع',
+    'donate_now' => 'ساهم',
     'donate_small_amount' => 'حتى أصغر مبلغ من المساهمة سيحدث فرقًا كبيرًا.',
     'donate_for_us' => 'ادعمنا بالتبرع',
     'tags' => 'مواضيع وقضايا',
@@ -82,5 +83,6 @@ return [
         '10_15_posts' => '١٠ - ١٥ خبر',
         '16_more_posts' => '١٦ خبر فما فوق',
     ],
-
+    'donation_done' => 'شكراً لتبرعك، تبرّعك سوف يصنع الفارق.',
+    'amount' => 'المبلغ'
 ];

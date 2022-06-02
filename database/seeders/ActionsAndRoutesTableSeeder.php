@@ -106,26 +106,6 @@ class ActionsAndRoutesTableSeeder extends Seeder
         ActionRouteModel::create(['action_id' => $subAction->id, 'route_name' => 'delete_post', 'is_logging' => true, 'is_LoggingDetails' => true, 'can_Logging' => true]);
         //End Posts Management
 
-        //Events Management
-        $action = ActionModel::create(['icon' => 'la la-bullhorn', 'name' => ["en" => "Events", "ar" => "الفعاليات"], 'group_name' => 'Events', 'is_menuItem' => true, 'is_active' => true, 'menu_order' => 6, 'parent_action_id' => NULL, 'parent_action_id_menu' => NULL]);
-        ActionRouteModel::create(['action_id' => $action->id, 'route_name' => 'events_view', 'is_logging' => false, 'is_LoggingDetails' => false, 'can_Logging' => true]);
-        ActionRouteModel::create(['action_id' => $action->id, 'route_name' => 'events_list', 'is_logging' => false, 'is_LoggingDetails' => false, 'can_Logging' => true]);
-
-        $subAction = ActionModel::create(['icon' => NULL, 'name' => ["en" => "Change Event Status", "ar" => "تغيير حالة الفعالية"], 'group_name' => NULL, 'is_menuItem' => false, 'is_active' => true, 'menu_order' => 1, 'parent_action_id' => $action->id, 'parent_action_id_menu' => NULL]);
-        ActionRouteModel::create(['action_id' => $subAction->id, 'route_name' => 'change_event_status', 'is_logging' => false, 'is_LoggingDetails' => false, 'can_Logging' => true]);
-
-        $subAction = ActionModel::create(['icon' => NULL, 'name' => ["en" => "Create New Event", "ar" => "إضافة فعالية جديدة"], 'group_name' => NULL, 'is_menuItem' => false, 'is_active' => true, 'menu_order' => 2, 'parent_action_id' => $action->id, 'parent_action_id_menu' => NULL]);
-        ActionRouteModel::create(['action_id' => $subAction->id, 'route_name' => 'create_event', 'is_logging' => false, 'is_LoggingDetails' => false, 'can_Logging' => true]);
-        ActionRouteModel::create(['action_id' => $subAction->id, 'route_name' => 'store_event', 'is_logging' => true, 'is_LoggingDetails' => true, 'can_Logging' => true]);
-
-        $subAction = ActionModel::create(['icon' => NULL, 'name' => ["en" => "Edit Event", "ar" => "الفعالية"], 'group_name' => NULL, 'is_menuItem' => false, 'is_active' => true, 'menu_order' => 3, 'parent_action_id' => $action->id, 'parent_action_id_menu' => NULL]);
-        ActionRouteModel::create(['action_id' => $subAction->id, 'route_name' => 'edit_event', 'is_logging' => false, 'is_LoggingDetails' => false, 'can_Logging' => true]);
-        ActionRouteModel::create(['action_id' => $subAction->id, 'route_name' => 'update_event', 'is_logging' => true, 'is_LoggingDetails' => true, 'can_Logging' => true]);
-
-        $subAction = ActionModel::create(['icon' => NULL, 'name' => ["en" => "Delete Event", "ar" => "حذف الفعالية"], 'group_name' => NULL, 'is_menuItem' => false, 'is_active' => true, 'menu_order' => 4, 'parent_action_id' => $action->id, 'parent_action_id_menu' => NULL]);
-        ActionRouteModel::create(['action_id' => $subAction->id, 'route_name' => 'delete_event', 'is_logging' => true, 'is_LoggingDetails' => true, 'can_Logging' => true]);
-        //End Events Management
-
         //Policies Management
         $action = ActionModel::create(['icon' => 'flaticon-globe', 'name' => ["en" => "Website Policies", "ar" => "سياسات الموقع"], 'group_name' => 'Website Policies', 'is_menuItem' => true, 'is_active' => true, 'menu_order' => 8, 'parent_action_id' => NULL, 'parent_action_id_menu' => NULL]);
         ActionRouteModel::create(['action_id' => $action->id, 'route_name' => 'show_pages', 'is_logging' => false, 'is_LoggingDetails' => false, 'can_Logging' => true]);
@@ -140,6 +120,12 @@ class ActionsAndRoutesTableSeeder extends Seeder
         $subAction = ActionModel::create(['icon' => null, 'name' => ["en" => "Show Inquiry Details", "ar" => "عرض تفاصيل الرسالة"], 'group_name' => NULL, 'is_menuItem' => false, 'is_active' => true, 'menu_order' => 1, 'parent_action_id' => $action->id, 'parent_action_id_menu' => NULL]);
         ActionRouteModel::create(['action_id' => $subAction->id, 'route_name' => 'inquiry_show', 'is_logging' => false, 'is_LoggingDetails' => false, 'can_Logging' => true]);
         //End Inquiries Management
+
+        //Payments Management
+        $action = ActionModel::create(['icon' => 'flaticon-coins', 'name' => ["en" => "Donations", "ar" => "المساهمات"], 'group_name' => 'Donation Management', 'is_menuItem' => true, 'is_active' => true, 'menu_order' => 10, 'parent_action_id' => NULL, 'parent_action_id_menu' => NULL]);
+        ActionRouteModel::create(['action_id' => $action->id, 'route_name' => 'donation_view', 'is_logging' => false, 'is_LoggingDetails' => false, 'can_Logging' => true]);
+        ActionRouteModel::create(['action_id' => $action->id, 'route_name' => 'donation_list', 'is_logging' => false, 'is_LoggingDetails' => false, 'can_Logging' => true]);
+        //End Payments Management
 
     }
 }

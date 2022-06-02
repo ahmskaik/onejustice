@@ -25,11 +25,9 @@ class ContactUsController extends SiteController
             'email' => ['required', 'email'],
             'message' => ['required'],
         ]);
-        $agent = new Agent();
-
         $attributes['ip'] = \Request::ip();
-        $attributes['device_name'] = $agent->device();
-        $attributes['device_systemName'] = $agent->platform();
+        $attributes['device_name'] ='';
+        $attributes['device_systemName'] ='';
 
         InquiryModel::create($attributes);
         return redirect()->to(route('site.contact.index'))->with("success", trans('site.contact_us_page.message_received'));

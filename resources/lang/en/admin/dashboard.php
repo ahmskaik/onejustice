@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'brand' => 'onejustice Forum',
+    'brand' => 'onejustice',
     'admin_dashboard' => 'onejustice Admin Dashboard.',
     'user_name' => 'User Name or Email',
     'password' => 'Password',
@@ -28,6 +28,7 @@ return [
     'image_upload' => 'Image Upload',
     'search_form' => 'Search Form',
     'creation_date' => 'Creation Date',
+    'date' => 'Date',
     'from' => 'From',
     'to' => 'To',
     'reset' => 'Reset',

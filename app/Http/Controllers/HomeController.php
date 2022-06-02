@@ -4,13 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\CategoryModel;
 use App\Models\CountryModel;
-use App\Models\EventModel;
 use App\Models\PostModel;
 use Illuminate\Http\Request;
 
 class HomeController extends SiteController
 {
-    protected $postFields = ['id', 'title', 'summary', 'cover_image', 'type_id', 'category_id', 'date'];
 
     public function __construct()
     {
@@ -24,52 +22,41 @@ class HomeController extends SiteController
         $this->prepareMainSection($active_language_id);
         $this->prepareReportsSection($active_language_id);
         $this->prepareMediaSection($active_language_id);
-        $this->prepareGetInvolvedSection($active_language_id);
+        $this->prepareStatementsSection($active_language_id);
         $this->prepareVideosSection($active_language_id);
         return view('site.home.index', parent::$data);
     }
 
     protected function prepareMainSection($active_language_id)
     {
-        parent::$data["featured_article"] = PostModel::Published()->select($this->postFields)->Language($active_language_id)->Featured()->orderby('date', 'desc')->first();
-        parent::$data["featured_news"] = PostModel::Published()->select($this->postFields)->Language($active_language_id)->where('is_featured', false)->orderby('date', 'desc')->with(['category', 'type'])->take(4)->get();
+        parent::$data["featured_article"] = PostModel::get($active_language_id)->Featured()->first();
+        parent::$data["featured_news"] = PostModel::get($active_language_id)->where('is_featured', false)->with(['category', 'type'])->take(4)->get();
     }
 
     protected function prepareReportsSection($active_language_id)
     {
-        parent::$data["featured_report"] = PostModel::Published()->select($this->postFields)->Language($active_language_id)->Featured()->where('category_id', CategoryModel::POST_CATEGORY_REPORTS)->orderby('date', 'desc')->with(['category', 'type'])->first();
-        parent::$data["featured_reports_middle"] = PostModel::Published()->select($this->postFields)->Language($active_language_id)->Featured()->where('category_id', CategoryModel::POST_CATEGORY_REPORTS)->orderby('date', 'desc')->with(['category', 'type'])->skip(1)->take(2)->get();
-        parent::$data["reports"] = PostModel::Published()->select($this->postFields)->Language($active_language_id)->where('is_featured', false)->where('category_id', CategoryModel::POST_CATEGORY_REPORTS)->orderby('date', 'desc')->with(['category', 'type'])->take(5)->get();
+        parent::$data["featured_report"] = PostModel::get($active_language_id)->Featured()->where('category_id', CategoryModel::POST_CATEGORY_REPORTS)->with(['category', 'type'])->first();
+        parent::$data["featured_reports_middle"] = PostModel::get($active_language_id)->Featured()->where('category_id', CategoryModel::POST_CATEGORY_REPORTS)->with(['category', 'type'])->skip(1)->take(2)->get();
+        parent::$data["reports"] = PostModel::get($active_language_id)->where('is_featured', false)->where('category_id', CategoryModel::POST_CATEGORY_REPORTS)->with(['category', 'type'])->take(5)->get();
     }
 
     protected function prepareMediaSection($active_language_id)
     {
         $mediaCategories = CategoryModel::where('parent_id', CategoryModel::POST_CATEGORY_MEDIA)->orWhere('id', CategoryModel::POST_CATEGORY_MEDIA)->get()->pluck('id');
-        parent::$data["media"] = PostModel::query()->Published()->Language($active_language_id)->where('is_featured', false)
-            ->whereIn('category_id', $mediaCategories)->with(['category', 'type'])->orderby('date', 'desc')->take(4)->get();
+        parent::$data["media"] = PostModel::get($active_language_id)->where('is_featured', false)
+            ->whereIn('category_id', $mediaCategories)->with(['category', 'type'])->take(4)->get();
     }
 
-    protected function prepareGetInvolvedSection($active_language_id)
+    protected function prepareStatementsSection($active_language_id)
     {
-        $featured_get_involved = parent::$data["featured_get_involved"] =
-            EventModel::Active()->Featured()->with(['type'])
-                ->select(['id', 'date', 'type_id', 'title->' . parent::$data["locale"] . ' as the_title', 'cover_image'])
-                ->orderby('date', 'desc')->first();
-        parent::$data["get_involved_left"] = EventModel::Active()->with(['type'])
-            ->when($featured_get_involved, function ($query) use ($featured_get_involved) {
-                $query->where('id', '!=', $featured_get_involved->id);
-            })
-            ->orderby('date', 'desc')
-            ->select(['id', 'date', 'type_id', 'title->' . parent::$data["locale"] . ' as the_title', 'cover_image'])
-            ->take(2)
-            ->get();
-        //   parent::$data["get_involved_right"] = EventModel::Active()->with(['type'])->orderby('date', 'desc')->skip(3)->take(6)->select(['id','date', 'type_id', 'title->' . parent::$data["locale"] . ' as the_title', 'cover_image'])->get();
+        parent::$data["featured_statement"] = PostModel::get($active_language_id)->Featured()->where('category_id', CategoryModel::POST_CATEGORY_STATEMENTS)->with(['category', 'type'])->first();
+        parent::$data["statements"] = PostModel::get($active_language_id)->where('category_id', CategoryModel::POST_CATEGORY_STATEMENTS)->with(['category', 'type'])->skip(1)->take(2)->get();
     }
 
     protected function prepareVideosSection($active_language_id)
     {
-        parent::$data["featured_video"] = PostModel::Published()->select($this->postFields)->Language($active_language_id)->Featured()->where('category_id', CategoryModel::POST_CATEGORY_MEDIA)->orderby('date', 'desc')->first();
-        parent::$data["videos"] = PostModel::Published()->select($this->postFields)->Language($active_language_id)->where('is_featured', false)->where('category_id', CategoryModel::POST_CATEGORY_MEDIA)->with(['category', 'type'])->orderby('date', 'desc')->skip(1)->take(4)->get();
+        parent::$data["featured_video"] = PostModel::get($active_language_id)->Featured()->where('category_id', CategoryModel::POST_CATEGORY_MEDIA)->first();
+        parent::$data["videos"] = PostModel::get($active_language_id)->where('is_featured', false)->where('category_id', CategoryModel::POST_CATEGORY_MEDIA)->with(['category', 'type'])->skip(1)->take(4)->get();
 
     }
 
@@ -81,13 +68,7 @@ class HomeController extends SiteController
         $active_language_id = parent::$data['active_language_id'];
 
         $limit = 8;
-        parent::$data["posts"] = PostModel::query()
-            ->with(['category', 'type'])
-            ->Published()
-            ->Featured()
-            ->where('title', 'like', "%" . $query . "%")
-            ->Language($active_language_id)
-            ->paginate($limit);
+        parent::$data["posts"] = PostModel::get($active_language_id)->with(['category', 'type'])->where('title', 'like', "%" . $query . "%")->paginate($limit);
 
         parent::$data["query"] = $query;
         parent::$data["hasMore"] = 0;
@@ -159,7 +140,6 @@ class HomeController extends SiteController
             ->Language($active_language_id)
             ->Published()
             ->take(15)
-            ->orderBy('date', 'desc')
             ->get();
 
         if ($countryId) {

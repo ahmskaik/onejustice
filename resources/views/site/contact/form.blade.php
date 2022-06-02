@@ -130,13 +130,16 @@
 @section('content')
     <div class="mvp-main-box">
         <div class="mvp-main-blog-cont left relative">
-            <header id="mvp-post-head" class="left relative">
+            <header id="mvp-post-head" class="left relative" style="margin-top: 30px;">
                 <h1 class="mvp-post-title left entry-title"
                     itemprop="headline">{{trans('site.contact_us_page.header')}}</h1>
             </header>
-            <div class="mvp-main-blog-out left relative">
+            <div class="mvp-main-blog-out left relative light-bg">
                 <div class="mvp-main-blog-in">
                     <div class="mvp-main-blog-body left relative">
+                        <p style="text-align: center">
+                            <img src="assets/images/logos/logo2-nav.png">
+                        </p>
                         {!! $content->the_body !!}
                     </div>
                 </div>

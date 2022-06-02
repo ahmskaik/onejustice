@@ -46,31 +46,6 @@ Route::group(['namespace' => 'Admin', 'prefix' => $cp_route_name], function () {
             Route::get('delete/{id}', ['as' => 'usrole_delete', 'uses' => 'RoleController@delete']);
         });
 
-        Route::group(['prefix' => ''], function () {
-            //Google Analytics
-            Route::post('saveChartImage', ['as' => 'saveChartImage', 'uses' => 'ReportsController@saveChartImage']);
-            Route::get('visitorsView', ['as' => 'visitorsView', 'uses' => 'ReportsController@visitorsView']);
-            Route::get('keywordsView', ['as' => 'keywordsView', 'uses' => 'ReportsController@keywordsView']);
-            Route::get('referrersView', ['as' => 'referrersView', 'uses' => 'ReportsController@referrersView']);
-            Route::get('browsersView', ['as' => 'browsersView', 'uses' => 'ReportsController@browsersView']);
-            Route::get('mostVisitedView', ['as' => 'mostVisitedView', 'uses' => 'ReportsController@mostVisitedView']);
-            Route::get('mobileTrafficView', ['as' => 'mobileTrafficView', 'uses' => 'ReportsController@mobileTrafficView']);
-            Route::get('newVsReturningView', ['as' => 'newVsReturningView', 'uses' => 'ReportsController@newVsReturningView']);
-            Route::get('countryView', ['as' => 'countryView', 'uses' => 'ReportsController@countryView']);
-            Route::get('siteTimeView', ['as' => 'siteTimeView', 'uses' => 'ReportsController@siteTimeView']);
-
-            Route::get('visitors', ['as' => 'visitors', 'uses' => 'ReportsController@visitors']);
-            Route::get('keywords', ['as' => 'keywords', 'uses' => 'ReportsController@keywords']);
-            Route::get('referrers', ['as' => 'referrers', 'uses' => 'ReportsController@referrers']);
-            Route::get('browsers', ['as' => 'browsers', 'uses' => 'ReportsController@browsers']);
-            Route::get('mostVisited', ['as' => 'mostVisited', 'uses' => 'ReportsController@mostVisited']);
-            Route::get('activeUsers', ['as' => 'activeUsers', 'uses' => 'ReportsController@activeUsers']);
-            Route::get('mobileTraffic', ['as' => 'mobileTraffic', 'uses' => 'ReportsController@mobileTraffic']);
-            Route::get('newVsReturning', ['as' => 'newVsReturning', 'uses' => 'ReportsController@newVsReturning']);
-            Route::get('countryVisit', ['as' => 'country', 'uses' => 'ReportsController@country']);
-            Route::get('siteTime', ['as' => 'siteTime', 'uses' => 'ReportsController@siteTime']);
-        });
-
         Route::group(['prefix' => 'categories'], function () {
             Route::get('/', ['as' => 'category_view', 'uses' => 'CategoriesController@index']);
             Route::get('list', ['as' => 'category_list', 'uses' => 'CategoriesController@get']);
@@ -90,26 +65,6 @@ Route::group(['namespace' => 'Admin', 'prefix' => $cp_route_name], function () {
             Route::post('edit/{id}', ['as' => 'update_post', 'uses' => 'PostsController@update'])->where(['id' => '[0-9]+']);
             Route::post('delete/{id}', ['as' => 'delete_post', 'uses' => 'PostsController@delete'])->where(['id' => '[0-9]+']);
         });
-        Route::group(['prefix' => 'events'], function () {
-            Route::get('/', ['as' => 'events_view', 'uses' => 'EventsController@index']);
-            Route::get('list', ['as' => 'events_list', 'uses' => 'EventsController@get']);
-            Route::get('create', ['as' => 'create_event', 'uses' => 'EventsController@create']);
-            Route::post('create', ['as' => 'store_event', 'uses' => 'EventsController@store']);
-            Route::get('edit/{id}', ['as' => 'edit_event', 'uses' => 'EventsController@edit']);
-            Route::post('edit/{id}', ['as' => 'update_event', 'uses' => 'EventsController@update'])->where(['id' => '[0-9]+']);
-            Route::post('delete/{id}', ['as' => 'delete_event', 'uses' => 'EventsController@delete'])->where(['id' => '[0-9]+']);
-        });
-        Route::group(['prefix' => 'banners'], function () {
-            Route::get('/', ['as' => 'banners_view', 'uses' => 'BannersController@index']);
-            Route::get('list', ['as' => 'banners_list', 'uses' => 'BannersController@get']);
-            Route::get('create', ['as' => 'create_banner', 'uses' => 'BannersController@create']);
-            Route::post('create', ['as' => 'store_banner', 'uses' => 'BannersController@store']);
-            Route::get('edit/{id}', ['as' => 'edit_banner', 'uses' => 'BannersController@edit']);
-            Route::post('edit/{id}', ['as' => 'update_banner', 'uses' => 'BannersController@update'])->where(['id' => '[0-9]+']);
-            Route::post('delete/{id}', ['as' => 'delete_banner', 'uses' => 'BannersController@delete'])->where(['id' => '[0-9]+']);
-        });
-
-
         Route::group(['prefix' => 'pages'], function () {
             Route::get('/', ['as' => 'show_pages', 'uses' => 'PagesController@editPages']);
             Route::post('/', ['as' => 'update_pages', 'uses' => 'PagesController@updatePages']);
@@ -119,7 +74,10 @@ Route::group(['namespace' => 'Admin', 'prefix' => $cp_route_name], function () {
             Route::get('list', ['as' => 'inquiry_list', 'uses' => 'InquiriesController@get']);
             Route::get('show/{id}', ['as' => 'inquiry_show', 'uses' => 'InquiriesController@show']);
         });
-
+        Route::group(['prefix' => 'donations'], function () {
+            Route::get('/', ['as' => 'donation_view', 'uses' => 'DonationsController@index']);
+            Route::get('list', ['as' => 'donation_list', 'uses' => 'DonationsController@get']);
+        });
         Route::get('/', [\App\Http\Controllers\Admin\DashboardController::class, 'getIndex']);
         Route::get('logout', 'LoginController@logout');
         Route::get('lock', 'LoginController@lock');
@@ -161,6 +119,7 @@ Route::group([
     Route::post('/contact-us', 'ContactUsController@submit')->name('site.contact.submit');
 
     Route::get('/donate', 'DonateController@index')->name('site.donate.index');
+    Route::post('/donate', 'DonateController@store')->name('site.donate.store');
     Route::get('/newsMapCount', 'HomeController@newsMapCount');
     Route::get('/latestNews/{countryId?}', 'HomeController@getLatestNews');
 

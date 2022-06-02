@@ -1,7 +1,7 @@
 <section id="mvp-feat2-wrap" class="left relative">
     @if($featured_article)
         <div class="mvp-feat2-top left relative">
-            <a href="{{route('post.show',['id'=>$featured_article->id,'category'=>strtolower($featured_article->category->slug),'slug'=>$featured_article->slug])}}"
+            <a href="{{route('post.show',['id'=>$featured_article->id,'category'=>$featured_article->category->slug,'slug'=>$featured_article->slug])}}"
                rel="bookmark">
                 <div class="mvp-feat2-top-story left relative">
                     <div class="mvp-feat2-top-img left relative">
@@ -24,9 +24,9 @@
     @endif
     <div class="mvp-feat2-bot-wrap left relative">
         <div class="mvp-main-box">
-            <div class="mvp-feat2-bot left relative">
+            <div class="mvp-feat2-bot left relative light-bg">
                 @foreach($featured_news as $post)
-                    <a href="{{route('post.show',['id'=>$post->id,'category'=> strtolower($post->category->slug),'slug'=>$post->slug])}}"
+                    <a href="{{route('post.show',['id'=>$post->id,'category'=> $post->category->slug,'slug'=>$post->slug])}}"
                        rel="bookmark">
                         <div class="mvp-feat2-bot-story left relative">
                             <div class="mvp-feat2-bot-img left relative">
@@ -46,7 +46,7 @@
                             <div class="mvp-feat2-bot-text left relative">
                                 <div class="mvp-cat-date-wrap left relative">
                                     <span
-                                        class="mvp-cd-cat left relative">{{strtolower($post->category->name->{$locale} ??$post->category->name->{$fallbackLanguage}) }}</span><span
+                                        class="mvp-cd-cat left relative">{{$post->category->name->{$locale} ??$post->category->name->{$fallbackLanguage} }}</span><span
                                         class="mvp-cd-date left relative">{{getTimeLeft(strtotime($post->date),$locale)}}</span>
                                 </div>
                                 <h2>{{$post->title}}</h2>

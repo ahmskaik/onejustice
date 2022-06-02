@@ -12,16 +12,15 @@
     <title>{{ $title ?? $siteSetting['app_brand']->{$locale}??$siteSetting['app_brand']->{$fallbackLanguage} }}</title>
     <meta content='max-image-preview:large' name='robots'/>
     @if($locale==='ar')
-        <link href='assets/css/style.rtl.css?ver=5.7' media='all' rel='stylesheet' type='text/css'/>
-        <link href='assets/css/media-queries.rtl.css?ver=5.8' media='all' rel='stylesheet' type='text/css'/>
+        <link href='assets/css/style.rtl.css?ver=6.7' media='all' rel='stylesheet' type='text/css'/>
+        <link href='assets/css/media-queries.rtl.css?ver=5.9' media='all' rel='stylesheet' type='text/css'/>
 
     @else
-        <link href='assets/css/style.css?ver=5.7' media='all' rel='stylesheet' type='text/css'/>
-        <link href='assets/css/media-queries.css?ver=5.8' media='all' rel='stylesheet' type='text/css'/>
+        <link href='assets/css/style.css?ver=6.7' media='all' rel='stylesheet' type='text/css'/>
+        <link href='assets/css/media-queries.css?ver=5.9' media='all' rel='stylesheet' type='text/css'/>
 
     @endif
 
-    <link href='assets/css/fonts/dashicons/dashicons.min.css?ver=5.8' media='all' rel='stylesheet' type='text/css'/>
     <link href='assets/css/reset.css?ver=5.7' media='all' rel='stylesheet' type='text/css'/>
     <link href='assets/css/fonts/font-awesome/font-awesome.css?ver=5.8' media='all' rel='stylesheet' type='text/css'/>
     <link crossorigin="anonymous"
@@ -29,10 +28,6 @@
           media='all'
           rel='stylesheet' type='text/css'/>
 
-
-    <style type="text/css">
-
-    </style>
     @yield('css')
     <link href="assets/favicon/apple-icon-57x57.png" rel="apple-touch-icon" sizes="57x57">
     <link href="assets/favicon/apple-icon-60x60.png" rel="apple-touch-icon" sizes="60x60">
@@ -108,18 +103,6 @@
             @include('site.layout.footer')
         </div>
     </div>
-    {{--    <div id="cookie-law-info-bar" data-nosnippet="true"
-             style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); font-family: inherit; bottom: 0px; position: fixed; display: block;">
-            <span>We use cookies to  give you the best experience on our website. To learn more, please visit our
-                <a href="{{route('site.safety')}}">Privacy Policy</a>.
-                By continuing on our website, you accept the use of cookies and our revised
-                <a href="{{route('site.safety')}}">Privacy Policy</a>
-                <a role="button"
-                   tabindex="0"
-                   class="cli_action_button cli-accept-button medium cli-plugin-button green"
-                   data-cli_action="accept">Accept</a>
-            </span>
-        </div>--}}
 </div>
 <div class="mvp-fly-top back-to-top">
     <i class="fa fa-angle-up fa-3"></i>
@@ -129,7 +112,6 @@
 <script src='assets/js/jquery.min.js?ver=3.5.1' type='text/javascript'></script>
 <script src='assets/js/main.js?ver=1.7.0' type='text/javascript'></script>
 <script src='assets/js/scripts.js?ver=5.7' type='text/javascript'></script>
-{{--<script src='assets/js/retina.js?ver=5.7' type='text/javascript'></script>--}}
 @yield('js')
 <script>
     (function (i, s, o, g, r, a, m) {

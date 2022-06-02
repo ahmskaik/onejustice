@@ -18,8 +18,8 @@ class SuperAdminController extends Controller
 {
     public static $data = [];
     public $characters = ["", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-    public $defaultEmail = "ahmed@europalforum.org";
-    public $siteName = "Europalforum";
+    public $defaultEmail = "ahmed@onejustice.net";
+    public $siteName = "onejustice";
 
     public function __construct()
     {
@@ -54,7 +54,7 @@ class SuperAdminController extends Controller
         }
 
         //inquiries
-        self::$data["menuActionsValue"][29] = InquiryModel::UnseenList()->count();
+        self::$data["menuActionsValue"][24] = InquiryModel::UnseenList()->count();
 
 
         if ($user) {

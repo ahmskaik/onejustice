@@ -2845,7 +2845,7 @@ ul.mvp-feat1-list-buts li.active span.mvp-feat1-list-but {
 #mvp-main-body-wrap {
     background: #f0f0f0;
     padding-bottom: 60px;
-    width: 100%;
+    width: 100%;margin-top: 25px;
     border-top: solid 3px #23374d;
 }
 
@@ -4112,7 +4112,7 @@ ul.mvp-alp-soc-list li.mvp-alp-soc-pin {
 .archive #mvp-post-head,
 .attachment #mvp-post-head,
 .search #mvp-post-head {
-    margin-top: 10px;
+    margin-top: 30px;
 }
 
 h3.mvp-post-cat {

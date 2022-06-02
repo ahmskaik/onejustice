@@ -4,7 +4,6 @@
              id="mvp-main-nav-top">
             <div class="mvp-main-box">
                 <div class="left relative" id="mvp-nav-top-wrap">
-
                     <div
                         class="mvp-nav-top-right-out left relative"
                         style="top: 5px;">
@@ -12,7 +11,6 @@
                             <div class="mvp-nav-top-cont left relative">
                                 <div class="mvp-nav-top-left-out relative">
                                     <div class="mvp-nav-top-left">
-
                                         <div class="mvp-nav-soc-wrap">
                                             @foreach($siteSetting['social_accounts'] as $account=>$link)
                                                 @if(!empty($link))
@@ -20,12 +18,18 @@
                                                             class="mvp-nav-soc-but fa fa-{{$account=='youtube'?($account.'-play'):$account}}"></span></a>
                                                 @endif
                                             @endforeach
+                                            <div style="margin-right: 2rem;color: #fff;"
+                                                 class="mvp-nav-bot-left left relative">
+                                                <span style="padding-left: 5rem;"
+                                                    class="mvp-nav-search-but fa fa-search fa-2 mvp-search-click"></span>
+                                            </div>
                                         </div>
-                                        <div class="mvp-nav-top-right" >
+                                        <div class="mvp-nav-top-right">
                                             <ul class="menu">
                                                 <li class="menu-item language-menu-item">
                                                     <a href="javascript:;">
-                                                        <img class="" src="assets/images/flags/png16px/{{$active_language['flag']}}.png"
+                                                        <img class=""
+                                                             src="assets/images/flags/png16px/{{$active_language['flag']}}.png"
                                                              alt=""/>
                                                         {{$active_language->translations->{$locale}??$active_language->translations->{$fallbackLanguage} }}
                                                     </a>
@@ -93,13 +97,7 @@
                                                 <span></span>
                                             </div>
                                         </div>
-                                        <div class="mvp-nav-bot-left-in"
-                                             style="display: flex;position: relative;">
-                                            {{--  <div style="margin-right: 2rem"
-                                                   class="mvp-nav-bot-left left relative">
-                                                  <span
-                                                      class="mvp-nav-search-but fa fa-search fa-2 mvp-search-click"></span>
-                                              </div>--}}
+                                        <div class="mvp-nav-bot-left-in" style="display: flex;position: relative;">
                                             <a class="mvp-nav-logo-reg"
                                                href="{{route('site.home')}}"
                                                itemprop="url">
