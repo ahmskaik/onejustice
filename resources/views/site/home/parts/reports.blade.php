@@ -2,7 +2,7 @@
     <div class="mvp-main-box">
         <div class="mvp-widget-home-head">
             <h4 class="mvp-widget-home-title">
-                <span class="mvp-widget-home-title">{{trans('site.reports')}}</span>
+                <span class="mvp-widget-home-title">{{trans('site.reports_publications')}}</span>
             </h4></div>
         <div class="mvp-widget-feat2-wrap left relative">
             <div class="mvp-widget-feat2-out left relative">

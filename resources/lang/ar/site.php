@@ -3,6 +3,7 @@
 return [
     "home" => "الرئيسية",
     "reports" => "تقارير",
+    "reports_publications" => "تقارير واصدارات",
     "published" => "تم النشر",
     "on" => "في",
     "search" => "بحث",

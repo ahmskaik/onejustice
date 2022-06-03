@@ -20,7 +20,7 @@
                                             @endforeach
                                             <div style="margin-right: 2rem;color: #fff;"
                                                  class="mvp-nav-bot-left left relative">
-                                                <span style="padding-left: 5rem;"
+                                                <span style="padding-{{$locale!=='ar'?'left':'right'}}: 5rem;"
                                                     class="mvp-nav-search-but fa fa-search fa-2 mvp-search-click"></span>
                                             </div>
                                         </div>

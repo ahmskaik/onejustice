@@ -3,6 +3,7 @@
 return [
     "home" => "Home",
     "reports" => "reports",
+    "reports_publications" => "Reports and Publications",
     "published" => "Published",
     "on" => "on",
     "search" => "Search",
