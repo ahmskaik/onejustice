@@ -57,7 +57,11 @@ class PagesController extends SuperAdminController
         $pages["contact_us"] = PolicyModel::where('type_id', SystemLookupModel::getIdByKey('SITE_POLICY_CONTACT_US'))->first();
 
         foreach ($pages as $key => $post) {
-            $post->update(['body' => $request->input("" . $key)]);
+            $post->update(
+                [
+                    'title' => $request->input($key)['title'] ?? '',
+                    'body' => $request->input($key)['body'] ?? ''
+                ]);
         }
 
         return redirect(parent::$data['cp_route_name'] . "/" . parent::$data['route'])

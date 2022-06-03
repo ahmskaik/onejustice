@@ -129,7 +129,6 @@
 
         .btn-style-one {
             margin-right: 15px;
-            border-color: #6ac610;
             position: relative;
             display: inline-block;
             line-height: 24px;
@@ -153,8 +152,8 @@
             id='stripe-checkout-js'></script>
     <script>
         var handler_Demo = StripeCheckout.configure({
-            // key: 'pk_live_51InPstJGgSCoxU8otlYIHhBFbETITJJLvy51ObjlQEB4QO45dHC41kUaCrTx0ugcniAypkkMbkNLE6M4wuq4mE5J00sQvijyCt',
-             key: 'pk_test_ngsCwDpgOU5BW69TiM7nAI4V00buaToWlk',
+            key: 'pk_live_51InPstJGgSCoxU8otlYIHhBFbETITJJLvy51ObjlQEB4QO45dHC41kUaCrTx0ugcniAypkkMbkNLE6M4wuq4mE5J00sQvijyCt',
+            // key: 'pk_test_ngsCwDpgOU5BW69TiM7nAI4V00buaToWlk',
             image: '',
             token: function (token) {
                 var donation_amount = jQuery('#stripe-donate-amount').val().replace(/,/, "");

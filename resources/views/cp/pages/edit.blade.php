@@ -2,19 +2,9 @@
 
 @section('css')
     <style>
-        /* .pages-tabs-nav {
-             min-height: 45px !important;
-             background-color: #32c5d2;
-         }
-
-         .pages-tabs-nav * {
-             color: #fff !important;
-         }*/
-
         .nav-tabs.nav-tabs-line.nav.nav-tabs .nav-link:hover, .nav-tabs.nav-tabs-line.nav.nav-tabs .nav-link.active, .nav-tabs.nav-tabs-line a.nav-link:hover, .nav-tabs.nav-tabs-line a.nav-link.active {
-            border-bottom: 3px solid #fff;
+            border-bottom: 3px solid #5d78ff !important;
         }
-
     </style>
 @endsection
 
@@ -77,6 +67,7 @@
                            "id"=>"about_us",
                            "titleValue"=>'About Us',
                            "detailsName"=>"about_us",
+                           "title"=>$about_us->title,
                            "details"=>$about_us->body,
                            "active"=>true
                        ])
@@ -86,6 +77,7 @@
                            "id"=>"terms",
                            "titleValue"=>'Terms and Conditions',
                            "detailsName"=>"terms",
+                           "title"=>$terms->title,
                            "details"=>$terms->body,
                        ])
                         @include("cp.pages.part",
@@ -95,6 +87,8 @@
                          "titleValue"=>'Safety',
                          "detailsName"=>"safety",
                          "details"=>$safety->body,
+                         "title"=>$safety->title,
+
                      ])
                         @include("cp.pages.part",
                      [
@@ -103,6 +97,8 @@
                          "titleValue"=>'Accessibility',
                          "detailsName"=>"accessibility",
                          "details"=>$accessibility->body,
+                         "title"=>$accessibility->title,
+
                      ])
                         @include("cp.pages.part",
                  [
@@ -111,6 +107,8 @@
                      "titleValue"=>'Contact Us',
                      "detailsName"=>"contact_us",
                      "details"=>$contact_us->body,
+                      "title"=>$contact_us->title,
+
                  ])
                     </div>
                 </div>

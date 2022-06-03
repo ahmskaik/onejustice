@@ -6,6 +6,15 @@
         <div id="mvp-article-cont" class="left relative">
             <div class="mvp-main-box">
                 <div id="mvp-post-main" class="left relative">
+                    <header id="mvp-post-head" style="padding: 13px 0 0 0;margin: 1rem 0 3rem 0"
+                            class="left relative light-bg">
+                        <h3 class="mvp-post-cat left relative">
+                            <a>
+                                <span style="border: none!important;font-size: 1.5rem !important;"
+                                      class="mvp-post-cat left"> {{$title}} </span>
+                            </a>
+                        </h3>
+                    </header>
                     <div class="mvp-post-main-out left relative">
                         <div class="mvp-post-main-in2">
                             <div id="mvp-post-content" class="left relative">
@@ -32,7 +41,8 @@
                                                                 <meta itemprop="url"
                                                                       content="{{url('assets/images/logos/logo-nav.png')}}}">
                                                             </div>
-                                                            <meta itemprop="name" content="{{$siteSetting['app_brand']->{$locale}?? $siteSetting['app_brand']->{$fallbackLanguage} }}">
+                                                            <meta itemprop="name"
+                                                                  content="{{$siteSetting['app_brand']->{$locale}?? $siteSetting['app_brand']->{$fallbackLanguage} }}">
                                                         </div>
                                                     </div>
                                                 </div>

@@ -59,7 +59,6 @@
                         </h3>
                     </header>
                     <div class="mvp-main-blog-in2">
-
                         @if(count($category->activeSubCategories))
                             <ul class="" id="block-categories-menu">
                                 @foreach($category->activeSubCategories as $subCategory)

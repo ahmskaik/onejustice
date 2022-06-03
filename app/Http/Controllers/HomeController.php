@@ -37,7 +37,7 @@ class HomeController extends SiteController
     {
         parent::$data["featured_report"] = PostModel::get($active_language_id)->Featured()->where('category_id', CategoryModel::POST_CATEGORY_REPORTS)->with(['category', 'type'])->first();
         parent::$data["featured_reports_middle"] = PostModel::get($active_language_id)->Featured()->where('category_id', CategoryModel::POST_CATEGORY_REPORTS)->with(['category', 'type'])->skip(1)->take(2)->get();
-        parent::$data["reports"] = PostModel::get($active_language_id)->where('is_featured', false)->where('category_id', CategoryModel::POST_CATEGORY_REPORTS)->with(['category', 'type'])->take(5)->get();
+        parent::$data["reports"] = PostModel::get($active_language_id)->where('is_featured', false)->where('category_id', CategoryModel::POST_CATEGORY_REPORTS)->with(['category', 'type'])->take(6)->get();
     }
 
     protected function prepareMediaSection($active_language_id)
