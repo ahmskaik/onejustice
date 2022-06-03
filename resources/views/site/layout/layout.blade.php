@@ -8,7 +8,7 @@
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
           id="viewport"
           name="viewport"/>
-    <meta content="OneJustice" property="og:description"/>
+    <meta content="{{ $siteSetting['app_brand']->{$locale}??$siteSetting['app_brand']->{$fallbackLanguage} }}" property="og:description"/>
     <title>{{ $title ?? $siteSetting['app_brand']->{$locale}??$siteSetting['app_brand']->{$fallbackLanguage} }}</title>
     <meta content='max-image-preview:large' name='robots'/>
     @if($locale==='ar')
