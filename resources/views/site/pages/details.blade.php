@@ -15,7 +15,7 @@
                             </a>
                         </h3>
                     </header>
-                    <div class="mvp-post-main-out left relative">
+                    <div class="mvp-post-main-out left relative light-bg">
                         <div class="mvp-post-main-in2">
                             <div id="mvp-post-content" class="left relative">
                                 <div id="mvp-content-wrap" class="left relative">
