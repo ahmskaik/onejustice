@@ -20,7 +20,7 @@
     <script>
         jQuery(document).ready(function () {
             formWorker.init();
-            $('.kt-selectpicker,#countries').selectpicker();
+            $('.kt-selectpicker').selectpicker();
 
             /* $('#countries').select2({
                  placeholder: "Select relevant countries",
@@ -65,11 +65,11 @@
                                 <div class="kt-section__body">
                                     <div class="form-group row">
                                         <div class="col-lg-12">
-                                            <label>Title: <span
+                                            <label for="title">Title: <span
                                                     class="required"> * </span></label>
                                             <input type="text"
                                                    class="form-control @if ($errors->has('title')) is-invalid @endif"
-                                                   name="title"
+                                                   name="title" id="title"
                                                    placeholder="Title"
                                                    value="{{ $post->title  ?? old("title") }}">
                                             @if ($errors->has('title'))
@@ -79,11 +79,11 @@
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-lg-12">
-                                            <label>Summary: <span
+                                            <label for="summary">Summary: <span
                                                     class="required"> * </span></label>
                                             <textarea type="text"
                                                       class="form-control @if ($errors->has('summary')) is-invalid @endif"
-                                                      name="summary"
+                                                      name="summary" id="summary"
                                                       rows="5"
                                                       placeholder="Summary">{{ $post->summary  ?? old("summary") }}</textarea>
                                             @if ($errors->has('summary'))
@@ -95,7 +95,7 @@
                                         <div class="col-lg-12">
                                             <label for="countries">Relevant Countries</label>
                                             <div>
-                                                <select class="form-control kt-select2" id="countries"
+                                                <select  data-live-search="true" class="form-control kt-selectpicker" id="countries"
                                                         name="country_id[]" multiple="multiple">
                                                     <option></option>
                                                     {{-- @foreach($countries as $country)
@@ -119,25 +119,25 @@
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-lg-6">
-                                            <label>Keywords</label>
+                                            <label for="tags">Keywords</label>
                                             <div>
                                                 <input class="tags-input tagify"
                                                        type="text"
-                                                       name="tags"
+                                                       name="tags" id="tags"
                                                        placeholder="Tags"
                                                        value="{{ $post->tags ?? old('tags')}}">
                                                 <span class="form-text text-muted">Use related keywords</span>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
-                                            <label>Date</label>
+                                            <label for="date">Date</label>
                                             <div class="input-group">
                                                 <div class="input-group-prepend"><span class="input-group-text"><i
                                                             class="fa fa-calendar-check"></i></span></div>
                                                 <input type="text"
                                                        class="form-control datepicker-input @if ($errors->has('date')) is-invalid @endif"
                                                        placeholder="" readonly
-                                                       name="date"
+                                                       name="date" id="date"
                                                        value="{{ $post->date ? date('Y-m-d',strtotime($post->date)): old('date') }}"/>
                                                 @if ($errors->has('date'))
                                                     <div class="invalid-feedback">{{$errors->first('date') }}</div>
@@ -147,11 +147,11 @@
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-lg-12">
-                                            <label>Details: <span
+                                            <label for="body">Details: <span
                                                     class="required"> * </span></label>
                                             <textarea type="text"
                                                       class="tinymce{{$locale==='ar'?'-rtl':''}} form-control @if ($errors->has('body')) is-invalid @endif"
-                                                      name="body"
+                                                      name="body" id="body"
                                                       rows="10"
                                                       style="height: 550px;"
                                                       placeholder="Details">{!! $post->body  ?? old("body")  !!}</textarea>
