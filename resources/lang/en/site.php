@@ -22,6 +22,7 @@ return [
     "areas" => "Areas",
     "copyright" => "Copyright",
     "more_posts" => "More Posts",
+    "news_map" => "News Map",
     "post" => "post",
     "related_topics" => "Related Topics",
     "get_involved" => "Get Involved",

@@ -11,10 +11,10 @@ class CategoryModel extends SuperModel
     protected $table = 'categories';
     protected $primaryKey = 'id';
     protected $guarded = [];
-    public const POST_CATEGORY_PUBLICATIONS = 1;
-    public const POST_CATEGORY_REPORTS = 2;
-    public const POST_CATEGORY_STATEMENTS = 3;
-    public const POST_CATEGORY_MEDIA = 4;
+    /*public const POST_CATEGORY_PUBLICATIONS = 1;*/
+    public const POST_CATEGORY_REPORTS = 1;
+    public const POST_CATEGORY_STATEMENTS = 2;
+    public const POST_CATEGORY_MEDIA = 3;
 
     public function getNameAttribute($value)
     {

@@ -22,6 +22,7 @@ return [
     "media" => "صحافة",
     "copyright" => "جميع الحقوق محفوظة",
     "more_posts" => "تحميل المزيد",
+    "news_map" => "خارطة الأخبار",
     "post" => "خبر",
     "related_topics" => "كلمات مفتاحية",
     "get_involved" => "فعاليات",

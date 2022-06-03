@@ -1,4 +1,4 @@
-<div class="mvp-main-blog-wrap left relative" style="background-color: #f2f2f2;">
+<div id="newsmap" class="mvp-main-blog-wrap left relative" style="background-color: #f2f2f2;">
     <section class="pageWraper">
         <section id="mapSection">
             <div id="FilterHolder">
