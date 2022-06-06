@@ -10,7 +10,9 @@ class PostsController extends SiteController
 {
     public function show(Request $request, $id, $category = '', $slug = '')
     {
-        $post = PostModel::Published()->Language(parent::$data['active_language_id'])->find($id);
+        $post = PostModel::with(['countries' => function ($q) {
+            $q->select(['countries.id', 'properties->' . parent::$data["locale"] . ' as CountryName']);
+        }])->Published()->Language(parent::$data['active_language_id'])->find($id);
         if (!$post)
             return redirect()->to(route('site.home'));
 
@@ -26,6 +28,7 @@ class PostsController extends SiteController
                         $q->whereJsonContains("tags", trim($tag));
                 });
             })
+            ->where('id', '!=', $post->id)
             ->latest()
             ->with(['category', 'type'])
             ->take(6)

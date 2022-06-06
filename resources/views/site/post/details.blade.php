@@ -17,7 +17,7 @@
                         <h3 class="mvp-post-cat left relative">
                             <a class=""
                                href="{{route('site.home')}}">
-                                <span  style="border: none!important;"  class="mvp-post-cat left"> {{trans('site.home')}} | </span>
+                                <span style="border: none!important;" class="mvp-post-cat left"> {{trans('site.home')}} | </span>
                             </a>
                             <a class="mvp-post-cat-link"
                                href="{{route('site.getPostsByCategory',['category'=>strtolower(str_replace(' ','_',$post->category->slug))])}}">
@@ -71,13 +71,26 @@
                                             <div id="mvp-content-body" class="left relative">
                                                 <div id="mvp-content-body-top" class="left relative">
                                                     <div id="mvp-content-main" class="left relative">
-                                                        <div id="tps_slideContainer_76" class="theiaPostSlider_slides">
+                                                        <div class="theiaPostSlider_slides">
                                                             <div class="theiaPostSlider_preloadedSlide"
                                                                  style="font-size: 20px;">
                                                                 {!! $post->body !!}
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    @if($post->countries)
+                                                        <div class="meta"
+                                                             style="margin: 1rem 0;display: inline-block; width: 100%; overflow: hidden;">
+                                                            {{trans('site.areas')}}:
+                                                            @foreach($post->countries as $country)
+                                                                <a class="meta">{{$country->CountryName}}</a>
+                                                                @if(!$loop->last)
+                                                                    ,
+                                                                @endif
+                                                            @endforeach
+                                                        </div>
+                                                        <br>
+                                                    @endif
                                                     <div id="mvp-content-bot" class="left">
                                                         {{--@include('site.post.gallery')--}}
                                                         @if(json_decode($post->tags))
