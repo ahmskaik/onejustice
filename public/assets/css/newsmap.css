@@ -740,10 +740,10 @@ a {
         display: block;
     }
 
-    #mapSection {
+   /* #mapSection {
         display: none;
-    }
-
+    }*/
+#FilterHolder,.mapStyle{display: none!important;}
     #mapSection > div:nth-child(1) {
         max-width: 100%;
     }

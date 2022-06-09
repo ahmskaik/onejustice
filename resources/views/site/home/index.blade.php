@@ -2,9 +2,9 @@
 @section('css')
 
     @if($locale==='ar')
-        <link href='assets/css/newsmap.rtl.css?ver=5.7' media='all' rel="stylesheet"/>
+        <link href='assets/css/newsmap.rtl.css?ver=5.8' media='all' rel="stylesheet"/>
     @else
-        <link href='assets/css/newsmap.css?ver=5.7' media='all' rel="stylesheet"/>
+        <link href='assets/css/newsmap.css?ver=5.8' media='all' rel="stylesheet"/>
     @endif
 
     <script
