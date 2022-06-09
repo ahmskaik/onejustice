@@ -421,7 +421,7 @@ function SelectMapStyle(type) {
 // Get Latest News (all and by countryId)
 function GetLatestNews(type, from, to, countryId, pageno, pagesize) {
     if ($("#mostNew").find(".loadingHolder").length == 0) {
-        $("#mostNew").append("<div class='loadingHolder' ><img class='imgloading' src='assets/images/loading.GIF'></div>");
+        $("#mostNew").append("<div class='loadingHolder' ><img class='imgloading' src='assets/images/loading.gif'></div>");
     }
     searchtype = type;
     $.ajax({
@@ -603,7 +603,7 @@ function resetSelect() {
 
 // Get Count For Countries
 function ShowNewsMapCount(type, from, to, countryId, continentID, ArabWorld) {
-    $("#map-canvas").append("<div class='loadingHolder mapLoading'><img class='imgloading' src='assets/images/loading.GIF'></div>");
+    $("#map-canvas").append("<div class='loadingHolder mapLoading'><img class='imgloading' src='assets/images/loading.gif'></div>");
     clearOverlays();
     $.ajax({
         // url: "/NewsMap/NewsMapCount/" + type + "/" + from + "/" + to + "/" + countryId + "/" + continentID + "/" + ArabWorld + "",
@@ -742,7 +742,7 @@ function GetListNewsByCountry(obj) {
     }
 
     $("#countryid").val(countryId);
-    $("#map-canvas").append("<div class='loadingHolder mapLoading'><img class='imgloading' src='assets/images/loading.GIF'></div>");
+    $("#map-canvas").append("<div class='loadingHolder mapLoading'><img class='imgloading' src='assets/images/loading.gif'></div>");
     $.ajax({
         url: locale + "/latestNews/" + countryId + "?type=" + type + "&from=" + from + "&to=" + to + "&countryId=" + countryId + "&pageno=" + pageno + "&pagesize=" + pagesize + "",
         type: 'GET',
@@ -780,7 +780,7 @@ function GetListNewsByCountry(obj) {
 function GetListNewsByCountrybody(countryId) {
     //loading image
     if ($("#popUpNewsHolder").find(".loadingHolder").length == 0) {
-        $("#popUpNewsHolder").append("<div class='loadingHolder' ><img class='imgloading' src='/assets/images/loading.GIF'></div>");
+        $("#popUpNewsHolder").append("<div class='loadingHolder' ><img class='imgloading' src='/assets/images/loading.gif'></div>");
     }
     ;var type = $("#searchtype").val();
     var from = fromdate;

@@ -13,7 +13,7 @@
 @endsection
 
 @section('js')
-    <script src="assets/js/newsMap/newsMap.js"></script>
+    <script src="assets/js/newsMap/newsMap.js?v=1.0.2"></script>
 @endsection
 @section('content')
     @include('site.home.parts.hero'.($siteSetting['active_theme'][0]??1))
