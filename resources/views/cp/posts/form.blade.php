@@ -95,7 +95,8 @@
                                         <div class="col-lg-12">
                                             <label for="countries">Relevant Countries</label>
                                             <div>
-                                                <select  data-live-search="true" class="form-control kt-selectpicker" id="countries"
+                                                <select data-live-search="true" class="form-control kt-selectpicker"
+                                                        id="countries"
                                                         name="country_id[]" multiple="multiple">
                                                     <option></option>
                                                     {{-- @foreach($countries as $country)
@@ -230,9 +231,7 @@
                                                 @foreach($languages as $language)
                                                     <option
                                                         data-icon="ini__flag ini__{{strtolower($language->flag)}}"
-                                                        @if($post->language_id==$language->id
-                                                            || (old("language_id")
-                                                            &&old("language_id")==$post->language_id)) selected="selected"
+                                                        @if($language->id == old("language_id",$post->language_id)) selected="selected"
                                                         @endif
                                                         value="{{ $language->id }}">{{ $language->name}}</option>
                                                 @endforeach
@@ -251,9 +250,7 @@
                                                     class="form-control select-required @if ($errors->has('category_id')) is-invalid @endif">
                                                 @foreach($categories as $category)
                                                     <option
-                                                        @if($post->category_id==$category->id
-                                                            || (old("category_id")
-                                                            &&old("category_id")==$post->category_id)) selected="selected"
+                                                        @if($category->id == old('category_id',$post->category_id)) selected="selected"
                                                         @endif
                                                         value="{{ $category->id }}">{{ $category->category_name}}</option>
                                                 @endforeach
@@ -272,9 +269,7 @@
                                                     class="form-control select-required @if ($errors->has('type_id')) is-invalid @endif">
                                                 @foreach($types as $type)
                                                     <option
-                                                        @if($post->type_id==$type->id
-                                                            || (old("type_id")
-                                                            &&old("type_id")==$post->type_id)) selected="selected"
+                                                        @if($type->id == old('type_id',$post->type_id)) selected="selected"
                                                         @endif
                                                         value="{{ $type->id }}">{{ $type->text}}</option>
                                                 @endforeach
@@ -293,9 +288,7 @@
                                                     class="form-control select-required @if ($errors->has('status_id')) is-invalid @endif">
                                                 @foreach($statuses as $status)
                                                     <option
-                                                        @if($post->status_id==$status->id
-                                                            || (old("status_id")
-                                                            &&old("status_id")==$post->status_id)) selected="selected"
+                                                        @if(old("status_id",$post->status_id) == $status->id ) selected="selected"
                                                         @endif
                                                         value="{{ $status->id }}">{{ $status->text}}</option>
                                                 @endforeach
@@ -317,7 +310,7 @@
                                                     <label>
                                                         <input type="checkbox" name="is_featured"
                                                                value="1"
-                                                               @if($post && $post->is_featured) checked="checked"  @endif>
+                                                               @if(old('is_featured',$post->is_featured)) checked="checked"  @endif>
                                                         <span></span>
                                                     </label>
                                                 </span>

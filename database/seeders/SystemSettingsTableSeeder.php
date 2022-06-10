@@ -22,6 +22,7 @@ class SystemSettingsTableSeeder extends Seeder
                 'twitter' => 'twitter.com',
                 'youtube' => 'youtube.com',
                 'flickr' => 'flickr.com',
+                'instagram' => 'instagram.com',
             ]
         ]);
         SettingModel::create(['name' => 'meta_description', 'sysset_data' => ['en' => 'meta description', 'ar' => 'meta description', 'tr' => 'meta description']]);
