@@ -77,6 +77,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => $cp_route_name], function () {
         Route::group(['prefix' => 'donations'], function () {
             Route::get('/', ['as' => 'donation_view', 'uses' => 'DonationsController@index']);
             Route::get('list', ['as' => 'donation_list', 'uses' => 'DonationsController@get']);
+            Route::get('show/{id}', ['as' => 'donation_show', 'uses' => 'DonationsController@show']);
         });
         Route::get('/', [\App\Http\Controllers\Admin\DashboardController::class, 'getIndex']);
         Route::get('logout', 'LoginController@logout');

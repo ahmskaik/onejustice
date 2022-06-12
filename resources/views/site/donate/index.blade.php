@@ -155,7 +155,7 @@
             key: 'pk_live_51InPstJGgSCoxU8otlYIHhBFbETITJJLvy51ObjlQEB4QO45dHC41kUaCrTx0ugcniAypkkMbkNLE6M4wuq4mE5J00sQvijyCt',
             // key: 'pk_test_ngsCwDpgOU5BW69TiM7nAI4V00buaToWlk',
             image: '',
-            token: function (token) {
+            token: function (data) {
                 var donation_amount = jQuery('#stripe-donate-amount').val().replace(/,/, "");
                 jQuery.ajaxSetup({
                     headers: {
@@ -167,7 +167,7 @@
                         type: "POST",
                         url: 'en/donate',
                         data: {
-                            token: token.id,
+                            data: data,
                             amount: donation_amount
                         },
                         success: function (msg) {

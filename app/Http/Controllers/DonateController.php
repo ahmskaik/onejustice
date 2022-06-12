@@ -15,13 +15,18 @@ class DonateController extends SiteController
 
     public function store(Request $request)
     {
-        if ($request->token) {
+        $data = $request->data;
+        if ($data) {
             DonationModel::create([
+                'email' => $data['email'],
                 'gateway' => 'stripe',
-                'token' => $request->token,
+                'token' => $data['id'],
+                'last4' => $data['card']['last4'],
+                'brand' => $data['card']['brand'],
                 'amount' => $request->amount,
                 'currency' => 'USD',
-                'ip' => \Request::ip()
+                'ip' => $data['client_ip'],
+                'payload' => json_encode($data)
             ]);
             return response()->json(trans('site.donation_done'));
         }

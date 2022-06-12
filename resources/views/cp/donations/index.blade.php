@@ -6,7 +6,7 @@
 
 @section('js')
     <script src="cp/plugins/custom/datatables/datatables.bundle.js" type="text/javascript"></script>
-    <script src="cp/js/pages/donations/list.js?v=2.0.6" type="text/javascript"></script>
+    <script src="cp/js/pages/donations/list.js?v=2.0.7" type="text/javascript"></script>
 @endsection
 
 @section('content')
@@ -73,6 +73,7 @@
                     <thead>
                     <tr>
                         <th>#</th>
+                        <th>Email</th>
                         <th>Gateway</th>
                         <th>Amount</th>
                         <th>Currency</th>

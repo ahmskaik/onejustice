@@ -4,7 +4,7 @@ use App\Models\DonationModel;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 
-class DonationsController extends SuperAdminController
+class   DonationsController extends SuperAdminController
 {
     public function __construct()
     {
@@ -41,16 +41,10 @@ class DonationsController extends SuperAdminController
                 $result = '<div class="actions tbl-sm-actions kt-align-center">';
 
                 $result .= '<a class="btn btn-outline-success btn-icon btn-circle btn-sm ml-2"
-                     href="' . parent::$data['cp_route_name'] . '/' . parent::$data['route'] . '/show/' . $data->id . '"
-                     data-skin="dark" data-toggle="kt-tooltip" data-placement="top" title="show" data-original-title="show">
+                     href="' . route('donation_show', ['id' => $data->id]) . '"
+                      data-placement="top" title="show" data-original-title="show">
                                     <i class="la la-eye"></i>
                                 </a>';
-                $result .= '<a class="btn btn-outline-danger btn-icon btn-circle btn-sm ml-2 js-btn-delete"
-                   href="javascript:;"   data-href="' . parent::$data['cp_route_name'] . '/' . parent::$data['route'] . '/delete/' . $data->id . '"
-                     data-skin="dark" data-toggle="kt-tooltip" data-placement="top" title="delete" data-original-title="delete">
-                                    <i class="la la-trash"></i>
-                                </a>';
-
                 $result .= "</div>";
                 return $result;
             });
@@ -88,5 +82,15 @@ class DonationsController extends SuperAdminController
         redirect(parent::$data['cp_route_name'] . '/' . parent::$data['route']);
     }
 
+    public function show(Request $request, $id)
+    {
+        if (!$donation = DonationModel::find($id))
+            return redirect(parent::$data['cp_route_name']);
+
+        parent::$data["title"] = '';
+        parent::$data["page_title"] = 'Donation Details';
+        parent::$data["donation"] = $donation;
+        return view('cp.donations.show', parent::$data);
+    }
 
 }

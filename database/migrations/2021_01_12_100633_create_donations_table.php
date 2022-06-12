@@ -15,11 +15,15 @@ class CreateDonationsTable extends Migration
     {
         Schema::create('donations', function (Blueprint $table) {
             $table->id();
+            $table->string('email')->index();
             $table->string('gateway')->index();
             $table->string('token')->index();
+            $table->string('last4')->nullable();
+            $table->string('brand')->nullable();
             $table->decimal('amount');
             $table->string('currency');
             $table->string('ip')->nullable();
+            $table->json('payload')->nullable();
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();
         });

@@ -11,6 +11,7 @@ class DonationModel extends SuperModel
     protected $table = 'donations';
     protected $primaryKey = 'id';
     protected $guarded = [];
+    protected $casts = ['payload'=>'array'];
 
     public static function getList($filter = [])
     {

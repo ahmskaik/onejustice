@@ -44,9 +44,10 @@ jQuery(document).ready(function () {
             "data": function (d) {
             }
         },
-        "order": [[5, 'desc']],
+        "order": [[6, 'desc']],
         "columns": [
             {data: 'id', name: 'donations.id', orderable: true},
+            {data: 'email', name: 'donations.email', orderable: true},
             {data: 'gateway', name: 'gateway', searchable: false},
             {data: 'amount', name: 'amount', searchable: false},
             {data: 'currency', name: 'currency', searchable: false},
