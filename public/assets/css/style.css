@@ -37,6 +37,7 @@ q:before, q:after {
     content: '';
     content: none;
 }
+.mvp-nav-logo-reg img{width: 164px; position: relative;}
 
 table {
     border-collapse: collapse;

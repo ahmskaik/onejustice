@@ -1,6 +1,33 @@
 @extends('site.layout.layout')
 @section('css')
     <style>
+        .kt-separator {
+            margin: 2.5rem 0;
+            border-bottom: 1px dashed #ebedf2;
+            height: 0;
+        }
+
+        .contact-details {
+
+            padding: 0 2rem;
+        }
+
+        .contact-details-item {
+            margin: 1rem 0;
+            display: block;
+        }
+
+        .contact-details-item:last-child {
+            margin: 0.5rem 0;
+        }
+
+        .contact-details-item i {
+            padding: 0 5px;
+        }
+
+        .contact-details ul.mvp-foot-soc-list {
+            text-align: unset !important;margin-top: 10px;
+        }
 
         .fcf-form-group {
             margin-bottom: 1rem;
@@ -130,9 +157,14 @@
 @section('content')
     <div class="mvp-main-box">
         <div class="mvp-main-blog-cont left relative">
-            <header id="mvp-post-head" class="left relative" style="margin-top: 30px;">
-                <h1 class="mvp-post-title left entry-title"
-                    itemprop="headline">{{trans('site.contact_us_page.header')}}</h1>
+            <header id="mvp-post-head" style="padding: 13px 0 0 0;margin: 1rem 0 3rem 0"
+                    class="left relative light-bg">
+                <h3 class="mvp-post-cat left relative">
+                    <a>
+                        <span style="border: none!important;font-size: 1.5rem !important;"
+                              class="mvp-post-cat left"> {{$title}} </span>
+                    </a>
+                </h3>
             </header>
             <div class="mvp-main-blog-out left relative light-bg">
                 <div class="mvp-main-blog-in">
@@ -141,6 +173,32 @@
                             <img src="assets/images/logos/logo2-nav.png">
                         </p>
                         {!! $content->the_body !!}
+                        <div class="contact-details">
+                            <div class="kt-separator kt-separator--space-lg kt-separator--border-dashed"></div>
+                            <p>{{trans('site.contact_us')}}:</p>
+                            @if(isset($siteSetting['contact_phone'][0]))
+                                <a class="contact-details-item">
+                                    <i aria-hidden="true" class="fa fa-phone"></i> {{$siteSetting['contact_phone'][0]}}
+                                </a>
+                            @endif
+                            @if(isset($siteSetting['contact_phone'][0]))
+                                <a class="contact-details-item">
+                                    <i aria-hidden="true"
+                                       class="fa fa-envelope"></i> {{$siteSetting['contact_email'][0]}}
+                                </a>
+                            @endif
+                            <div class="kt-separator kt-separator--space-lg kt-separator--border-dashed"></div>
+                            <p>{{trans('site.keep_in_touch')}}:</p>
+                            <ul class="mvp-foot-soc-list left relative">
+                                @foreach($siteSetting['social_accounts'] as $account=>$link)
+                                    @if(!empty($link))
+                                        <li><a class="fa fa-{{$account=='youtube'?($account.'-play'):$account}} fa-2"
+                                               href="{{$link}}"
+                                               target="_blank"></a></li>
+                                    @endif
+                                @endforeach
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <div id="mvp-side-wrap" class="left relative ">

@@ -15,6 +15,9 @@ class ContactUsController extends SiteController
         parent::$data["content"] = PolicyModel::where('type_id', SystemLookupModel::getIdByKey('SITE_POLICY_CONTACT_US'))
             ->select(['title->' . parent::$data["locale"] . ' as the_title', 'body->' . parent::$data["locale"] . ' as the_body'])->first();
 
+        parent::$data["title"] = parent::$data["content"]->the_title;
+
+
         return view('site.contact.form', parent::$data);
     }
 

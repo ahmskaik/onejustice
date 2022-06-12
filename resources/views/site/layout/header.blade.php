@@ -104,7 +104,7 @@
                                                 <img
                                                     alt="{{$siteSetting['app_brand']->{$locale}??$siteSetting['app_brand']->{$fallbackLanguage} }}"
                                                     data-rjs="2"
-                                                    itemprop="logo" style="width: 145px; position: relative;"
+                                                    itemprop="logo"
                                                     src="assets/images/logos/logo-light.png"/></a>
 
                                             <div class="mvp-nav-menu left">

@@ -12,11 +12,11 @@
     <title>{{ $title ?? $siteSetting['app_brand']->{$locale}??$siteSetting['app_brand']->{$fallbackLanguage} }}</title>
     <meta content='max-image-preview:large' name='robots'/>
     @if($locale==='ar')
-        <link href='assets/css/style.rtl.css?ver=6.7' media='all' rel='stylesheet' type='text/css'/>
+        <link href='assets/css/style.rtl.css?ver=7.7' media='all' rel='stylesheet' type='text/css'/>
         <link href='assets/css/media-queries.rtl.css?ver=5.9' media='all' rel='stylesheet' type='text/css'/>
 
     @else
-        <link href='assets/css/style.css?ver=6.7' media='all' rel='stylesheet' type='text/css'/>
+        <link href='assets/css/style.css?ver=7.7' media='all' rel='stylesheet' type='text/css'/>
         <link href='assets/css/media-queries.css?ver=5.9' media='all' rel='stylesheet' type='text/css'/>
 
     @endif

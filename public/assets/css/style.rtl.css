@@ -37,6 +37,7 @@ q:before, q:after {
     content: '';
     content: none;
 }
+.mvp-nav-logo-reg img{width: 160px; position: relative;}
 
 table {
     border-collapse: collapse;
@@ -4111,7 +4112,6 @@ ul.mvp-alp-soc-list li.mvp-alp-soc-pin {
 .search #mvp-post-head {
     margin-top:30px;
 }
-
 h3.mvp-post-cat {
     margin-bottom: 10px;
     width: 100%;

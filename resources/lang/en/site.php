@@ -48,6 +48,7 @@ return [
     "read_also" => "Read Also",
     "date" => "Publish Date",
     "contact_us" => "Contact Us",
+    'keep_in_touch' => 'Keep in touch',
     "more_events_and_announcements" => "More of events and announcements",
     "footer_description" => "Onejustice is an independent organisation advocating Palestinian rights and working to achieve a positive and accurate public opinion on Palestine.",
     "contact_us_page" => [
@@ -86,5 +87,5 @@ return [
         '16_more_posts' => '16 and more news',
     ],
     'donation_done' => 'Thanks for your donation! Your donation to will make a big difference.',
-    'amount' => 'Amount'
-];
+    'amount' => 'Amount',
+ ];
