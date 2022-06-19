@@ -1,9 +1,3 @@
-/*************************************************************************************/
-/*Creation Date     : 04/02/2015                                                     */
-/*Created By        : abdullah idrees And Sohaib Yaghan                              */
-/*About             : portal site map                                                */
-/*LeaderName        : Amer Turk                                                      */
-/*************************************************************************************/
 var clickedMarker = true;
 var markersArray = [];
 var map;

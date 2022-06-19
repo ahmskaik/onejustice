@@ -30,16 +30,20 @@ class HomeController extends SiteController
     protected function prepareMainSection($active_language_id)
     {
         parent::$data["featured_article"] = PostModel::get($active_language_id)->Featured()->first();
-        parent::$data["featured_news"] = PostModel::get($active_language_id)->when(parent::$data["featured_article"], function ($q) {
-            $q->where('id', '!=', parent::$data["featured_article"]->id);
-        })->with(['category', 'type'])->take(4)->get();
+        parent::$data["featured_news"] = PostModel::get($active_language_id)
+            ->when(parent::$data["featured_article"], function ($q) {
+                $q->where('id', '!=', parent::$data["featured_article"]->id);
+            })
+            ->with(['category', 'type'])
+            ->take(4)
+            ->get();
     }
 
     protected function prepareReportsSection($active_language_id)
     {
         parent::$data["featured_report"] = PostModel::get($active_language_id)->Featured()->where('category_id', CategoryModel::POST_CATEGORY_REPORTS)->with(['category', 'type'])->first();
-        parent::$data["featured_reports_middle"] = PostModel::get($active_language_id)/*->Featured()*/->where('category_id', CategoryModel::POST_CATEGORY_REPORTS)->with(['category', 'type'])->skip(1)->take(2)->get();
-        parent::$data["reports"] = PostModel::get($active_language_id)/*->where('is_featured', false)*/ ->where('category_id', CategoryModel::POST_CATEGORY_REPORTS)->with(['category', 'type'])->skip(parent::$data["featured_reports_middle"]->count()+1)->take(6)->get();
+        parent::$data["featured_reports_middle"] = PostModel::get($active_language_id)/*->Featured()*/ ->where('category_id', CategoryModel::POST_CATEGORY_REPORTS)->with(['category', 'type'])->skip(1)->take(2)->get();
+        parent::$data["reports"] = PostModel::get($active_language_id)/*->where('is_featured', false)*/ ->where('category_id', CategoryModel::POST_CATEGORY_REPORTS)->with(['category', 'type'])->skip(parent::$data["featured_reports_middle"]->count() + 1)->take(6)->get();
     }
 
     protected function prepareMediaSection($active_language_id)
@@ -139,6 +143,7 @@ class HomeController extends SiteController
             ->with(['category', 'countries' => function ($q) {
                 $q->select(['countries.id', 'properties->' . parent::$data["locale"] . ' as CountryName']);
             }])
+            ->orderby('date', 'desc')
             ->Language($active_language_id)
             ->Published()
             ->take(15)
