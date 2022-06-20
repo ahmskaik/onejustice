@@ -150,7 +150,7 @@ class PostsController extends SuperAdminController
     {
         $attributes = request()->validate([
             'title' => ['required', 'string', 'max:255'],
-            'summary' => ['required'],
+            'summary' => [],
             'body' => ['required'],
             'status_id' => ['required'],
             'category_id' => ['required'],
