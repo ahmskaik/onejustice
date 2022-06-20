@@ -15,9 +15,9 @@
         <link href="cp/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css"/>
         <link href="cp/css/style.bundle.css" rel="stylesheet" type="text/css"/>
     @endif
-   
+
     @yield('css')
-    <link href="cp/css/custom.css?v=1.2.2" rel="stylesheet" type="text/css"/>
+    <link href="cp/css/custom.css?v=1.3.2" rel="stylesheet" type="text/css"/>
 
     <link rel="shortcut icon" href="cp/media/logos/favicon.ico"/>
     <meta name="csrf-token" content="{{ csrf_token() }}">
