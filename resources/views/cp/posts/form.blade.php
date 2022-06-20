@@ -79,8 +79,7 @@
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-lg-12">
-                                            <label for="summary">Summary: <span
-                                                    class="required"> * </span></label>
+                                            <label for="summary">Summary:</label>
                                             <textarea type="text"
                                                       class="form-control @if ($errors->has('summary')) is-invalid @endif"
                                                       name="summary" id="summary"
@@ -99,10 +98,6 @@
                                                         id="countries"
                                                         name="country_id[]" multiple="multiple">
                                                     <option></option>
-                                                    {{-- @foreach($countries as $country)
-                                                         <option value="{{$country->id}}">{{$country->name}}</option>
-                                                     @endforeach--}}
-
                                                     @foreach($countries as $country)
                                                         <option
                                                             data-icon="ini__flag ini__{{strtolower($country->iso_code)}}"
