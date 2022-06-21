@@ -69,88 +69,83 @@
                             </ul>
                         @endif
                         <div class="mvp-main-blog-body left relative">
-                            <div id="mvp-cat-feat-wrap" class="light-bg left relative">
-                                @if($main_post)
-                                    <div class="mvp-widget-feat2-left left relative mvp-widget-feat2-left-alt">
-                                        <a href="{{route('post.show',['id'=>$main_post->id,'category'=>strtolower($main_post->category->slug),'slug'=>$main_post->slug])}}"
-                                           rel="bookmark">
-                                            <div class="mvp-widget-feat2-left-cont left relative">
-                                                <div class="mvp-feat1-feat-img left relative">
-                                                    <img width="560" height="600"
-                                                         src="uploads/posts/{{$main_post->cover_image}}"
-                                                         class="attachment-mvp-port-thumb size-mvp-port-thumb"
-                                                         alt="{{$main_post->title}}" loading="lazy"/>
-                                                    @if(!empty($main_post->type->syslkp_data->icon))
-                                                        <div
-                                                            class="mvp-vid-box-wrap mvp-vid-box-mid">
-                                                            <i class="{{$main_post->type->syslkp_data->icon}}"
-                                                               aria-hidden="true"></i>
-                                                        </div>
-                                                    @endif
-                                                </div>
-                                                <div class="mvp-feat1-feat-text left relative">
-                                                    <div class="mvp-cat-date-wrap left relative">
-                                                        <span
-                                                            class="mvp-cd-cat left relative">{{$category->name->{$locale} ??$category->name->{$fallbackLanguage} }}</span><span
-                                                            class="mvp-cd-date left relative">{{getTimeLeft(strtotime($main_post->date),$locale)}}</span>
-                                                    </div>
-                                                    <h2>{{$main_post->title}}</h2>
-                                                    <p>{{$main_post->summary}}</p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                @endif
-                                <div class="mvp-widget-feat2-right left relative">
-                                    {{-- <a class=""
-                                        href="{{route('site.home')}}">
-                                         <span  style="border: none!important;"  class="mvp-post-cat left"> {{trans('site.home')}} | </span>
-                                     </a>
-                                     <h1 class="mvp-feat1-pop-head"><span
-                                             class="mvp-feat1-pop-head">{{$category->name->{$locale}??$category->name->{$fallbackLanguage} }}</span>
-                                     </h1>--}}
-                                    <div class="mvp-widget-feat2-right-main left relative">
-                                        @foreach($featured_posts as $post)
-                                            <a href="{{route('post.show',['id'=>$post->id,'category'=>strtolower($post->category->slug),'slug'=>$post->slug])}}"
+                            @if($main_post || $featured_posts)
+                                <div id="mvp-cat-feat-wrap" class="light-bg left relative">
+                                    @if($main_post)
+                                        <div class="mvp-widget-feat2-left left relative mvp-widget-feat2-left-alt">
+                                            <a href="{{route('post.show',['id'=>$main_post->id,'category'=>strtolower($main_post->category->slug),'slug'=>$main_post->slug])}}"
                                                rel="bookmark">
-                                                <div class="mvp-widget-feat2-right-cont left relative">
-                                                    <div class="mvp-widget-feat2-right-img left relative">
-                                                        <img
-                                                            src="{{loadImage($post->cover_image,'posts',448,180,100,'',0)}}"
-                                                            class="mvp-reg-img lazy"
-                                                            alt="{{$post->title}}"
-                                                            loading="lazy"
-                                                        />
-                                                        <img
-                                                            width="80"
-                                                            height="80"
-                                                            src="{{loadImage($post->cover_image,'posts',445,180,100,'',0)}}"
-                                                            class="mvp-mob-img lazy"
-                                                            alt=""
-                                                            loading="lazy"
-                                                        />
-                                                        @if(!empty($post->type->syslkp_data->icon))
+                                                <div class="mvp-widget-feat2-left-cont left relative">
+                                                    <div class="mvp-feat1-feat-img left relative">
+                                                        <img width="560" height="600"
+                                                             src="uploads/posts/{{$main_post->cover_image}}"
+                                                             class="attachment-mvp-port-thumb size-mvp-port-thumb"
+                                                             alt="{{$main_post->title}}" loading="lazy"/>
+                                                        @if(!empty($main_post->type->syslkp_data->icon))
                                                             <div
                                                                 class="mvp-vid-box-wrap mvp-vid-box-mid">
-                                                                <i class="{{$post->type->syslkp_data->icon}}"
+                                                                <i class="{{$main_post->type->syslkp_data->icon}}"
                                                                    aria-hidden="true"></i>
                                                             </div>
                                                         @endif
                                                     </div>
-                                                    <div class="mvp-widget-feat2-right-text left relative">
+                                                    <div class="mvp-feat1-feat-text left relative">
                                                         <div class="mvp-cat-date-wrap left relative">
-                                                                <span
-                                                                    class="mvp-cd-cat left relative">{{ $post->category->name->{$locale} ?? $post->category->name->{$fallbackLanguage}  }}</span><span
-                                                                class="mvp-cd-date left relative">{{getTimeLeft(strtotime($post->date),$locale)}}</span>
+                                                        <span
+                                                            class="mvp-cd-cat left relative">{{$category->name->{$locale} ??$category->name->{$fallbackLanguage} }}</span><span
+                                                                class="mvp-cd-date left relative">{{getTimeLeft(strtotime($main_post->date),$locale)}}</span>
                                                         </div>
-                                                        <h2>{{$post->title}}</h2>
+                                                        <h2>{{$main_post->title}}</h2>
+                                                        <p>{{$main_post->summary}}</p>
                                                     </div>
                                                 </div>
                                             </a>
-                                        @endforeach
+                                        </div>
+                                    @endif
+                                    <div class="mvp-widget-feat2-right left relative">
+                                        <div class="mvp-widget-feat2-right-main left relative">
+                                            @foreach($featured_posts as $post)
+                                                <a href="{{route('post.show',['id'=>$post->id,'category'=>strtolower($post->category->slug),'slug'=>$post->slug])}}"
+                                                   rel="bookmark">
+                                                    <div class="mvp-widget-feat2-right-cont left relative">
+                                                        <div class="mvp-widget-feat2-right-img left relative">
+                                                            <img
+                                                                src="{{loadImage($post->cover_image,'posts',448,180,100,'',0)}}"
+                                                                class="mvp-reg-img lazy"
+                                                                alt="{{$post->title}}"
+                                                                loading="lazy"
+                                                            />
+                                                            <img
+                                                                width="80"
+                                                                height="80"
+                                                                src="{{loadImage($post->cover_image,'posts',445,180,100,'',0)}}"
+                                                                class="mvp-mob-img lazy"
+                                                                alt=""
+                                                                loading="lazy"
+                                                            />
+                                                            @if(!empty($post->type->syslkp_data->icon))
+                                                                <div
+                                                                    class="mvp-vid-box-wrap mvp-vid-box-mid">
+                                                                    <i class="{{$post->type->syslkp_data->icon}}"
+                                                                       aria-hidden="true"></i>
+                                                                </div>
+                                                            @endif
+                                                        </div>
+                                                        <div class="mvp-widget-feat2-right-text left relative">
+                                                            <div class="mvp-cat-date-wrap left relative">
+                                                                <span
+                                                                    class="mvp-cd-cat left relative">{{ $post->category->name->{$locale} ?? $post->category->name->{$fallbackLanguage}  }}</span><span
+                                                                    class="mvp-cd-date left relative">{{getTimeLeft(strtotime($post->date),$locale)}}</span>
+                                                            </div>
+                                                            <h2>{{$post->title}}</h2>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            @endforeach
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            @endif
                             <ul class="mvp-blog-story-list left relative infinite-content light-bg" id="postsList">
                                 @include('site.post.postsListPart')
                             </ul>
