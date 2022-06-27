@@ -6177,7 +6177,7 @@ span.mvp-page-head {
 }
 
 .archive .mvp-widget-feat2-left-alt {
-    margin: 0 0 0 2.43902439%; /* 20 / 820 */
+    margin: 0 2.43902439% 0 0; /* 20 / 820 */
     width: 63.41463415%; /* 520 / 820 */
 }
 

@@ -69,8 +69,7 @@
                             </ul>
                         @endif
                         <div class="mvp-main-blog-body left relative">
-                            @if($main_post || $featured_posts)
-                                <div id="mvp-cat-feat-wrap" class="light-bg left relative">
+                                <div id="mvp-cat-feat-wrap" class="light-bg left relative" @if(!count($featured_posts)) style="width: 100%!important;" @endif>
                                     @if($main_post)
                                         <div class="mvp-widget-feat2-left left relative mvp-widget-feat2-left-alt">
                                             <a href="{{route('post.show',['id'=>$main_post->id,'category'=>strtolower($main_post->category->slug),'slug'=>$main_post->slug])}}"
@@ -145,7 +144,6 @@
                                         </div>
                                     </div>
                                 </div>
-                            @endif
                             <ul class="mvp-blog-story-list left relative infinite-content light-bg" id="postsList">
                                 @include('site.post.postsListPart')
                             </ul>

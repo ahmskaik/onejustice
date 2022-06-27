@@ -4,7 +4,7 @@
             <div class="left relative" id="mvp-foot-logo">
                 <a href="{{route('site.home')}}">
                     <img alt="{{$siteSetting['app_brand']->{$locale}??$siteSetting['app_brand']->{$fallbackLanguage} }}"
-                         data-rjs="2" width="130" src="assets/images/logos/logo-footer.png"/>
+                         data-rjs="2" width="130" src="assets/images/logos/logo-nav.png"/>
                 </a>
             </div>
             <div class="left relative" id="mvp-foot-description" style="margin-bottom: 1rem">
