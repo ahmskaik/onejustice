@@ -7,7 +7,8 @@
                          data-rjs="2" width="130" src="assets/images/logos/logo-nav.png"/>
                 </a>
             </div>
-            <div class="left relative" id="mvp-foot-description" style="margin-bottom: 1rem">
+            <div class="left relative" id="mvp-foot-description"
+                 style="margin-bottom: 1rem; text-align: center; line-height: 1.8;">
                 <span style="color: #fff;">
                     {{trans('site.footer_description')}}
                 </span>
@@ -30,14 +31,14 @@
                             <li class="menu-item"><a href="{{route('site.home')}}">{{trans('site.home')}}</a></li>
                             <li class="menu-item @if(isset($active_tab)&& $active_tab=='about_us') active @endif"><a
                                     href="{{route('site.about')}}">{{trans('site.about_us')}}</a></li>
-                          {{--  <li class="menu-item @if(isset($active_tab)&& $active_tab=='terms') active @endif"><a
-                                    href="{{ route('site.terms') }}">{{trans('site.terms_and_conditions')}}</a></li>--}}
+                            {{--  <li class="menu-item @if(isset($active_tab)&& $active_tab=='terms') active @endif"><a
+                                      href="{{ route('site.terms') }}">{{trans('site.terms_and_conditions')}}</a></li>--}}
                             {{--<li class="menu-item @if(isset($active_tab)&& $active_tab=='accessibility') active @endif">
                                 <a
                                     href="{{route('site.accessibility')}}">{{trans('site.website_accessibility')}}</a>
                             </li>--}}
-                         {{--   <li class="menu-item @if(isset($active_tab)&& $active_tab =='safety') active @endif"><a
-                                    href="{{route('site.safety')}}">{{trans('site.safety_and_security')}}</a></li>--}}
+                            {{--   <li class="menu-item @if(isset($active_tab)&& $active_tab =='safety') active @endif"><a
+                                       href="{{route('site.safety')}}">{{trans('site.safety_and_security')}}</a></li>--}}
                             <li class="menu-item @if(isset($active_tab)&& $active_tab =='contact') active @endif"><a
                                     href="{{route('site.contact.index')}}">{{trans('site.contact_us')}}</a></li>
                             <li class="menu-item @if(isset($active_tab)&& $active_tab =='contact') active @endif"><a
@@ -51,7 +52,8 @@
     <div class="left relative" id="mvp-foot-bot">
         <div class="mvp-main-box">
             <div class="left relative" id="mvp-foot-copy">
-                <p>{{trans('site.copyright')}} © {{date('Y').' '.($siteSetting['app_brand']->{$locale}??$siteSetting['app_brand']->{$fallbackLanguage})  }} </p>
+                <p>{{trans('site.copyright')}}
+                    © {{date('Y').' '.($siteSetting['app_brand']->{$locale}??$siteSetting['app_brand']->{$fallbackLanguage})  }} </p>
             </div>
         </div>
     </div>
