@@ -50,7 +50,7 @@ return [
     "contact_us" => "Contact Us",
     'keep_in_touch' => 'Keep in touch',
     "more_events_and_announcements" => "More of events and announcements",
-    "footer_description" => "Onejustice is an independent organisation advocating Palestinian rights and working to achieve a positive and accurate public opinion on Palestine.",
+    "footer_description" => "One Justice is an independent, non-profit organization based in Paris, aims to defend the human rights and vulnerable people around the world, particularly in conflict areas, through legal deterrence and legal capacity building.",
     "contact_us_page" => [
         'header' => "Contact Us",
         "message_received" => "Thank you, we received your message.",
@@ -88,4 +88,4 @@ return [
     ],
     'donation_done' => 'Thanks for your donation! Your donation to will make a big difference.',
     'amount' => 'Amount',
- ];
+];
