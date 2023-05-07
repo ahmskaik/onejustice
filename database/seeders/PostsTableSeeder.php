@@ -30,12 +30,12 @@ class PostsTableSeeder extends Seeder
             $post = \App\Models\PostModel::create(
                 [
                     //'title' => $faker->sentence(rand(5, 15)),
-                    'title' =>$lang==1? $faker_ar->realText(rand(50, 100)): $faker->realText(rand(50, 100)),
-                    'summary' =>$lang==1? $faker_ar->realText(rand(100, 300)): $faker->realText(rand(100, 300)),
-                    'body' => $lang==1?$faker_ar->realText(rand(100, 5000)): $faker->realText(rand(100, 5000)),
+                    'title' => $lang == 1 ? $faker_ar->realText(rand(50, 100)) : $faker->realText(rand(50, 100)),
+                    'summary' => $lang == 1 ? $faker_ar->realText(rand(100, 300)) : $faker->realText(rand(100, 300)),
+                    'body' => $lang == 1 ? $faker_ar->realText(rand(100, 5000)) : $faker->realText(rand(100, 5000)),
                     'status_id' => \Arr::random($statuses),
                     'category_id' => \Arr::random($categories),
-                    'language_id' =>$lang ,
+                    'language_id' => $lang,
                     'type_id' => \Arr::random($types),
                     'is_featured' => $faker->boolean,
                     'date' => $faker->dateTimeThisYear,

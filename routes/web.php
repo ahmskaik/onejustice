@@ -125,4 +125,5 @@ Route::group([
     Route::get('/latestNews/{countryId?}', 'HomeController@getLatestNews');
 
 });
+
 Route::any('{catchall}', 'HomeController@notfound')->where('catchall', '.*');

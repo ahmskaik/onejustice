@@ -12,14 +12,13 @@
           property="og:description"/>
     <title>{{ $title ?? $siteSetting['app_brand']->{$locale}??$siteSetting['app_brand']->{$fallbackLanguage} }}</title>
     <meta content='max-image-preview:large' name='robots'/>
+
     @if($locale==='ar')
         <link href='assets/css/style.rtl.css?ver=7.8.1' media='all' rel='stylesheet' type='text/css'/>
         <link href='assets/css/media-queries.rtl.css?ver=5.9' media='all' rel='stylesheet' type='text/css'/>
-
     @else
         <link href='assets/css/style.css?ver=7.7' media='all' rel='stylesheet' type='text/css'/>
         <link href='assets/css/media-queries.css?ver=5.9' media='all' rel='stylesheet' type='text/css'/>
-
     @endif
 
     <link href='assets/css/reset.css?ver=5.7' media='all' rel='stylesheet' type='text/css'/>
@@ -30,23 +29,14 @@
           rel='stylesheet' type='text/css'/>
 
     @yield('css')
-    <link href="assets/favicon/apple-icon-57x57.png" rel="apple-touch-icon" sizes="57x57">
-    <link href="assets/favicon/apple-icon-60x60.png" rel="apple-touch-icon" sizes="60x60">
-    <link href="assets/favicon/apple-icon-72x72.png" rel="apple-touch-icon" sizes="72x72">
-    <link href="assets/favicon/apple-icon-76x76.png" rel="apple-touch-icon" sizes="76x76">
-    <link href="assets/favicon/apple-icon-114x114.png" rel="apple-touch-icon" sizes="114x114">
-    <link href="assets/favicon/apple-icon-120x120.png" rel="apple-touch-icon" sizes="120x120">
-    <link href="assets/favicon/apple-icon-144x144.png" rel="apple-touch-icon" sizes="144x144">
-    <link href="assets/favicon/apple-icon-152x152.png" rel="apple-touch-icon" sizes="152x152">
-    <link href="assets/favicon/apple-icon-180x180.png" rel="apple-touch-icon" sizes="180x180">
-    <link href="assets/favicon/android-icon-192x192.png" rel="icon" sizes="192x192" type="image/png">
-    <link href="assets/favicon/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
-    <link href="assets/favicon/favicon-96x96.png" rel="icon" sizes="96x96" type="image/png">
-    <link href="assets/favicon/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
-    <link href="assets/favicon/manifest.json" rel="manifest">
-    <meta content="#ffffff" name="msapplication-TileColor">
-    <meta content="assets/favicon/ms-icon-144x144.png" name="msapplication-TileImage">
-    <meta content="#ffffff" name="theme-color">
+
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+    <link rel="mask-icon" href="assets/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
 </head>
 <body class="page" dir="{{$locale==='ar'  ?'rtl':'ltr'}}">
 <div id="mvp-fly-wrap">

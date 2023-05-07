@@ -147,14 +147,15 @@
 @endsection
 
 @section('js')
-    <script src="assets/js/jquery.min.js" type="text/javascript"></script>
+    {{--<script src="assets/js/jquery.min.js" type="text/javascript"></script>
     <script type='text/javascript' src='https://checkout.stripe.com/checkout.js?ver=6.0'
             id='stripe-checkout-js'></script>
     <script>
         var handler_Demo = StripeCheckout.configure({
+            image: '{{url('assets/images/logos/web_logo_sm.png')}}',
+
             key: 'pk_live_51InPstJGgSCoxU8otlYIHhBFbETITJJLvy51ObjlQEB4QO45dHC41kUaCrTx0ugcniAypkkMbkNLE6M4wuq4mE5J00sQvijyCt',
-            // key: 'pk_test_ngsCwDpgOU5BW69TiM7nAI4V00buaToWlk',
-            image: '',
+            //  key: 'pk_test_ngsCwDpgOU5BW69TiM7nAI4V00buaToWlk',
             token: function (data) {
                 var donation_amount = jQuery('#stripe-donate-amount').val().replace(/,/, "");
                 jQuery.ajaxSetup({
@@ -181,7 +182,8 @@
                             jQuery('#vav-stripe-donation-error-Demo').html(xhr.responseText).show();
                         }
                     });
-            }
+            },
+            locale: 'auto',
         });
         $(document).on('click', '#stripe-donate-button', function (e) {
             var ajax_donation_amount = $('#stripe-donate-amount').val().replace(/,/, "");
@@ -195,7 +197,7 @@
                     amount: ajax_donation_amount * 100,
                     panelLabel: "Donate ",
                     allowRememberMe: false,
-                    currency: 'USD',
+                    currency: 'TRY',
                     zipCode: false,
                     email: ''
                 });
@@ -204,7 +206,7 @@
                 $("#vav-stripe-donation-error-Demo").html('Please enter an amount you would like to donate').slideDown('fast');
             }
         });
-    </script>
+    </script>--}}
 @endsection
 @section('content')
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -221,30 +223,31 @@
                              style="background-image: url(&quot;images/resource/fluid-image-2.jpg&quot;); visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInRight;">
 
                         <div class="content-box" style="padding-right: 6rem;">
-                            <h2>{{trans('site.donate_for_us')}}
-                            </h2>
-                            <div class="title-text">{{trans('site.donate_small_amount')}}
-                            </div>
+                            <a style="text-decoration: underline;color:#0b657e "
+                               href="https://donate.stripe.com/8wMdR252o67Gb3qbIK">
+                                <h2>{{trans('site.donate_for_us')}}</h2></a>
+                            <div class="title-text">{{trans('site.donate_small_amount')}}</div>
+                            <a href="https://donate.stripe.com/8wMdR252o67Gb3qbIK" class="theme-btn btn-style-one">{{trans('site.donate_now')}}</a>
                             {{--<a href="#" class="theme-btn btn-style-one">{{trans('site.donate_now')}}</a>--}}
-                            <div class="entry-content">
-                                <div class="vav-stripe-donation-wrap vav-stripe-donation-layout-user-amount">
-                                    <div id="donation-success"
-                                         class="vav-stripe-donation-message-box vav-stripe-donation-success-message-box"></div>
-                                    <div id="vav-stripe-donation-error-Demo"
-                                         class="vav-stripe-donation-message-box vav-stripe-donation-error-message-box"></div>
-                                    <div id="stripe-donate-form" class="vav-stripe-donate-form-user-amount">
-                                        <p>
-                                            {{trans('site.amount')}}: $ <input type="text" id="stripe-donate-amount"
-                                                                               name="vav-ajax-donate-amount" value="5"
-                                                                               style="width:75px;">&nbsp;
-                                            <button id="stripe-donate-button"
-                                                    class="vav-stripe-donation-button">{{trans('site.donate_now')}}
-                                            </button>
-                                        </p>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </div>
+                            {{-- <div class="entry-content">
+                                 <div class="vav-stripe-donation-wrap vav-stripe-donation-layout-user-amount">
+                                     <div id="donation-success"
+                                          class="vav-stripe-donation-message-box vav-stripe-donation-success-message-box"></div>
+                                     <div id="vav-stripe-donation-error-Demo"
+                                          class="vav-stripe-donation-message-box vav-stripe-donation-error-message-box"></div>
+                                     <div id="stripe-donate-form" class="vav-stripe-donate-form-user-amount">
+                                         <p>
+                                             {{trans('site.amount')}}: $ <input type="text" id="stripe-donate-amount"
+                                                                                name="vav-ajax-donate-amount" value="1"
+                                                                                style="width:75px;">&nbsp;
+                                             <button id="stripe-donate-button"
+                                                     class="vav-stripe-donation-button">{{trans('site.donate_now')}}
+                                             </button>
+                                         </p>
+                                     </div>
+                                     <div class="clearfix"></div>
+                                 </div>
+                             </div>--}}
                         </div>
                     </article>
                 </div>

@@ -64,7 +64,6 @@ class PostsController extends SuperAdminController
                 <img title="' . $data->language . '" class="mr-2" src="cp/media/flags/png16px/' . $data->flag . '.png">' . \Str::limit($data->title, 70) . $is_featured_label . '</a>';
             })
             ->addColumn('status', function ($data) use ($request) {
-
                 if ($request->input("export"))
                     return $data->status;
                 return '<div class="d-block kt-align-center" title="' . ($data->status) . '"><span class="kt-badge kt-badge--inline kt-badge--pill ' . ("kt-badge--" . $data->statusClass) . '">' . $data->status . '</span></div>';

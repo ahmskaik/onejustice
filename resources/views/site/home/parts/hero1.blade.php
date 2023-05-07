@@ -5,7 +5,7 @@
                rel="bookmark">
                 <div class="mvp-feat2-top-story left relative">
                     <div class="mvp-feat2-top-img left relative">
-                        <img src="{{loadImage($featured_article->cover_image ,'posts',1519,912,100,'',1)}}"
+                        <img src="uploads/posts/{{$featured_article->cover_image}}{{--{{loadImage($featured_article->cover_image ,'posts',1519,912,100,'',1)}}--}}"
                              class="mvp-reg-img" alt="{{$featured_article->title}}" loading="lazy">
                         <img src="uploads/posts/{{$featured_article->cover_image}}"
                              class="mvp-mob-img" alt="{{$featured_article->title}}"

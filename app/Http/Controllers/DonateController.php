@@ -16,6 +16,7 @@ class DonateController extends SiteController
     public function store(Request $request)
     {
         $data = $request->data;
+        dd($data);
         if ($data) {
             DonationModel::create([
                 'email' => $data['email'],
