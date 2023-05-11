@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\App;
 
 class PostModel extends SuperModel
 {
@@ -103,9 +104,9 @@ class PostModel extends SuperModel
                     'posts.views',
                     'posts.date',
                     'posts.is_featured',
-                    'sys_status.syslkp_data->en as status',
+                    'sys_status.syslkp_data->' . (strtolower(App::getLocale())) . ' as status',
                     'sys_status.syslkp_data->class as statusClass',
-                    'categories.name->en as category',
+                    'categories.name->' . (strtolower(App::getLocale())) . ' as category',
                     "posts.date as dtime",
                     "languages.name as language",
                     "languages.flag",

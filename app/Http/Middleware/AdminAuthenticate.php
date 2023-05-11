@@ -43,7 +43,7 @@ class AdminAuthenticate
                 ->with("error", "You don't have " . $route->action->name->en . " permission");
         }
 
-       // \App::setLocale(\Cookie::get('locale') ??  config('app.fallback_locale'));
+        \App::setLocale(\Cookie::get('locale') ?? config('app.fallback_locale'));
 
 
         $obj = new SuperAdminController();

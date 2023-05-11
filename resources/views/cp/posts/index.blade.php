@@ -29,10 +29,10 @@
                 <form class="horizontal-form search-form kt-form kt-form--fit">
                     <div class="row">
                         <div class="col-lg-3 ">
-                            <label class="lblinput">Search Keywords</label>
+                            <label class="lblinput">{{trans('admin/post.search_keywords')}}</label>
                             <div class="kt-input-icon kt-input-icon--left">
                                 <input type="text" class="form-control kt-input searchable"
-                                       placeholder="Search Keywords"
+                                       placeholder="{{trans('admin/post.search_keywords')}}"
                                        data-col-index="1" data-column="1">
                                 <span class="kt-input-icon__icon kt-input-icon__icon--left">
                                     <span><i class="la la-search"></i></span>
@@ -40,11 +40,11 @@
                             </div>
                         </div>
                         <div class="col-lg-2 ">
-                            <label class="lblinput">Language</label>
+                            <label class="lblinput">{{trans('admin/post.language')}}</label>
                             <div class="kt-input-icon kt-input-icon--left">
                                 <select class="form-control kt-input searchable-list" id="language_id"
                                         name="language_id">
-                                    <option value="">All</option>
+                                    <option value="">{{trans('admin/dashboard.all')}}</option>
                                     @foreach($languages as $language)
                                         <option value="{{ $language->id }}">{{ $language->name }}</option>
                                     @endforeach
@@ -55,11 +55,11 @@
                             </div>
                         </div>
                         <div class="col-lg-2 ">
-                            <label class="lblinput">Category</label>
+                            <label class="lblinput">{{trans('admin/post.category')}}</label>
                             <div class="kt-input-icon kt-input-icon--left">
                                 <select class="form-control kt-input searchable"
                                         data-col-index="2" data-column="2" name="category_id">
-                                    <option value="">All</option>
+                                    <option value="">{{trans('admin/dashboard.all')}}</option>
                                     @foreach($categories as $category)
                                         <option value="{{ $category->id }}">{{ $category->category_name }}</option>
                                     @endforeach
@@ -89,22 +89,23 @@
                         </div>
                         <div class="col-lg-2 kt-margin-b-10-tablet-and-mobile">
                             <label class="btn d-block"></label>
-                            <button type="button" class="btn btn-secondary btn-outline-success pull-right js-show-advance-filter">
+                            <button type="button"
+                                    class="btn btn-secondary btn-outline-success pull-right js-show-advance-filter">
                                     <span>
                                         <i class="flaticon2-dashboard"></i>
-                                      <span>Advanced Filter</span>
+                                      <span>{{trans('admin/dashboard.advanced_filter')}}</span>
                                     </span>
                             </button>
                         </div>
                     </div>
                     <div class="row js-advance-filter-row mt-4 kt-hidden">
                         <div class="col-lg-3 ">
-                            <label class="lblinput">Type</label>
+                            <label class="lblinput">{{trans('admin/post.type')}}</label>
                             <div class="kt-input-icon kt-input-icon--left">
                                 <select class="form-control kt-input searchable"
                                         id="type_id"
                                         data-col-index="11" data-column="11" name="type_id">
-                                    <option value="">All</option>
+                                    <option value="">{{trans('admin/dashboard.all')}}</option>
                                     @foreach($types as $type)
                                         <option value="{{ $type->id }}">{{ $type->text }}</option>
                                     @endforeach
@@ -116,11 +117,11 @@
                         </div>
 
                         <div class="col-lg-3 ">
-                            <label class="lblinput">Country</label>
+                            <label class="lblinput">{{trans('admin/post.relevant_countries')}}</label>
                             <div class="kt-input-icon kt-input-icon--left">
                                 <select class="form-control kt-input searchable-list myselect2" id="country_id"
                                         name="country_id">
-                                    <option value="">All</option>
+                                    <option value="">{{trans('admin/dashboard.all')}}</option>
                                     @foreach($countries as $country)
                                         <option value="{{ $country->id }}">{{ $country->name }}</option>
                                     @endforeach
@@ -132,15 +133,14 @@
                         </div>
 
                         <div class="col-lg-2 ">
-                            <label class="lblinput">In Slider?</label>
+                            <label class="lblinput">{{trans('admin/post.in_slider')}}?</label>
                             <div class="kt-input-icon kt-input-icon--left">
                                 <select id="is_featured" class="form-control kt-input searchable"
                                         data-col-index="9" data-column="9"
                                         name="is_featured">
-                                    <option value="">All</option>
-                                    <option value="1">Yes</option>
-                                    <option value="0">No</option>
-
+                                    <option value="">{{trans('admin/dashboard.all')}}</option>
+                                    <option value="1">{{trans('admin/dashboard.yes')}}</option>
+                                    <option value="0">{{trans('admin/dashboard.no')}}</option>
                                 </select>
                                 <span class="kt-input-icon__icon kt-input-icon__icon--left">
                                     <span><i class="la la-search"></i></span>
@@ -148,11 +148,11 @@
                             </div>
                         </div>
                         <div class="col-lg-2 ">
-                            <label class="lblinput">Status</label>
+                            <label class="lblinput">{{trans('admin/post.status')}}</label>
                             <div class="kt-input-icon kt-input-icon--left">
                                 <select class="form-control kt-input searchable"
                                         data-col-index="3" data-column="3" name="status_id">
-                                    <option value="">All</option>
+                                    <option value="">{{trans('admin/dashboard.all')}}</option>
                                     @foreach($statuses as $status)
                                         <option value="{{ $status->id }}">{{ $status->text }}</option>
                                     @endforeach
@@ -173,7 +173,7 @@
                         <i class="kt-font-brand flaticon2-list"></i>
                     </span>
                     <h3 class="kt-portlet__head-title">
-                        Posts List
+                        {{trans('admin/post.posts')}}
                     </h3>
                 </div>
                 <div class="kt-portlet__head-toolbar">
@@ -182,7 +182,7 @@
                             <div class="dropdown dropdown-inline">
                                 <button type="button" class="btn btn-default btn-icon-sm dropdown-toggle"
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="la la-download"></i> Export
+                                    <i class="la la-download"></i> {{trans('admin/dashboard.export')}}
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <ul class="kt-nav">
@@ -234,10 +234,10 @@
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th>Title</th>
-                        <th class="kt-align-center">{{trans('admin/dashboard.category')}}</th>
-                        <th class="kt-align-center">{{trans('admin/dashboard.status')}}</th>
-                        <th class="kt-align-center">Views</th>
+                        <th>{{trans('admin/post.title')}}</th>
+                        <th class="kt-align-center">{{trans('admin/post.category')}}</th>
+                        <th class="kt-align-center">{{trans('admin/post.status')}}</th>
+                        <th class="kt-align-center">{{trans('admin/post.views')}}</th>
                         {{-- <th class="kt-align-center">{{trans('admin/dashboard.created_by')}}</th>--}}
                         <th class="kt-align-center">{{trans('admin/dashboard.date')}}</th>
                         <th class="tblaction-rg kt-align-center">{{trans('admin/dashboard.actions')}}</th>

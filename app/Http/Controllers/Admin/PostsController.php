@@ -19,18 +19,18 @@ class PostsController extends SuperAdminController
         parent::$data["breadcrumbs"] =
             [
                 trans('admin/dashboard.home') => parent::$data['cp_route_name'],
-                'posts' => parent::$data['cp_route_name'] . "/" . parent::$data['route']
+                trans('admin/post.posts') => parent::$data['cp_route_name'] . "/" . parent::$data['route']
             ];
     }
 
     public function index()
     {
-        parent::$data["title"] = 'Posts';
-        parent::$data["page_title"] = 'Posts';
+        parent::$data["title"] = trans('admin/post.posts');
+        parent::$data["page_title"] = trans('admin/post.posts');
         parent::$data["categories"] = CategoryModel::getList([], parent::$data['locale'])->get();
         parent::$data["statuses"] = SystemLookupModel::getLookeupByKey("POST_STATUS", parent::$data['locale']);
         parent::$data["types"] = SystemLookupModel::getLookeupByKey("POST_TYPE", parent::$data['locale']);
-        parent::$data["countries"] =CountryModel::query()->select(
+        parent::$data["countries"] = CountryModel::query()->select(
             [
                 'id',
                 'properties->' . parent::$data["locale"] . ' as name',
@@ -48,7 +48,7 @@ class PostsController extends SuperAdminController
         if (isset($request->is_featured)) {
             $filter['is_featured'] = $request->is_featured;
         }
-        $filter["country_id"] =  $request->country_id;
+        $filter["country_id"] = $request->country_id;
         $filter["category_id"] = isset($columns[2]['search']['value']) ? xss_clean($columns[2]['search']['value']) : '';
         $filter["title"] = isset($columns[1]['search']['value']) ? xss_clean($columns[1]['search']['value']) : '';
         $filter["status_id"] = isset($columns[3]['search']['value']) ? xss_clean($columns[3]['search']['value']) : '';
@@ -61,9 +61,13 @@ class PostsController extends SuperAdminController
                     return $data->title;
                 $is_featured_label = $data->is_featured ? '<i class="flaticon2-correct kt-font-success pull-right ml-2" title="Featured"></i>' : '';
                 return '<a href="' . parent::$data['cp_route_name'] . '/' . parent::$data['route'] . '/edit/' . $data->id . '">
-                <img title="' . $data->language . '" class="mr-2" src="cp/media/flags/png16px/' . $data->flag . '.png">' . \Str::limit($data->title, 70) . $is_featured_label . '</a>';
+                <img title="' . $data->language . '" class="mr-2" src="cp/media/flags/png16px/' . $data->flag . '.png">' . \Str::limit($data->title, 50) . $is_featured_label . '</a>';
             })
-            ->addColumn('status', function ($data) use ($request) {
+            ->editColumn('category', function ($data) use ($request) {
+                if ($request->input("export"))
+                    return $data->category;
+                return '<div class="d-block kt-align-center">' . $data->category . '</div>';
+            })->addColumn('status', function ($data) use ($request) {
                 if ($request->input("export"))
                     return $data->status;
                 return '<div class="d-block kt-align-center" title="' . ($data->status) . '"><span class="kt-badge kt-badge--inline kt-badge--pill ' . ("kt-badge--" . $data->statusClass) . '">' . $data->status . '</span></div>';
@@ -127,9 +131,9 @@ class PostsController extends SuperAdminController
 
     public function create()
     {
-        parent::$data['title'] = '';
-        parent::$data['page_title'] = 'Add New Post';
-        parent::$data["breadcrumbs"]['Add New Post'] = "";
+        parent::$data['title'] = trans('admin/post.add_post');
+        parent::$data['page_title'] = trans('admin/post.add_post');
+        parent::$data["breadcrumbs"][trans('admin/post.add_post')] = "";
 
         parent::$data['form'] = "add";
         parent::$data['post'] = new PostModel();
@@ -187,9 +191,9 @@ class PostsController extends SuperAdminController
         if (!$post)
             return redirect(parent::$data['cp_route_name'] . "/" . parent::$data['route']);
 
-        parent::$data['title'] = '';
-        parent::$data['page_title'] = 'Edit Post';
-        parent::$data["breadcrumbs"]['Edit Post'] = "";
+        parent::$data['title'] = trans('admin/post.edit_post');
+        parent::$data['page_title'] = trans('admin/post.edit_post');
+        parent::$data["breadcrumbs"][trans('admin/post.edit_post')] = "";
 
         parent::$data['created_at'] = date_format(date_create($post->created_at), 'Y-m-d');
         parent::$data['creator'] = $post->user->full_name;

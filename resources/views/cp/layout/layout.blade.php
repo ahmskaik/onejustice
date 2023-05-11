@@ -8,7 +8,7 @@
 
     @if($locale==='ar')
         <link href="cp/plugins/global/plugins.bundle.rtl.css?v=2.5.3" rel="stylesheet" type="text/css"/>
-        <link href="cp/css/style.bundle.rtl.css?v=2.5.3" rel="stylesheet" type="text/css"/>
+        <link href="cp/css/style.bundle.rtl.css?v=2.5.4" rel="stylesheet" type="text/css"/>
     @else
         <link rel="stylesheet"
               href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700|Asap+Condensed:500">

@@ -48,5 +48,8 @@ return [
     'show_report' => 'عرض التقرير',
     'send' => 'إرسال',
     'language' => 'اللغة',
-
+    'advanced_filter' => 'معايير متقدمة',
+    'all' => 'الجميع',
+    'export' => 'تصدير',
+    'last_inquires' => 'آخر الاستعلامات',
 ];

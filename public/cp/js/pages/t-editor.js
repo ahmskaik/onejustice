@@ -9,7 +9,7 @@ function initTinyEditor() {
         menubar: false,
         theme: "modern",
         plugins: [
-            "advlist autolink link image lists charmap preview hr anchor pagebreak code  ",
+            "advlist autolink link image lists charmap print preview hr anchor pagebreak code  ",
             "searchreplace wordcount visualblocks visualchars insertdatetime media nonbreaking",
             "table contextmenu directionality emoticons paste textcolor responsivefilemanager youtube facebookembed instagram twitter"
         ],
@@ -19,10 +19,10 @@ function initTinyEditor() {
         external_filemanager_path: _base + "cp/plugins/t-editor/plugins/responsive_filemanager/filemanager/",
         external_plugins: {
             "responsivefilemanager": "plugins/responsive_filemanager/plugin.min.js",
-            "filemanager": "plugins/responsive_filemanager/filemanager/plugin.min.js"
+            "filemanager": "plugins/responsive_filemanager/filemanager/plugin.min.js",
         },
-        toolbar1: "bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | ltr rtl| styleselect| fontsizeselect | forecolor backcolor| table tabledelete | tableprops tablerowprops tablecellprops | tableinsertrowbefore tableinsertrowafter tabledeleterow | tableinsertcolbefore tableinsertcolafter tabledeletecol | code | preview || responsivefilemanager | image | media | link unlink | youtube | facebookembed | twitter  ",
-        toolbar2: "",
+        toolbar1: "undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist | ltr rtl | styleselect| fontsizeselect | forecolor backcolor | code | preview | responsivefilemanager | image | media | link unlink anchor ",
+        toolbar2: "| youtube | facebookembed | twitter ",
         relative_urls: false,
         document_base_url: 'https://localhost/',
         setup: function (editor) {
@@ -48,7 +48,7 @@ function initTinyEditor() {
             "responsivefilemanager": "plugins/responsive_filemanager/plugin.min.js",
             "filemanager": "plugins/responsive_filemanager/filemanager/plugin.min.js"
         },
-        toolbar1: "undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | styleselect| fontsizeselect | code | print preview   ",
+        toolbar1: "undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist | ltr rtl | styleselect| fontsizeselect | forecolor backcolor | code | preview | responsivefilemanager | image | media | link unlink anchor ",
         toolbar2: "| responsivefilemanager | image | media | link unlink anchor | youtube | facebookembed | instagram | twitter",
         relative_urls: true,
         directionality: "rtl",

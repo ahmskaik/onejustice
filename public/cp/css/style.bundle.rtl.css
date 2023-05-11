@@ -42,7 +42,7 @@
   box-sizing: border-box; }
 
 html {
-  font-family: sans-serif;
+    font-family: 'Droid Arabic Kufi',arial;
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
@@ -52,7 +52,7 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 
 body {
   margin: 0;
-  font-family: Poppins, Helvetica, sans-serif;
+    font-family: 'Droid Arabic Kufi',arial;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -1762,6 +1762,7 @@ pre {
   transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out; }
+select.form-control {padding: 0.2rem 1rem;}
   @media (prefers-reduced-motion: reduce) {
     .form-control {
       -webkit-transition: none;
@@ -5065,7 +5066,7 @@ a.close.disabled {
   z-index: 1070;
   display: block;
   margin: 0;
-  font-family: Poppins, Helvetica, sans-serif;
+    font-family: 'Droid Arabic Kufi',arial;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -5150,7 +5151,7 @@ a.close.disabled {
   z-index: 1060;
   display: block;
   max-width: 276px;
-  font-family: Poppins, Helvetica, sans-serif;
+    font-family: 'Droid Arabic Kufi',arial;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -10137,7 +10138,7 @@ button.btn {
     font-size: 1.2rem;
     float: right; }
   .btn i {
-    padding-left: 0.5rem;
+    padding-right: 0.5rem;
     vertical-align: middle; }
   .btn.btn-sm [class^="la-"], .btn-group-sm > .btn [class^="la-"],
   .btn.btn-sm [class*=" la-"],
@@ -13206,7 +13207,7 @@ code {
   box-shadow: 0px 0px 50px 0px rgba(82, 63, 105, 0.15);
   border-radius: 4px;
   border: 0;
-  font-family: Poppins, Helvetica, sans-serif;
+    font-family: 'Droid Arabic Kufi',arial;
   z-index: 95; }
   .modal-open .daterangepicker {
     z-index: 1051; }
@@ -14173,7 +14174,7 @@ code {
   padding: 0.5rem 0;
   min-width: 150px;
   font-size: 1rem;
-  font-family: Poppins, Helvetica, sans-serif;
+    font-family: 'Droid Arabic Kufi',arial;
   background: #fff;
   -webkit-box-shadow: 0px 0px 50px 0px rgba(82, 63, 105, 0.15);
   box-shadow: 0px 0px 50px 0px rgba(82, 63, 105, 0.15);
@@ -14790,7 +14791,8 @@ body.swal2-height-auto {
       background-color: #f2f3f7; }
 
 .kt-uppy .uppy-Root {
-  font-family: Poppins, Helvetica, sans-serif; }
+    font-family: 'Droid Arabic Kufi',arial;
+}
   .kt-uppy .uppy-Root.uppy-DragDrop--is-dragdrop-supported {
     border: 2px dashed #ebedf2; }
 
@@ -15583,7 +15585,7 @@ body.swal2-height-auto {
 
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 html {
-  font-family: sans-serif;
+    font-family: 'Droid Arabic Kufi',arial;
   -moz-text-size-adjust: 100%;
   text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
@@ -15597,7 +15599,7 @@ body {
   padding: 0px;
   font-size: 13px;
   font-weight: 300;
-  font-family: Poppins, Helvetica, sans-serif;
+    font-family: 'Droid Arabic Kufi',arial;
   -ms-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
@@ -15633,7 +15635,7 @@ canvas {
   -ms-user-select: none; }
 
 /* Customize website's scrollbar like Mac OS */
-/* 
+/*
 ::-webkit-scrollbar {
     background-color:#f6f6f6;
     width:14px;
@@ -23997,8 +23999,8 @@ strong {
     .kt-input-icon .form-control.form-control-sm ~ .kt-input-icon__icon [class*=" flaticon2-"] {
       font-size: 1em;
       float: right; }
-  .kt-input-icon.kt-input-icon--left .form-control {
-    padding-right: 2.8rem; }
+  .kt-input-icon.kt-input-icon--left .form-control,.kt-input-icon.kt-input-icon--left .select2-selection {
+      padding-right: 2.5rem!important; }
     .kt-input-icon.kt-input-icon--left .form-control.form-control-lg {
       padding-right: 3.6rem; }
     .kt-input-icon.kt-input-icon--left .form-control.form-control-sm {
@@ -35927,3 +35929,4 @@ body {
         .kt-footer .kt-footer__wrapper .kt-footer__menu a:first-child {
           padding-right: 0;
           margin-right: 0; } }
+@font-face { font-family: 'Droid Arabic Kufi'; font-style: normal; font-weight: 400; src: url(../plugins/global/fonts/DroidKufi/DroidKufi-Regular.eot); src: url(../plugins/global/fonts/DroidKufi/DroidKufi-BoldIE.eot) format('embedded-opentype'), url(../plugins/global/fonts/DroidKufi/DroidKufi-Regular.woff2) format('woff2'), url(../plugins/global/fonts/DroidKufi/DroidKufi-Regular.woff) format('woff'), url(../plugins/global/fonts/DroidKufi/DroidKufi-Regular.ttf) format('truetype') } @font-face { font-family: 'Droid Arabic Kufi'; font-style: normal; font-weight: 700; src: url(../plugins/global/fonts/DroidKufi/DroidKufi-Bold.eot); src: url(../plugins/global/fonts/DroidKufi/DroidKufi-BoldIE.eot) format('embedded-opentype'), url(../plugins/global/fonts/DroidKufi/DroidKufi-Bold.woff2) format('woff2'), url(../plugins/global/fonts/DroidKufi/DroidKufi-Bold.woff) format('woff'), url(../plugins/global/fonts/DroidKufi/DroidKufi-Bold.ttf)}

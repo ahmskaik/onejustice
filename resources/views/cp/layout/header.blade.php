@@ -13,12 +13,7 @@
                 <span class="kt-header__topbar-icon">
                     <img class="" alt=""
                          src="cp/media/flags/{{
-                                                [
-                                                'ar'=>'133-saudi-arabia.svg',
-                                                'en'=>'226-united-states.svg',
-                                                'tr'=>'218-turkey.svg',
-                                                'fr'=>'195-france.svg',
-                                                ][\Cookie::get('locale')] ??'en'}}">
+                            \Cookie::get('locale')=='ar'?'133-saudi-arabia.svg':(Cookie::get('locale')=='en'?'226-united-states.svg':'218-turkey.svg')}}">
                 </span>
                 </div>
                 <div

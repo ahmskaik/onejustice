@@ -7,7 +7,11 @@ function compare_date($a, $b)
     // new feature in php 7
     return $a_timestamp <=> $b_timestamp;
 }
+function cleanString($string) {
+    $string = str_replace(' ', '-', $string); // Replaces all spaces with hyphens.
 
+    return preg_replace('/[^A-Za-z0-9\-]/', '', $string); // Removes special chars.
+}
 function getLocalizedDate($time, $fullDate = false)
 {
     if (strtolower(\Illuminate\Support\Facades\App::getLocale()) !== 'ar') {

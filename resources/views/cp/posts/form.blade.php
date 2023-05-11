@@ -14,7 +14,7 @@
 
 @section('js')
     <script src="cp/plugins/t-editor/t-editor.min.js" type="text/javascript"></script>
-    <script src="cp/js/pages/t-editor.js?v=2.0.1" type="text/javascript"></script>
+    <script src="cp/js/pages/t-editor.js?v=2.0.2" type="text/javascript"></script>
     <script src="cp/js/formsValidation.js" type="text/javascript"></script>
     <script src="cp/js/pages/posts/postForm.js" type="text/javascript"></script>
     <script>
@@ -65,12 +65,12 @@
                                 <div class="kt-section__body">
                                     <div class="form-group row">
                                         <div class="col-lg-12">
-                                            <label for="title">Title: <span
+                                            <label for="title">{{trans('admin/post.title')}}: <span
                                                     class="required"> * </span></label>
                                             <input type="text"
                                                    class="form-control @if ($errors->has('title')) is-invalid @endif"
                                                    name="title" id="title"
-                                                   placeholder="Title"
+                                                   placeholder="{{trans('admin/post.title')}}"
                                                    value="{{ $post->title  ?? old("title") }}">
                                             @if ($errors->has('title'))
                                                 <div class="invalid-feedback">{{$errors->first('title') }}</div>
@@ -79,12 +79,12 @@
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-lg-12">
-                                            <label for="summary">Summary:</label>
+                                            <label for="summary">{{trans('admin/post.summary')}}:</label>
                                             <textarea type="text"
                                                       class="form-control @if ($errors->has('summary')) is-invalid @endif"
                                                       name="summary" id="summary"
                                                       rows="5"
-                                                      placeholder="Summary">{{ $post->summary  ?? old("summary") }}</textarea>
+                                                      placeholder="{{trans('admin/post.summary')}}">{{ $post->summary  ?? old("summary") }}</textarea>
                                             @if ($errors->has('summary'))
                                                 <div class="invalid-feedback">{{$errors->first('summary') }}</div>
                                             @endif
@@ -92,7 +92,7 @@
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-lg-12">
-                                            <label for="countries">Relevant Countries</label>
+                                            <label for="countries">{{trans('admin/post.relevant_countries')}}</label>
                                             <div>
                                                 <select data-live-search="true" class="form-control kt-selectpicker"
                                                         id="countries"
@@ -115,18 +115,18 @@
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-lg-6">
-                                            <label for="tags">Keywords</label>
+                                            <label for="tags">{{trans('admin/post.keywords')}}</label>
                                             <div>
                                                 <input class="tags-input tagify"
                                                        type="text"
                                                        name="tags" id="tags"
                                                        placeholder="Tags"
                                                        value="{{ $post->tags ?? old('tags')}}">
-                                                <span class="form-text text-muted">Use related keywords</span>
+                                                <span  class="form-text text-muted">{{trans('admin/post.keywords')}}</span>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
-                                            <label for="date">Date</label>
+                                            <label for="date">{{trans('admin/post.date')}}</label>
                                             <div class="input-group">
                                                 <div class="input-group-prepend"><span class="input-group-text"><i
                                                             class="fa fa-calendar-check"></i></span></div>
@@ -143,7 +143,7 @@
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-lg-12">
-                                            <label for="body">Details: <span
+                                            <label for="body">{{trans('admin/post.details')}}: <span
                                                     class="required"> * </span></label>
                                             <textarea type="text"
                                                       class="tinymce{{$locale==='ar'?'-rtl':''}} form-control @if ($errors->has('body')) is-invalid @endif"
@@ -195,7 +195,7 @@
                                 <div class="kt-section__body">
                                     <div class="form-group row">
                                         <label class="col-xl-12 col-lg-12 col-form-label text-center">
-                                            Cover Image</label>
+                                            {{trans('admin/post.cover_image')}} </label>
                                         <div
                                             class="col-lg-12 col-xl-12 text-center @if ($errors->has('cover_image')) is-invalid @endif">
                                             <div class="kt-avatar kt-avatar--outline" id="kt_add_avatar">
@@ -218,9 +218,9 @@
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-lg-12 forminput-single-required">
-                                            <label class="">Language: <span
+                                            <label for="language_id" class="">{{trans('admin/post.language')}}: <span
                                                     class="required"> * </span></label>
-                                            <select name="language_id"
+                                            <select name="language_id" id="language_id"
                                                     data-live-search="true"
                                                     class="form-control kt-selectpicker select-required @if ($errors->has('language_id')) is-invalid @endif">
                                                 @foreach($languages as $language)
@@ -239,9 +239,9 @@
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-lg-12 forminput-single-required">
-                                            <label class="">Category: <span
+                                            <label for="category_id" class="">{{trans('admin/post.category')}}: <span
                                                     class="required"> * </span></label>
-                                            <select name="category_id"
+                                            <select name="category_id" id="category_id"
                                                     class="form-control select-required @if ($errors->has('category_id')) is-invalid @endif">
                                                 @foreach($categories as $category)
                                                     <option
@@ -258,9 +258,9 @@
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-lg-12 forminput-single-required">
-                                            <label class="">Type: <span
+                                            <label for="type_id" class="">{{trans('admin/post.type')}}: <span
                                                     class="required"> * </span></label>
-                                            <select name="type_id"
+                                            <select name="type_id" id="type_id"
                                                     class="form-control select-required @if ($errors->has('type_id')) is-invalid @endif">
                                                 @foreach($types as $type)
                                                     <option
@@ -277,9 +277,9 @@
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-lg-12 forminput-single-required">
-                                            <label class="">Status: <span
+                                            <label for="status_id" class="">{{trans('admin/post.status')}}: <span
                                                     class="required"> * </span></label>
-                                            <select name="status_id"
+                                            <select name="status_id" id="status_id"
                                                     class="form-control select-required @if ($errors->has('status_id')) is-invalid @endif">
                                                 @foreach($statuses as $status)
                                                     <option
@@ -288,8 +288,7 @@
                                                         value="{{ $status->id }}">{{ $status->text}}</option>
                                                 @endforeach
                                                 @if ($errors->has('status_id'))
-                                                    <div
-                                                        class="invalid-feedback">{{$errors->first('status_id') }}</div>
+                                                    <div class="invalid-feedback">{{$errors->first('status_id') }}</div>
                                                 @endif
                                             </select>
                                         </div>
@@ -299,7 +298,7 @@
                                         <div class="col-lg-12">
                                             <div class="row">
                                                 <label
-                                                    class="col-6 col-form-label">Show in slider?</label>
+                                                    class="col-6 col-form-label">{{trans('admin/post.show_in_slider')}}?</label>
                                                 <div class="col-6">
                                                 <span class="kt-switch kt-switch--icon">
                                                     <label>

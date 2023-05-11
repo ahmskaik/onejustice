@@ -41,8 +41,10 @@
                                        href="{{route('site.safety')}}">{{trans('site.safety_and_security')}}</a></li>--}}
                             <li class="menu-item @if(isset($active_tab)&& $active_tab =='contact') active @endif"><a
                                     href="{{route('site.contact.index')}}">{{trans('site.contact_us')}}</a></li>
-                            <li class="menu-item @if(isset($active_tab)&& $active_tab =='contact') active @endif"><a
-                                    href="{{route('site.donate.index')}}">{{trans('site.donate')}}</a></li>
+                            <li class="menu-item @if(isset($active_tab)&& $active_tab =='contact') active @endif">
+                                {{--<a href="{{route('site.donate.index')}}">{{trans('site.donate')}}</a>--}}
+                                <a target="_blank" href="http://onejustice.assoc.pro/">{{trans('site.donate')}}</a>
+                            </li>
                         </ul>
                     </div>
                 </div>

@@ -25,15 +25,14 @@ class SuperAdminController extends Controller
     {
         self::$data['cp_route_name'] = config('app.cp_route_name');
 
-        self::$data['locale'] = \Cookie::get('locale') ?? config('app.fallback_locale');//strtolower(App::getLocale());
         self::$data['languages'] = LanguageModel::Active();
         self::$data['show_current_date'] = true;
-
         self::$data['globals']['languages'] = self::$data['languages']->pluck('name', 'iso_code', 'locale', 'is_rtl');
         self::$data['globals']['locale'] = \Cookie::get('locale') ?? config('app.fallback_locale');//strtolower(App::getLocale());
-
+        self::$data['locale'] = \Cookie::get('locale') ?? config('app.fallback_locale');
     }
- public function changeLang($locale)
+
+    public function changeLang($locale)
     {
         if (!array_key_exists($locale, app()->config->get('app.locales'))) {
             $locale = config('app.fallback_locale');
@@ -42,6 +41,7 @@ class SuperAdminController extends Controller
         App::setlocale($locale);
         return back();
     }
+
     public function setAuthData()
     {
         $user = Auth::user();

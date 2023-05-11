@@ -48,4 +48,9 @@ return [
     'show_report' => 'Show Report',
     'send' => 'Send',
     'language' => 'Language',
+    'advanced_filter' => 'Advanced Filter',
+    'all' => 'All',
+    'export' => 'Export',
+    'last_inquires' => 'Last Inquires',
+
 ];

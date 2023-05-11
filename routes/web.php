@@ -4,11 +4,11 @@ use Illuminate\Support\Facades\Route;
 use Maatwebsite\Excel\Facades\Excel;
 
 $cp_route_name = config('app.cp_route_name');
-Route::get('changeLang/{locale}/{goto?}', "SiteController@changeLang");
+Route::get('changeLang/{locale}/{goto?}', [\App\Http\Controllers\SiteController::class, 'changeLang'])->name('app.language.switch');
 
 Route::group(['namespace' => 'Admin', 'prefix' => $cp_route_name], function () {
     Route::group(['middleware' => 'admin'], function () {
-        Route::get('changeLang/{locale}/{goto?}', "SettingController@changeLang")->name('admin.changeLang');
+        Route::get('changeLang/{locale}/{goto?}', [\App\Http\Controllers\Admin\SettingController::class, 'changeLang'])->name('admin.changeLang');
 
         Route::group(['prefix' => 'setting'], function () {
             Route::get('/', [\App\Http\Controllers\Admin\SettingController::class, 'index'])->name('edit_setting');

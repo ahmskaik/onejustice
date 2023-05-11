@@ -1,8 +1,10 @@
 @extends('cp.layout.layout')
 
 @section('css')
-<style>
-    .kt-notification .kt-notification__item:after{content: "" !important}</style>
+    <style>
+        .kt-notification .kt-notification__item:after {
+            content: "" !important
+        }</style>
 @endsection
 
 @section('js')
@@ -20,7 +22,7 @@
                                 <div class="kt-widget24__details">
                                     <div class="kt-widget24__info">
                                         <h4 class="kt-widget24__title">
-                                            Posts
+                                            {{trans('admin/post.posts')}}
                                         </h4>
                                     </div>
                                     <div class="visual">
@@ -40,7 +42,7 @@
                                 <div class="kt-widget24__details">
                                     <div class="kt-widget24__info">
                                         <h4 class="kt-widget24__title">
-                                            Views
+                                            {{trans('admin/post.views')}}
                                         </h4>
                                     </div>
                                     <div class="visual">
@@ -64,7 +66,7 @@
                     <div class="kt-portlet__head">
                         <div class="kt-portlet__head-label">
                             <h3 class="kt-portlet__head-title">
-                                Recent Posts
+                                {{trans('admin/post.recent_posts')}}
                             </h3>
                         </div>
                     </div>
@@ -84,16 +86,16 @@
                                         <div class="kt-widget5__section">
                                             <a href="{{route('edit_post',['id'=>$post->id])}}"
                                                class="kt-widget5__title">
-                                                {{$post->title}}
+                                                {{\Str::limit($post->title, 50)}}
                                             </a>
                                             <p class="kt-widget5__desc">
-                                                {{\Str::limit($post->summary, 100)}}
+                                                {{\Str::limit($post->summary, 70)}}
                                             </p>
 
                                         </div>
                                     </div>
                                     <div class="kt-widget5__content">
-                                        <div class="kt-widget5__stats">
+                                        <div class="kt-widget5__stats px-0">
                                             {{getTimeLeft(strtotime($post->date),$locale)}}
                                         </div>
                                         <div class="kt-widget5__stats">
@@ -111,14 +113,14 @@
                     <div class="kt-portlet__head">
                         <div class="kt-portlet__head-label">
                             <h3 class="kt-portlet__head-title">
-                                Last Inquires
+                                {{trans('admin/dashboard.last_inquires')}}
                             </h3>
                         </div>
                     </div>
                     <div class="kt-portlet__body">
                         <div class="kt-notification">
                             @foreach($inquires as $inquiry)
-                                <a class="kt-notification__item">
+                                <a class="kt-notification__item" href="{{route('inquiry_show',['id'=>$inquiry->id])}}" target="_blank">
                                     <div class="kt-notification__item-icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px"
                                              viewBox="0 0 24 24" version="1.1" class="kt-svg-icon kt-svg-icon--brand">
@@ -134,7 +136,7 @@
                                     </div>
                                     <div class="kt-notification__item-details">
                                         <div class="kt-notification__item-title">
-                                            {{xss_clean($inquiry->message)}}
+                                            {{\Str::limit(cleanString($inquiry->message), 100)}}
                                         </div>
                                         <div class="kt-notification__item-time">
                                             {{$inquiry->name}}
