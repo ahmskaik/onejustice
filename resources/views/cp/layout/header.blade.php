@@ -11,9 +11,16 @@
             <div class="kt-header__topbar-item kt-header__topbar-item--langs">
                 <div class="kt-header__topbar-wrapper" data-toggle="dropdown" data-offset="10px,0px">
                 <span class="kt-header__topbar-icon">
-                    <img class="" alt=""
-                         src="cp/media/flags/{{
-                            \Cookie::get('locale')=='ar'?'133-saudi-arabia.svg':(Cookie::get('locale')=='en'?'226-united-states.svg':'218-turkey.svg')}}">
+                    @if( \Cookie::get('locale'))
+                        <img class="" alt=""
+                             src="cp/media/flags/{{
+                            \Cookie::get('locale')=='ar'?'133-saudi-arabia.svg'
+                            :(
+                                \Cookie::get('locale')=='en'? '226-united-states.svg':'218-turkey.svg'
+                            )}}">
+                    @else
+                        <img class="" alt="" src="cp/media/flags/226-united-states.svg">
+                    @endif
                 </span>
                 </div>
                 <div
